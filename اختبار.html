@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>هدية جامعة آزال للتنمية البشرية - لغة عربية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: #f3f4f6;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        }
+        .option-btn {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .option-btn:hover:not(:disabled) {
+            background-color: #eff6ff;
+            border-color: #3b82f6;
+        }
+        .option-selected {
+            background-color: #dbeafe !important;
+            border-color: #2563eb !important;
+            color: #1e40af !important;
+            font-weight: 700;
+            transform: scale(1.02);
+        }
+        .correct-ans {
+            background-color: #d1fae5 !important;
+            border-color: #059669 !important;
+            color: #065f46 !important;
+        }
+        .wrong-ans {
+            background-color: #fee2e2 !important;
+            border-color: #dc2626 !important;
+            color: #991b1b !important;
+        }
+        .hide { display: none !important; }
+        
+        /* Smooth fade in */
+        .fade-in { animation: fadeIn 0.4s ease-in; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-200">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-xl p-6 text-center rounded-b-3xl mb-6 relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl"></div>
+        <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-blue-300 opacity-20 rounded-full blur-2xl"></div>
+        
+        <h1 class="text-2xl md:text-4xl font-extrabold mb-3 leading-tight relative z-10">هدية جــامــعــــــة آزال لــلــتــنــمــيــــــة الــبــشــريــــــة</h1>
+        <h2 class="text-lg md:text-xl font-medium text-blue-100 relative z-10">لطـلاب الـثـالـث الـثـانـوي للعام الدراسي 1447هـ</h2>
+        <div class="mt-4 inline-block bg-white/20 px-5 py-2 rounded-full border border-white/30 backdrop-blur-sm relative z-10">
+            <span class="text-sm md:text-base font-bold">الأسئلة المتوقعة في مادة اللغة العربية 2026م _ الجزء الأول</span>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-4 max-w-3xl pb-10">
+        
+        <!-- Start Screen -->
+        <div id="startScreen" class="bg-white rounded-3xl shadow-xl p-8 text-center fade-in border border-gray-100">
+            <div class="mb-6 flex justify-center">
+                <div class="w-24 h-24 bg-blue-50 rounded-full flex items-center justify-center">
+                    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">اختبار الأتمتة الوزاري الشامل</h3>
+            <p class="text-gray-600 mb-8 leading-relaxed text-lg">
+                تم تجهيز هذا الاختبار خصيصاً لك، مستخلص من أقوى الملازم الوزارية (خلاصة فكر والبلاتينية). يشمل النحو، الصرف، الأدب، والنقد.
+            </p>
+            <div class="bg-blue-50 text-blue-800 p-4 rounded-xl mb-8 text-sm font-medium border border-blue-100">
+                💡 نصيحة: سيتم اختيار الأسئلة بشكل عشوائي في كل مرة لضمان تغطية جميع الأفكار.
+            </div>
+            <button onclick="startExam()" class="gradient-bg text-white font-bold text-xl px-12 py-4 rounded-full shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition w-full md:w-auto">
+                ابـدأ الاخـتـبـار الآن
+            </button>
+        </div>
+
+        <!-- Exam Screen -->
+        <div id="examScreen" class="hide bg-white rounded-3xl shadow-xl p-6 md:p-8 relative border border-gray-100">
+            <!-- Progress Bar -->
+            <div class="w-full bg-gray-200 rounded-full h-2 mb-6">
+                <div id="progressBar" class="bg-blue-600 h-2 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <div class="flex justify-between items-center mb-6 border-b pb-4">
+                <span class="text-gray-500 font-bold text-lg">سؤال <span id="currentQNum" class="text-blue-600 text-xl">1</span> / <span id="totalQNum">50</span></span>
+            </div>
+            
+            <div class="mb-8 min-h-[80px] flex items-center">
+                <h2 id="questionText" class="text-xl md:text-2xl font-bold text-gray-800 leading-normal fade-in">جاري تحميل السؤال...</h2>
+            </div>
+
+            <div id="optionsContainer" class="space-y-3 mb-8">
+                <!-- Options will be generated here -->
+            </div>
+
+            <div class="flex justify-between items-center mt-6 pt-6 border-t">
+                <button onclick="prevQuestion()" id="prevBtn" class="px-6 py-3 rounded-xl font-bold text-gray-500 bg-gray-100 hover:bg-gray-200 transition disabled:opacity-50 disabled:cursor-not-allowed">السابق</button>
+                <button onclick="nextQuestion()" id="nextBtn" class="gradient-bg text-white px-8 py-3 rounded-xl font-bold shadow-md hover:shadow-lg transition">التالي</button>
+            </div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="resultScreen" class="hide bg-white rounded-3xl shadow-xl p-8 text-center border border-gray-100 fade-in">
+            <h2 class="text-3xl font-extrabold text-gray-800 mb-2">اكتمل الاختبار!</h2>
+            <p class="text-gray-500 mb-8 font-medium">إليك النتيجة النهائية لأدائك</p>
+            
+            <div class="w-56 h-56 mx-auto relative mb-8">
+                <svg viewBox="0 0 36 36" class="w-full h-full transform -rotate-90 drop-shadow-md">
+                    <path class="text-gray-100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="3"/>
+                    <path id="scoreCircle" class="text-blue-600 transition-all duration-1000 ease-out" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3.5"/>
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span id="scoreText" class="text-5xl font-black text-blue-700 tracking-tighter">0%</span>
+                    <span id="scoreMessage" class="text-sm font-bold mt-2 text-gray-500">جاري الحساب...</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="bg-green-50 p-5 rounded-2xl border border-green-100">
+                    <div class="text-green-600 font-black text-3xl mb-1" id="correctCount">0</div>
+                    <div class="text-green-800 font-bold text-sm">إجابات صحيحة</div>
+                </div>
+                <div class="bg-red-50 p-5 rounded-2xl border border-red-100">
+                    <div class="text-red-600 font-black text-3xl mb-1" id="wrongCount">0</div>
+                    <div class="text-red-800 font-bold text-sm">إجابات خاطئة</div>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-3 justify-center">
+                <button onclick="showReview()" class="bg-gray-800 text-white font-bold px-8 py-4 rounded-xl hover:bg-gray-900 transition shadow w-full md:w-auto">مراجعة أخطائي</button>
+                <button onclick="shareResult()" class="bg-blue-100 text-blue-700 font-bold px-8 py-4 rounded-xl hover:bg-blue-200 transition shadow w-full md:w-auto flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path></svg>
+                    نسخ النتيجة
+                </button>
+                <button onclick="location.reload()" class="border-2 border-gray-200 text-gray-600 font-bold px-8 py-4 rounded-xl hover:bg-gray-50 transition w-full md:w-auto">إعادة الاختبار</button>
+            </div>
+        </div>
+
+        <!-- Review Screen -->
+        <div id="reviewScreen" class="hide bg-white rounded-3xl shadow-xl p-6 md:p-8 border border-gray-100 fade-in">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-4 flex items-center gap-2">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+                سجل المراجعة والتصحيح
+            </h2>
+            <div id="reviewContainer" class="space-y-6">
+                <!-- Review items will be injected here -->
+            </div>
+            <div class="mt-10 text-center border-t pt-8">
+                <button onclick="location.reload()" class="gradient-bg text-white font-bold px-12 py-4 rounded-full shadow-lg hover:shadow-xl transition">العودة للرئيسية</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-6 text-gray-500 text-sm font-bold">
+        مع تمنياتنا لكم بالتوفيق والنجاح الدائم <br> جامعة آزال للتنمية البشرية
+    </footer>
+
+    <!-- Questions Data & Logic -->
+    <script>
+        // بنك الأسئلة الشامل
+        const allQuestions = [
+            // النحو والصرف - المفاعيل
+            {q: "إحدى الجمل الآتية تتضمن مفعولاً مطلقاً:", o: ["لا تستعن بالآخرين اعتماداً على نفسك", "أظهرت بسعيك اعتماداً على نفسك", "إن في الجهاد إعلاءً للحق", "ازددت راحةً"], a: 1},
+            {q: "قمت للمعلم وقوفاً، نابت كلمة (وقوفاً) عن المصدر لأنها:", o: ["اسم المصدر", "صفة المصدر", "مرادف المصدر", "نوع المصدر"], a: 2},
+            {q: "المفعول لأجله يتضمن الإجابة عن السؤال:", o: ["ماذا", "متى", "لماذا", "أين"], a: 2},
+            {q: "صمت طاعةً لله. المفعول لأجله في الجملة:", o: ["مضاف إلى معرفة", "مجرد من أل والإضافة", "مضاف إلى نكرة", "غير منون"], a: 1},
+            {q: "كلمة (صباح) تعرب مفعولاً فيه ظرف زمان في الجملة:", o: ["بدأ العمل من صباح السبت", "جاء صباح السبت", "سافرت صباح السبت", "سافرت في صباح السبت"], a: 2},
+            {q: "إحدى الجمل الآتية تتضمن مفعولاً معه:", o: ["الطالب وكتابه", "تناقش الطالب ومعلمه", "جلس الطالب وكتابه", "يتراجع الاستعمار ووعي الشعوب"], a: 3},
+            {q: "(العالم مذهول والتقدم النوعي في المقاومة). العامل في المفعول معه:", o: ["الفعل", "المصدر", "اسم الفاعل", "اسم المفعول"], a: 3},
+            
+            // النحو والصرف - التوابع والحال والتمييز
+            {q: "شاهدت اللوحة ألوانها زاهية. لتحويل الحال إلى نعت جملة نقول:", o: ["اللوحة زاهية ألوانها", "شاهدت لوحة زاهية الألوان", "شاهدت لوحة ألوانها زاهية", "شاهدت لوحة زاهية ألوانها"], a: 2},
+            {q: "محمد أكثر منك أدباً. التمييز (أدباً) ملحوظ بعد:", o: ["اسم تفضيل", "تعجب", "مدح", "استفهام"], a: 0},
+            {q: "الذكي لا يكرر الخطأ ذاته. تضبط كلمة (ذات) بـ:", o: ["الفتح", "الكسر", "الضم", "السكون"], a: 0},
+            {q: "الشاعر البردوني أسلوبه فريد. نوع البدل في الجملة:", o: ["مطابق", "اشتمال", "بعض من كل", "تفصيل"], a: 1},
+            {q: "أقمت في المنزل الفسيح. لتحويل النعت الحقيقي إلى سببي نقول: أقمت في المنزل الفسيح...", o: ["فنائه", "فناءه", "فناؤه", "الفناء"], a: 2},
+            {q: "ذاكرت ساعة أو ساعتين. حرف العطف (أو) يفيد:", o: ["التخيير", "الشك", "الإباحة", "التفصيل"], a: 1},
+            
+            // النحو - أساليب
+            {q: "لا تحفظ لنا الأيام سوى أسماء. نوع الاستثناء في الجملة:", o: ["تام مثبت", "ناقص منفي", "تام منفي", "ناقص مثبت"], a: 1},
+            {q: "ما حضر الحفل إلا أبوك. تعرب كلمة (أبوك):", o: ["مستثنى", "مستثنى أو بدلاً", "بدلاً", "فاعلاً"], a: 3},
+            {q: "يا منفقاً على المساكين، لقد فزت. نوع المنادى:", o: ["مضاف", "شبيه بالمضاف", "نكرة مقصودة", "نكرة غير مقصودة"], a: 1},
+            {q: "بئس الناس المتكبرون. إعراب المخصوص بالذم (المتكبرون):", o: ["مبتدأ مؤخر", "فاعل مرفوع", "مخصوص بالذم", "مبتدأ لخبر محذوف"], a: 0},
+            {q: "لدى التمييز (2) أركان. يكتب العدد لفظاً:", o: ["اثنين أركان", "ركنان اثنان", "ركنين اثنين", "ركنين إثنين"], a: 2},
+            
+            // الصرف والمعاجم
+            {q: "غرض التصغير في (رأيت شويعراً يدعي الشاعرية) هو:", o: ["تقليل الحجم", "التحقير", "الشفقة", "تقريب الزمان"], a: 1},
+            {q: "عند النسبة إلى كلمة (جديدة) نقول:", o: ["جديدي", "جدائدي", "حديدي", "جددي"], a: 3},
+            {q: "نكشف عن معنى (الاحتلال) في المعاجم في مادة:", o: ["أ ح ل", "ح ت أ", "ح ل ل", "ح ت ل"], a: 2},
+            {q: "إذا فتحت باب (الخاء) في مختار الصحاح، الكلمة التي ستجدها أولاً:", o: ["خيانة", "اختبار", "خسائر", "جميع ما سبق"], a: 1},
+            
+            // الأدب - العصرين المملوكي والعثماني والحديث
+            {q: "اشتهر في العصرين المملوكي والعثماني نوع شعري واحد هو:", o: ["الفخر", "الغزل", "الهجاء", "المدائح النبوية"], a: 3},
+            {q: "من أسباب التدهور العلمي والأدبي في العصر المملوكي:", o: ["إلغاء ديوان الإنشاء", "إهمال اللغة العربية", "ترحيل الأدباء إلى دمشق", "جعل التركية لغة رسمية"], a: 0},
+            {q: "أهم سبب لندرة النصوص الشعرية اليمنية في العهد العثماني هو:", o: ["قلة الشعراء", "عدم وجود مطابع", "الخوف من القمع العثماني", "ضعف اللغة"], a: 2},
+            {q: "شاعر يمني اعتبر علامة فارقة في العهد العثماني وأعاد للشعر رصانته:", o: ["صلاح جحاف", "الحسن جحاف", "الحسن الهبل", "السحولي"], a: 2},
+            {q: "كل ما يأتي من المظاهر الفنية للأدب في العصر الحديث عدا:", o: ["إعادة روح الشعر العربي", "الجنوح إلى السطحية", "التخلص من المحسنات اللفظية", "الارتقاء بمضمون الفكرة"], a: 1},
+            
+            // المدارس الأدبية (الكلاسيكية، الرومانسية، الواقعية)
+            {q: "من سمات المدرسة الكلاسيكية التي ظهرت في نص (عمر المختار):", o: ["الهروب من الواقع", "وحدة البيت", "جزالة الألفاظ", "التعبير عن الذات"], a: 2},
+            {q: "من رواد تيار الإحياء العربي في النثر (الكلاسيكية):", o: ["ميخائيل نعيمة", "عباس محمود العقاد", "مصطفى لطفي المنفلوطي", "توفيق الحكيم"], a: 2},
+            {q: "تحرر شعراء المدرسة الواقعية من قيود:", o: ["اللغة الحية", "الرمز والأسطورة", "نظام الشطرين (البحر الشعري)", "أحلام الرومانسية المفرطة"], a: 2},
+            {q: "التعبير عن تجارب شعورية ذاتية يطغى عليها الحزن برز في شعر المدرسة:", o: ["الرومانسية", "الكلاسيكية", "الواقعية", "عصور الانحطاط"], a: 0},
+            
+            // النصوص الشعرية
+            {q: "(والأرض تعجب كيف تضحك والحيا / يبكي) المحسن البديعي في البيت:", o: ["جناس", "تورية", "مقابلة", "طباق"], a: 3},
+            {q: "قصيدة (فداء لمثواك) للشاعر محمد مهدي الجواهري تنتمي لغرض:", o: ["الرثاء", "المدح", "الفخر", "الوصف"], a: 0},
+            {q: "في قصيدة (الأمل الجسور)، وظف الشاعر الشابي الخيال من خلال ما يأتي عدا:", o: ["الصورة الكلية", "التشخيص", "الصور التركيبية المتداخلة", "المحسنات البديعية المتكلفة"], a: 3},
+            {q: "(في الليل دقوا كل باب). في قصيدة كفر قاسم، تقديم شبه الجملة (في الليل) يفيد:", o: ["اليقظة", "الانتباه", "الخوف والحذر", "البطء"], a: 2},
+            {q: "(بشرى النبوة طافت كالشذا سحراً). الصورة الفنية في (طافت كالشذا):", o: ["تشبيه بليغ", "استعارة مكنية", "تشبيه مرسل مجمل", "تشبيه تمثيلي"], a: 2},
+            {q: "(يا أيها السيف المجرد بالفلا). دلالة استخدام لفظ (السيف) عند شوقي:", o: ["رمز للعزة والكرامة", "تأثره بالشعر القديم", "للتوبيخ واللوم", "أ و ب معاً"], a: 3},
+            
+            // أدب الثورات والمقاومة والقضية الفلسطينية
+            {q: "من أهم الأعمال النثرية التي عبرت عن المقاومة الجزائرية رواية:", o: ["عائد إلى حيفا", "زقاق المدق", "الحريق (لمحمد ديب)", "الباب المفتوح"], a: 2},
+            {q: "ديوان شعري خصه الشاعر اليمني لطفي جعفر أمان لقضية فلسطين بعنوان:", o: ["حيا على الجهاد", "إلى الفدائيين في فلسطين", "المجاهدون الصامدون", "إلى المجاهدين"], a: 1},
+            {q: "التصدي لأعداء الأمة وكشف جرائم الاحتلال من أهم خصائص:", o: ["أدب الثورات والمقاومة", "مدرسة المهجر", "جماعة أبولو", "الرومانسية"], a: 0},
+            
+            // النقد الأدبي والتجربة الشعرية
+            {q: "البنيوية والأسلوبية من المناهج الألسنية المعاصرة وتندرج تحت المنهج النقدي:", o: ["التاريخي", "النفسي", "الفني", "التكاملي"], a: 2},
+            {q: "ترابط أجزاء القصيدة واتساقها فنياً وموضوعياً يعرف عند النقاد بـ:", o: ["اللفظ والمعنى", "الوحدة العضوية", "الشكل والمضمون", "الصياغة الشعرية"], a: 1},
+            {q: "جميع ما يلي من مظاهر الموسيقى الداخلية في النص الشعري، عدا:", o: ["تكرار الحروف", "الجناس", "حسن التقسيم", "الوزن والقافية"], a: 3},
+            {q: "الصدق الفني في التجربة الشعرية يقوم على صدق:", o: ["الفكرة", "الشعور والإحساس", "الأسلوب", "الخيال"], a: 1},
+            
+            // القصة، المسرحية، والمقالة
+            {q: "يسميها النقاد (بناء الحدث) وهي روح المسرحية:", o: ["العقدة", "الشخصيات", "الحوار", "الحبكة"], a: 3},
+            {q: "عمل فني نثري خيالي معاصر، يعتمد على الإيحاء ويكثف اللغة ولا يخوض في التفاصيل:", o: ["الرواية", "المسرحية", "القصة القصيرة", "الحكاية"], a: 2},
+            {q: "في المقالة الموضوعية، يتوارى الجانب:", o: ["العلمي", "التحليلي", "الذاتي (شخصية الكاتب)", "التوضيحي"], a: 2},
+            {q: "تستعيض المسرحية عن (السرد القصصي المباشر) بـ:", o: ["التصوير", "الحوار", "العرض", "الأخبار"], a: 1},
+            
+            // القراءة والإملاء
+            {q: "الخطوة الأولى للعدوى بالأمراض تبدأ عندما:", o: ["يتوقف الجهاز المناعي", "تتلف الخلايا", "تدخل البكتيريا الجسم", "تتكاثر الجراثيم"], a: 2},
+            {q: "وفقاً لدرس (الأمن السيبراني)، من أهم طرق حماية البيانات:", o: ["عدم استخدام الإنترنت", "تحديث الأنظمة والنسخ الاحتياطي", "استخدام أجهزة قديمة", "تجاهل الرسائل الإلكترونية"], a: 1},
+            {q: "أول معركة في الصراع مع الأعداء حسب درس (المشروع القرآني) هي معركة:", o: ["السلاح", "الاقتصاد", "الوعي والبصيرة", "السياسة"], a: 2},
+            {q: "استخدام اليورانيوم المنضب في العراق من قبل الأعداء يعتبر استهدافاً في المجال:", o: ["الاقتصادي", "السياسي", "الصحي والبيئي", "الثقافي"], a: 2},
+            {q: "الغرض من الأسلوب في عبارة «تطهير وتعقيم الأسطح التي تلمس كثيراً»:", o: ["التحذير", "التعجب", "التقرير", "النصح والإرشاد"], a: 3},
+            {q: "الهمزة في كلمة (ازدهر) همزة وصل لأنها:", o: ["ماضي خماسي", "ماضي سداسي", "أمر خماسي", "مصدر سداسي"], a: 0},
+            {q: "رسمت الألف اللينة ياء مقصورة في كلمة (احتوى) لأنها:", o: ["ثالثة أصلها ياء", "رابعة فأكثر ولم تسبق بياء", "رابعة وسبقت بياء", "ثالثة أصلها واو"], a: 1},
+            {q: "أمي ..... لي. الخيار الصحيح نحوياً وإملائياً لملء الفراغ:", o: ["أرجو دعاءكِ", "أرجوا دعائك", "أرجو دعاؤك", "أرجو دعائك"], a: 0},
+            {q: "اشترط في المخصوص بالمدح (بئس ما تفعله الكذب) أن يعرب:", o: ["مبتدأ أو خبراً لمبتدأ محذوف", "فاعلاً", "تمييزاً", "مفعولاً به"], a: 0}
+        ];
+
+        // خلط الأسئلة في كل مرة
+        let questions = [...allQuestions].sort(() => Math.random() - 0.5);
+        
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(questions.length).fill(null);
+        let finalPercentage = 0;
+
+        // تحديد عناصر DOM
+        const startScreen = document.getElementById('startScreen');
+        const examScreen = document.getElementById('examScreen');
+        const resultScreen = document.getElementById('resultScreen');
+        const reviewScreen = document.getElementById('reviewScreen');
+        const questionText = document.getElementById('questionText');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const currentQNum = document.getElementById('currentQNum');
+        const totalQNum = document.getElementById('totalQNum');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const progressBar = document.getElementById('progressBar');
+
+        totalQNum.textContent = questions.length;
+
+        function startExam() {
+            startScreen.classList.add('hide');
+            examScreen.classList.remove('hide');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            const q = questions[currentQuestionIndex];
+            currentQNum.textContent = currentQuestionIndex + 1;
+            questionText.textContent = q.q;
+            
+            // تحديث شريط التقدم
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            questionText.classList.remove('fade-in');
+            void questionText.offsetWidth; 
+            questionText.classList.add('fade-in');
+            
+            optionsContainer.innerHTML = '';
+            
+            q.o.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = `option-btn w-full text-right p-4 rounded-xl border-2 border-gray-100 text-gray-700 font-medium text-lg focus:outline-none block shadow-sm ${userAnswers[currentQuestionIndex] === index ? 'option-selected' : 'bg-gray-50'}`;
+                btn.textContent = opt;
+                btn.onclick = () => selectOption(index);
+                optionsContainer.appendChild(btn);
+            });
+
+            prevBtn.disabled = currentQuestionIndex === 0;
+            
+            if (currentQuestionIndex === questions.length - 1) {
+                nextBtn.textContent = 'إنهاء الاختبار 🏁';
+                nextBtn.classList.remove('gradient-bg');
+                nextBtn.classList.add('bg-green-600', 'hover:bg-green-700');
+            } else {
+                nextBtn.textContent = 'التالي';
+                nextBtn.classList.add('gradient-bg');
+                nextBtn.classList.remove('bg-green-600', 'hover:bg-green-700');
+            }
+        }
+
+        function selectOption(index) {
+            userAnswers[currentQuestionIndex] = index;
+            const buttons = optionsContainer.children;
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove('option-selected');
+                buttons[i].classList.add('bg-gray-50');
+            }
+            buttons[index].classList.remove('bg-gray-50');
+            buttons[index].classList.add('option-selected');
+            
+            setTimeout(() => {
+                nextQuestion();
+            }, 600);
+        }
+
+        function prevQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestionIndex < questions.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion();
+            } else {
+                const unansweredCount = userAnswers.filter(a => a === null).length;
+                if (unansweredCount > 0) {
+                    if(!confirm(`يوجد لديك ${unansweredCount} سؤال لم تتم الإجابة عليه. هل أنت متأكد من رغبتك في إنهاء الاختبار؟`)) {
+                        return;
+                    }
+                }
+                finishExam();
+            }
+        }
+
+        function finishExam() {
+            let correctCount = 0;
+            let wrongCount = 0;
+
+            userAnswers.forEach((ans, index) => {
+                if (ans === questions[index].a) {
+                    correctCount++;
+                } else if (ans !== null) {
+                    wrongCount++;
+                }
+            });
+
+            finalPercentage = Math.round((correctCount / questions.length) * 100);
+
+            document.getElementById('correctCount').textContent = correctCount;
+            document.getElementById('wrongCount').textContent = questions.length - correctCount;
+            
+            const scoreTextElement = document.getElementById('scoreText');
+            const scoreMessage = document.getElementById('scoreMessage');
+            scoreTextElement.textContent = `${finalPercentage}%`;
+            
+            let circleColor = 'text-blue-600';
+            if(finalPercentage >= 90) {
+                circleColor = 'text-green-500';
+                scoreMessage.textContent = 'ممتاز! نتيجة رائعة 🌟';
+                scoreMessage.className = 'text-sm font-bold mt-2 text-green-600';
+            } else if (finalPercentage >= 70) {
+                scoreMessage.textContent = 'جيد جداً! استمر 👏';
+                scoreMessage.className = 'text-sm font-bold mt-2 text-blue-600';
+            } else if (finalPercentage >= 50) {
+                circleColor = 'text-yellow-500';
+                scoreMessage.textContent = 'ناجح، لكنك تحتاج للمزيد من المذاكرة 📚';
+                scoreMessage.className = 'text-sm font-bold mt-2 text-yellow-600';
+            } else {
+                circleColor = 'text-red-500';
+                scoreMessage.textContent = 'تحتاج إلى مراجعة الملازم بتركيز ⚠️';
+                scoreMessage.className = 'text-sm font-bold mt-2 text-red-600';
+            }
+
+            setTimeout(() => {
+                const circle = document.getElementById('scoreCircle');
+                circle.setAttribute('stroke-dasharray', `${finalPercentage}, 100`);
+                circle.className = `transition-all duration-1000 ease-out ${circleColor}`;
+                scoreTextElement.className = `text-5xl font-black tracking-tighter ${circleColor}`;
+            }, 200);
+
+            examScreen.classList.add('hide');
+            resultScreen.classList.remove('hide');
+            window.scrollTo(0,0);
+        }
+
+        function showReview() {
+            resultScreen.classList.add('hide');
+            reviewScreen.classList.remove('hide');
+            
+            const reviewContainer = document.getElementById('reviewContainer');
+            reviewContainer.innerHTML = '';
+
+            questions.forEach((q, qIndex) => {
+                const userAns = userAnswers[qIndex];
+                const isCorrect = userAns === q.a;
+                const isSkipped = userAns === null;
+
+                let optionsHtml = '';
+                q.o.forEach((opt, optIndex) => {
+                    let optClass = 'p-3 rounded-xl border text-gray-700 font-medium mb-2 ';
+                    if (optIndex === q.a) {
+                        optClass += 'correct-ans shadow-sm border-green-200'; 
+                    } else if (optIndex === userAns && !isCorrect) {
+                        optClass += 'wrong-ans shadow-sm border-red-200'; 
+                    } else {
+                        optClass += 'bg-gray-50 border-gray-100'; 
+                    }
+
+                    optionsHtml += `<div class="${optClass}">${opt}</div>`;
+                });
+
+                const statusBadge = isCorrect 
+                    ? `<span class="bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full">أجبت بشكل صحيح</span>`
+                    : isSkipped 
+                        ? `<span class="bg-yellow-100 text-yellow-800 text-xs font-bold px-3 py-1 rounded-full">لم تتم الإجابة</span>`
+                        : `<span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full">إجابة خاطئة</span>`;
+
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'bg-white p-6 rounded-2xl border border-gray-200 shadow-sm';
+                questionDiv.innerHTML = `
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="font-bold text-gray-800 text-lg pr-2 leading-relaxed">${qIndex + 1}. ${q.q}</h4>
+                        <div class="shrink-0 mr-3">${statusBadge}</div>
+                    </div>
+                    <div class="mt-4">
+                        ${optionsHtml}
+                    </div>
+                `;
+                reviewContainer.appendChild(questionDiv);
+            });
+            window.scrollTo(0,0);
+        }
+
+        function shareResult() {
+            const shareText = `أنهيت اختبار (مادة اللغة العربية) التحضيري للثالث الثانوي بنسبة ${finalPercentage}٪! 🎓✨\n\nأتحداك تختبر معلوماتك!`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: 'نتيجتي في الاختبار الوزاري - لغة عربية',
+                    text: shareText
+                }).catch(console.error);
+            } else {
+                const textarea = document.createElement('textarea');
+                textarea.value = shareText;
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    alert('تم نسخ النتيجة إلى الحافظة! يمكنك الآن لصقها وإرسالها لأستاذك أو أصدقائك.');
+                } catch (err) {
+                    alert('تعذر النسخ التلقائي.');
+                }
+                document.body.removeChild(textarea);
+            }
+        }
+    </script>
+</body>
+</html>
+

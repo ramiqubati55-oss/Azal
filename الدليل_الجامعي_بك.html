@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل الطالب الأكاديمي | جامعة آزال للتنمية البشرية 1448هـ</title>
+    
+    <!-- الخطوط العربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                        heading: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#108fa3',
+                        primaryDark: '#0c6a7a',
+                        secondary: '#c47c5d',
+                        lightBg: '#f8fafc',
+                        darkText: '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #e2e8f0; scroll-behavior: smooth; }
+        h1, h2, h3, h4, h5 { font-family: 'Cairo', sans-serif; }
+        
+        .doc-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        /* تنسيقات الطباعة (لتحويل الصفحة إلى PDF منسق) */
+        @media print {
+            body { background: white; margin: 0; padding: 0; }
+            .doc-container { box-shadow: none; margin: 0; max-width: 100%; border-radius: 0; border: none; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+            section { page-break-inside: avoid; margin-bottom: 20px; }
+            a { text-decoration: none !important; color: black !important; }
+            .rule-card { page-break-inside: avoid; border: 1px solid #ccc; }
+        }
+
+        .section-header {
+            color: var(--primaryDark);
+            font-size: 2rem;
+            font-weight: 900;
+            border-bottom: 4px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .president-img {
+            width: 240px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 4px solid white;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .rule-card {
+            background: #f8fafc;
+            border-right: 4px solid var(--primary);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            border-left: 1px solid #e2e8f0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .rule-card-secondary {
+            border-right-color: var(--secondary);
+            background: #fffaf9;
+        }
+
+        .nav-sidebar {
+            position: sticky;
+            top: 20px;
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            height: fit-content;
+        }
+
+        .nav-link {
+            display: block;
+            padding: 0.75rem 0;
+            color: #475569;
+            font-weight: 700;
+            border-bottom: 1px solid #f1f5f9;
+            transition: all 0.2s;
+        }
+        .nav-link:hover { color: var(--primary); padding-right: 10px; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-primary selection:text-white">
+
+    <div class="flex max-w-[1450px] mx-auto gap-8 items-start px-4">
+        
+        <!-- القائمة الجانبية (للتنقل السريع) -->
+        <aside class="hidden lg:block w-1/4 nav-sidebar mt-10 no-print">
+            <div class="text-center mb-6 border-b pb-4">
+                <img src="https://www.auhd.edu.ye/gs_file" alt="شعار جامعة آزال" class="w-32 h-32 object-contain mx-auto mb-3" onerror="this.src='https://www.auhd.edu.ye/images/logo.png'">
+                <h3 class="font-black text-primaryDark text-xl font-heading">فهرس الدليل الأكاديمي</h3>
+            </div>
+            <nav class="space-y-1">
+                <a href="#president" class="nav-link"><i class="fa-solid fa-microphone text-secondary ml-2 w-5 text-center"></i> كلمة رئيس الجامعة</a>
+                <a href="#about" class="nav-link"><i class="fa-solid fa-landmark text-secondary ml-2 w-5 text-center"></i> نبذة عن الجامعة</a>
+                <a href="#features" class="nav-link"><i class="fa-solid fa-award text-secondary ml-2 w-5 text-center"></i> المميزات والاعتمادات</a>
+                <a href="#faculties" class="nav-link"><i class="fa-solid fa-layer-group text-secondary ml-2 w-5 text-center"></i> الكليات والبرامج</a>
+                <a href="#admission" class="nav-link"><i class="fa-solid fa-file-signature text-secondary ml-2 w-5 text-center"></i> شروط القبول والتسجيل</a>
+                <a href="#academic-rules" class="nav-link"><i class="fa-solid fa-scale-balanced text-secondary ml-2 w-5 text-center"></i> اللوائح والأنظمة (مالك وما عليك)</a>
+            </nav>
+            <div class="mt-8 space-y-3">
+                <a href="https://oasyemen.net/private/admission" target="_blank" class="block w-full bg-primary text-white font-bold py-3 rounded-xl text-center shadow-md hover:bg-primaryDark transition">
+                    <i class="fa-solid fa-globe"></i> التسجيل الإلكتروني
+                </a>
+                <a href="https://wa.me/967772088099" target="_blank" class="block w-full bg-green-500 text-white font-bold py-3 rounded-xl text-center shadow-md hover:bg-green-600 transition">
+                    <i class="fa-brands fa-whatsapp text-xl align-middle"></i> تواصل عبر الواتساب
+                </a>
+                <button onclick="window.print()" class="w-full bg-slate-800 text-white font-bold py-3 rounded-xl shadow-md hover:bg-slate-700 transition">
+                    <i class="fa-solid fa-print"></i> طباعة الدليل (PDF)
+                </button>
+            </div>
+        </aside>
+
+        <!-- المستند الرئيسي -->
+        <main class="w-full lg:w-3/4 doc-container">
+            
+            <!-- الترويسة والغلاف -->
+            <header class="bg-primaryDark text-white p-8 md:p-14 relative overflow-hidden border-b-8 border-secondary">
+                <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(#ffffff 2px, transparent 2px); background-size: 30px 30px;"></div>
+                <div class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div class="text-center md:text-right">
+                        <div class="inline-flex items-center gap-2 bg-white/10 px-4 py-1.5 rounded-full font-bold text-sm mb-6 border border-white/20">
+                            <i class="fa-solid fa-book-open"></i> الإصدار الأكاديمي الرسمي
+                        </div>
+                        <h1 class="text-5xl md:text-6xl font-black mb-4 leading-tight font-heading">دليل الطالب الأكاديمي</h1>
+                        <h2 class="text-3xl font-bold text-orange-200 mb-3">جامعة آزال للتنمية البشرية</h2>
+                        <p class="text-xl font-semibold text-slate-300">للعام الجامعي 1448هـ (2026/2027م)</p>
+                    </div>
+                    <!-- شعار الجامعة -->
+                    <div class="bg-white p-5 rounded-3xl shadow-2xl shrink-0 border-4 border-slate-100">
+                        <img src="https://www.auhd.edu.ye/gs_file" alt="شعار جامعة آزال" class="w-36 h-36 md:w-44 md:h-44 object-contain" onerror="this.src='https://www.auhd.edu.ye/images/logo.png'">
+                    </div>
+                </div>
+            </header>
+
+            <div class="p-6 md:p-14 space-y-20">
+
+                <!-- كلمة رئيس الجامعة -->
+                <section id="president">
+                    <h2 class="section-header"><i class="fa-solid fa-quote-right text-secondary"></i> كلمة رئيس الجامعة</h2>
+                    <div class="flex flex-col md:flex-row gap-10 items-start bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
+                        <div class="shrink-0 mx-auto md:mx-0 text-center">
+                            <img src="https://i0.wp.com/yemenacademic.net/wp-content/uploads/2025/04/FB_IMG_1745781063171.jpg?fit=960%2C487&ssl=1" alt="أ.د محمد العقيلي" class="president-img mb-4">
+                            <h3 class="font-black text-primaryDark text-2xl font-heading mb-1">أ.د / محمد العقيلي</h3>
+                            <p class="text-base font-bold text-secondary">رئيس الجامعة</p>
+                        </div>
+                        <div class="text-xl leading-loose text-slate-700 font-medium">
+                            <p class="mb-6 font-bold text-primaryDark">أبنائي وبناتي الطلاب والطالبات،،،</p>
+                            <p class="mb-6 text-justify">
+                                أرحب بكم أجمل ترحيب في رحاب جامعة آزال للتنمية البشرية، الصرح الأكاديمي الذي وضع نصب عينيه بناء الإنسان وتأهيله ليكون رائداً في مجتمعه ومساهماً فاعلاً في مسيرة التنمية. إن اختياركم لجامعة آزال هو خطوتكم الأولى نحو مستقبل مشرق يعتمد على أسس علمية متينة وتدريب عملي يواكب متطلبات العصر واحتياجات سوق العمل.
+                            </p>
+                            <p class="mb-6 text-justify">
+                                لقد حرصنا في جامعتكم على توفير بيئة تعليمية محفزة، تضم نخبة من الكوادر الأكاديمية المتميزة، وأحدث المعامل والمرافق، وخططاً دراسية حديثة معتمدة محلياً ودولياً. نحن لا نمنحكم شهادة جامعية فحسب، بل نزودكم بالمهارات والمعارف التي تجعلكم الخيار الأول في سوق العمل.
+                            </p>
+                            <p class="font-bold text-primaryDark text-justify">
+                                أتمنى لكم عاماً جامعياً حافلاً بالتميز والنجاح، ومسيرة علمية تكلل بتحقيق طموحاتكم وأحلامكم.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="page-break"></div>
+
+                <!-- نبذة عن الجامعة -->
+                <section id="about">
+                    <h2 class="section-header"><i class="fa-solid fa-landmark text-secondary"></i> نبذة عن الجامعة</h2>
+                    <div class="text-xl leading-loose text-slate-700 font-medium text-justify bg-white">
+                        <p class="mb-6">
+                            بدأت رحلة جامعة آزال للتنمية البشرية في عام 2008م بدافع إنساني ووطني محض بطرق أبواب في التعليم العالي غير مسبوقة، حيث افتتحت الجامعة برامج تعليمية في غاية الأهمية والندرة، يأتي في مقدمتها برامج البكالوريوس في العلاج الطبيعي، التربية الخاصة للموهوبين والمعاقين، والقبالة.
+                        </p>
+                        <p class="mb-6">
+                            ولكون مؤسسي هذا المشروع عملوا لفترة ليست بالقصيرة في حقل الصحة، فقد غلبت عليهم عاطفة الاحتياج والمعاناة التي يعرفونها جيداً على حسابات المال والفرص البديلة. استمرت الجامعة على مدار أعوامها الأولى في تقديم خدماتها بعزم شديد متجاوزة شحة الإمكانات وصعوبات البداية، وكلهم يقين بأنها ستخرج إلى النور كادراً مؤهلاً يسد أشد الفجوات الصحية، الهندسية، والتعليمية اتساعاً في هذا البلد.
+                        </p>
+                        <p>
+                            واليوم، وبعد مرور أكثر من <strong class="text-primaryDark">18 عاماً</strong> من الخبرة والريادة، تقف جامعة آزال كواحدة من أعرق وأقوى المؤسسات الأكاديمية الأهلية تصنيفاً واعتماداً، تضم أكثر من <strong class="text-primaryDark">40,000 خريج وخريجة</strong> يصنعون الفارق في مختلف قطاعات العمل، وأكثر من 5 كليات نوعية تقدم 32+ برنامجاً أكاديمياً معتمداً.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- أرقام وإحصائيات -->
+                <section id="stats" class="bg-primaryDark text-white rounded-2xl p-8 shadow-lg relative overflow-hidden">
+                    <i class="fa-solid fa-chart-column absolute -left-10 -bottom-10 text-9xl opacity-10"></i>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center relative z-10">
+                        <div>
+                            <div class="text-4xl font-black font-heading text-secondary mb-2" dir="ltr">18+</div>
+                            <div class="font-bold text-sm md:text-base">عاماً من الخبرة والريادة</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black font-heading text-secondary mb-2">5</div>
+                            <div class="font-bold text-sm md:text-base">كليات نوعية متخصصة</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black font-heading text-secondary mb-2" dir="ltr">32+</div>
+                            <div class="font-bold text-sm md:text-base">برنامجاً أكاديمياً معتمداً</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl font-black font-heading text-secondary mb-2" dir="ltr">40,000+</div>
+                            <div class="font-bold text-sm md:text-base">خريج وخريجة في سوق العمل</div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="page-break"></div>
+
+                <!-- مميزات واعتمادات الجامعة -->
+                <section id="features">
+                    <h2 class="section-header"><i class="fa-solid fa-globe text-secondary"></i> تعرف على بعض مميزاتنا واعتماداتنا</h2>
+                    
+                    <div class="mb-12">
+                        <h3 class="font-black text-2xl text-primaryDark mb-6 border-r-4 border-secondary pr-4 font-heading bg-slate-50 py-2">أولاً: الاعتمادات والتصنيفات الدولية والمحلية</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="rule-card">
+                                <h4 class="font-bold text-primaryDark text-lg mb-2"><i class="fa-solid fa-check-circle text-green-500 ml-2"></i> الاعتماد المحلي الشامل</h4>
+                                <p class="text-base text-slate-600">معتمدة رسمياً من وزارة التعليم العالي، مجلس الاعتماد الأكاديمي، والمجلس الطبي للاختصاصات الطبية.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h4 class="font-bold text-primaryDark text-lg mb-2"><i class="fa-solid fa-check-circle text-green-500 ml-2"></i> الأثر الأكاديمي (UNAI)</h4>
+                                <p class="text-base text-slate-600">عضو رسمي في برنامج الأثر الأكاديمي التابع للأمم المتحدة، ضمن أربع جامعات يمنية فقط.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h4 class="font-bold text-primaryDark text-lg mb-2"><i class="fa-solid fa-check-circle text-green-500 ml-2"></i> اتحاد الصيادلة (FIP)</h4>
+                                <p class="text-base text-slate-600">عضو رسمي في الاتحاد الدولي للصيادلة، مما يعزز من مكانة خريجي كلية الصيدلة عالمياً.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h4 class="font-bold text-primaryDark text-lg mb-2"><i class="fa-solid fa-check-circle text-green-500 ml-2"></i> مؤشر AD Scientific 2025</h4>
+                                <p class="text-base text-slate-600">المرتبة 4 بين الجامعات الأهلية، والمركز 9 وطنياً في أداء البحث والنشر العلمي.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h4 class="font-bold text-primaryDark text-lg mb-2"><i class="fa-solid fa-check-circle text-green-500 ml-2"></i> هيئة التخصصات السعودية</h4>
+                                <p class="text-base text-slate-600">اعتماد رسمي لدى الهيئة السعودية لفتح آفاق العمل ومواصلة الاختصاص في دول الخليج.</p>
+                            </div>
+                            <div class="rule-card">
+                                <h4 class="font-bold text-primaryDark text-lg mb-2"><i class="fa-solid fa-check-circle text-green-500 ml-2"></i> نظام "سار" العالمي</h4>
+                                <p class="text-base text-slate-600">أول جامعة أهلية باليمن تعتمد النظام العالمي الإلكتروني لإصدار الشهادات ومنع التزوير.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="font-black text-2xl text-primaryDark mb-6 border-r-4 border-secondary pr-4 font-heading bg-slate-50 py-2">ثانياً: المميزات الأكاديمية والخدمية</h3>
+                        <ul class="space-y-5 text-xl text-slate-700 font-medium p-4">
+                            <li class="flex items-start gap-4"><i class="fa-solid fa-gem text-secondary mt-1 text-2xl"></i> <span><strong>بنية تحتية متكاملة:</strong> تمتلك الجامعة أكثر من 20 معملاً طبياً و 15 معملاً هندسياً وتقنياً، وقاعات دراسية مجهزة بأحدث وسائل العرض.</span></li>
+                            <li class="flex items-start gap-4"><i class="fa-solid fa-gem text-secondary mt-1 text-2xl"></i> <span><strong>التدريب الميداني:</strong> تهتم الجامعة بتدريب الطالب عملياً في المؤسسات المعنية بكل تخصص عبر تعاقدات طبية وهندسية وتجارية كبرى.</span></li>
+                            <li class="flex items-start gap-4"><i class="fa-solid fa-gem text-secondary mt-1 text-2xl"></i> <span><strong>اللغة الإنجليزية مجاناً:</strong> يُمنح كل طالب 6 دورات مجانية في اللغة الإنجليزية عبر "أكاديمية وترفورد" المعتمدة رسمياً وذات السمعة القوية.</span></li>
+                            <li class="flex items-start gap-4"><i class="fa-solid fa-gem text-secondary mt-1 text-2xl"></i> <span><strong>كادر متميز:</strong> كادر أكاديمي من حملة الدكتوراه والماجستير ذوي كفاءة علمية وعملية، وكادر إداري متميز لخدمة الطالب.</span></li>
+                            <li class="flex items-start gap-4"><i class="fa-solid fa-gem text-secondary mt-1 text-2xl"></i> <span><strong>البيئة الجامعية:</strong> موقع استراتيجي يتوسط العاصمة صنعاء، توفر سكن طلابي متميز، وأنشطة ترافق العملية الأكاديمية (رحلات، رياضية، ثقافية).</span></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <div class="page-break"></div>
+
+                <!-- الكليات والبرامج (بدون نسب) -->
+                <section id="faculties">
+                    <h2 class="section-header"><i class="fa-solid fa-layer-group text-secondary"></i> الكليات والبرامج الأكاديمية</h2>
+                    <p class="mb-8 text-slate-600 font-medium text-xl">تضم الجامعة 5 كليات نوعية وعمادة للدراسات العليا، تقدم برامج أكاديمية حديثة ومطلوبة في سوق العمل:</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- العلوم الطبية -->
+                        <div class="border border-slate-200 rounded-3xl overflow-hidden shadow-md">
+                            <h3 class="bg-primaryDark text-white p-5 font-black text-2xl flex items-center gap-3 font-heading">
+                                <i class="fa-solid fa-staff-snake text-secondary text-3xl"></i> كلية العلوم الطبية
+                            </h3>
+                            <ul class="p-6 space-y-4 font-bold text-slate-700 bg-white h-full text-xl list-disc list-inside">
+                                <li>الصيدلة</li>
+                                <li>الطب المخبري</li>
+                                <li>تكنولوجيا التخدير</li>
+                                <li>تكنولوجيا الأشعة</li>
+                                <li>العلاج الطبيعي</li>
+                                <li>التمريض التخصصي</li>
+                                <li>القبالة والتوليد</li>
+                                <li>التغذية العلاجية والحميات</li>
+                            </ul>
+                        </div>
+
+                        <!-- الهندسة و IT -->
+                        <div class="border border-slate-200 rounded-3xl overflow-hidden shadow-md">
+                            <h3 class="bg-primary text-white p-5 font-black text-2xl flex items-center gap-3 font-heading">
+                                <i class="fa-solid fa-microchip text-primaryDark text-3xl"></i> كلية الهندسة وتكنولوجيا المعلومات
+                            </h3>
+                            <ul class="p-6 space-y-4 font-bold text-slate-700 bg-white h-full text-xl list-disc list-inside">
+                                <li>تكنولوجيا المعلومات (IT)</li>
+                                <li>الأمن السيبراني والشبكات</li>
+                                <li>الهندسة المعمارية</li>
+                                <li>الهندسة المدنية</li>
+                                <li>هندسة اتصالات وشبكات</li>
+                                <li>الجرافيكس والملتيميديا</li>
+                            </ul>
+                        </div>
+
+                        <!-- الإدارية -->
+                        <div class="border border-slate-200 rounded-3xl overflow-hidden shadow-md">
+                            <h3 class="bg-slate-700 text-white p-5 font-black text-2xl flex items-center gap-3 font-heading">
+                                <i class="fa-solid fa-chart-pie text-secondary text-3xl"></i> كلية العلوم الإدارية والإنسانية
+                            </h3>
+                            <ul class="p-6 space-y-4 font-bold text-slate-700 bg-white h-full text-xl list-disc list-inside">
+                                <li>إدارة أعمال / إدارة أعمال دولية</li>
+                                <li>الإدارة الصحية</li>
+                                <li>المحاسبة / العلوم المالية والمصرفية</li>
+                                <li>نظم المعلومات الإدارية (MIS)</li>
+                                <li>اللغة الإنجليزية والترجمة</li>
+                            </ul>
+                        </div>
+
+                        <!-- التربية والدراسات العليا -->
+                        <div class="flex flex-col gap-8">
+                            <!-- التربية الخاصة -->
+                            <div class="border border-slate-200 rounded-3xl overflow-hidden shadow-md">
+                                <h3 class="bg-secondary text-white p-5 font-black text-2xl flex items-center gap-3 font-heading">
+                                    <i class="fa-solid fa-hands-holding-child text-primaryDark text-3xl"></i> كلية التربية الخاصة
+                                </h3>
+                                <ul class="p-6 space-y-4 font-bold text-slate-700 bg-white text-xl list-disc list-inside">
+                                    <li>علوم حاسوب (للصم)</li>
+                                    <li>التربية الخاصة</li>
+                                    <li>الإرشاد النفسي</li>
+                                </ul>
+                            </div>
+                            <!-- الماجستير -->
+                            <div class="border border-slate-200 rounded-3xl overflow-hidden shadow-md bg-gradient-to-r from-slate-800 to-primaryDark text-white">
+                                <h3 class="p-5 font-black text-2xl flex items-center gap-3 font-heading border-b border-white/20">
+                                    <i class="fa-solid fa-user-graduate text-yellow-400 text-3xl"></i> عمادة الدراسات العليا
+                                </h3>
+                                <ul class="p-6 space-y-3 font-bold text-lg columns-1 sm:columns-2 gap-4 list-disc list-inside">
+                                    <li>إدارة الأعمال</li>
+                                    <li>تكنولوجيا المعلومات (IT)</li>
+                                    <li>الإدارة الصحية</li>
+                                    <li>الصحة العامة</li>
+                                    <li>القبالة</li>
+                                    <li>التربية الخاصة</li>
+                                    <li>علم النفس الإكلينيكي</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="page-break"></div>
+
+                <!-- شروط القبول والتسجيل -->
+                <section id="admission">
+                    <h2 class="section-header"><i class="fa-solid fa-file-signature text-secondary"></i> متطلبات القبول والتسجيل</h2>
+                    <p class="text-xl font-medium text-slate-600 mb-8">يسرنا استقبال الطلاب المستجدين، ويمكنكم التسجيل والتنسيق عبر البوابة الإلكترونية الموحدة: <br> <a href="https://oasyemen.net/private/admission" target="_blank" class="text-primary font-bold hover:underline no-print" dir="ltr">https://oasyemen.net/private/admission</a></p>
+                    
+                    <div class="bg-white border-2 border-primary rounded-3xl p-10 shadow-sm mb-8 relative overflow-hidden">
+                        <i class="fa-solid fa-file-contract absolute -left-6 -bottom-6 text-9xl text-primary opacity-5"></i>
+                        <h4 class="font-black text-primaryDark mb-6 text-3xl font-heading relative z-10">الوثائق المطلوبة للتسجيل:</h4>
+                        <ul class="space-y-5 text-slate-800 font-bold text-2xl relative z-10">
+                            <li class="flex items-center gap-4"><i class="fa-solid fa-check-circle text-secondary text-3xl"></i> أصل استمارة الثانوية العامة.</li>
+                            <li class="flex items-center gap-4"><i class="fa-solid fa-check-circle text-secondary text-3xl"></i> عدد (2) صور طبق الأصل من الشهادة.</li>
+                            <li class="flex items-center gap-4"><i class="fa-solid fa-check-circle text-secondary text-3xl"></i> عدد (8) صور شخصية حديثة (4×6).</li>
+                            <li class="flex items-center gap-4"><i class="fa-solid fa-check-circle text-secondary text-3xl"></i> صورة من البطاقة الشخصية أو رقم الجلوس أو جواز السفر.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-orange-50 border-r-8 border-secondary p-8 rounded-2xl shadow-sm flex gap-6 items-start">
+                        <i class="fa-solid fa-thumbtack text-4xl text-secondary mt-1"></i>
+                        <div>
+                            <h4 class="font-black text-secondary mb-3 text-2xl font-heading">خريجو الثانوية من خارج اليمن:</h4>
+                            <p class="text-slate-700 font-bold text-xl leading-relaxed">
+                                يشترط اعتماد الوثائق من الكنترول في وزارة التربية والتعليم ووزارة الخارجية.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="page-break"></div>
+
+                <!-- اللوائح والأنظمة (القسم الشامل والمفصل: مالك وما عليك) -->
+                <section id="academic-rules">
+                    <h2 class="section-header"><i class="fa-solid fa-scale-balanced text-secondary"></i> اللوائح والأنظمة الجامعية (مالك وما عليك)</h2>
+                    <p class="text-xl text-slate-600 mb-8 font-medium">تم وضع هذه اللوائح لضمان سير العملية التعليمية بانتظام، ولتعريف الطالب بحقوقه وواجباته الأكاديمية والمالية بوضوح تام.</p>
+                    
+                    <div class="space-y-12">
+                        
+                        <!-- 1. الحضور والغياب والامتحانات -->
+                        <div>
+                            <h3 class="font-black text-2xl text-white bg-primaryDark p-4 rounded-xl mb-6 font-heading"><i class="fa-solid fa-clipboard-user ml-2"></i> 1. الحضور، الغياب، والامتحانات</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="rule-card">
+                                    <h4 class="font-black text-primaryDark mb-3 text-xl"><i class="fa-solid fa-clock text-secondary ml-1"></i> نظام الدراسة والمواظبة</h4>
+                                    <ul class="text-slate-700 text-lg font-medium space-y-2 list-disc list-inside">
+                                        <li>تعتمد الجامعة <strong>النظام الفصلي</strong>، حيث تتكون السنة من فصلين دراسيين، مدة الفصل 16 أسبوعاً.</li>
+                                        <li>الانتظام الكلي في المحاضرات (النظرية والعملية) إلزامي لجميع الطلاب.</li>
+                                    </ul>
+                                </div>
+                                <div class="rule-card rule-card-secondary border-red-200">
+                                    <h4 class="font-black text-red-700 mb-3 text-xl"><i class="fa-solid fa-triangle-exclamation ml-1"></i> لائحة الحرمان</h4>
+                                    <ul class="text-slate-700 text-lg font-medium space-y-2 list-disc list-inside">
+                                        <li>يُحرم الطالب من دخول الاختبار النهائي (ويُعد راسباً) إذا تجاوز غيابه <strong>30%</strong> في المقرر بدون عذر.</li>
+                                        <li>إذا غاب بعذر قهري مقبول تجاوز الـ 50%، لا يعتبر راسباً بل يُسمح له بإعادة المقرر.</li>
+                                    </ul>
+                                </div>
+                                <div class="rule-card md:col-span-2">
+                                    <h4 class="font-black text-primaryDark mb-3 text-xl"><i class="fa-solid fa-file-pen text-secondary ml-1"></i> نظام التقييم والاختبارات</h4>
+                                    <p class="text-slate-700 text-lg font-medium">توزع درجات المقرر إلى: (أعمال فصلية وتشمل التكاليف والمشاركة والاختبار النصفي) + (اختبار نهائي نظري وعملي). يحق للطالب مراجعة التظلم في درجاته خلال فترة محددة تُعلن بعد النتائج وفق لائحة الامتحانات.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 2. المنح والتسهيلات المالية -->
+                        <div class="page-break"></div>
+                        <div>
+                            <h3 class="font-black text-2xl text-white bg-primaryDark p-4 rounded-xl mb-6 font-heading"><i class="fa-solid fa-hand-holding-dollar ml-2"></i> 2. اللوائح المالية والمنح</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="rule-card">
+                                    <h4 class="font-black text-primaryDark mb-3 text-xl"><i class="fa-solid fa-trophy text-secondary ml-1"></i> منح الأوائل (الثانوية العامة)</h4>
+                                    <ul class="text-slate-700 text-lg font-medium space-y-2 list-disc list-inside">
+                                        <li>منحة كاملة <strong>للعشرة الأوائل</strong> على مستوى الجمهورية.</li>
+                                        <li>تستمر المنحة بشرط حصول الطالب على تقدير (جيد جداً) كحد أدنى سنوياً.</li>
+                                        <li>تُسقط المنحة إذا قل التقدير، وتُعاد له إذا استعاده في العام التالي.</li>
+                                        <li>طلاب المنح يدفعون 100$ رسوم تسجيل سنوية، و 60% من رسوم اللغة الإنجليزية.</li>
+                                    </ul>
+                                </div>
+                                <div class="rule-card">
+                                    <h4 class="font-black text-primaryDark mb-3 text-xl"><i class="fa-solid fa-medal text-secondary ml-1"></i> التفوق بالجامعة والرعاية</h4>
+                                    <ul class="text-slate-700 text-lg font-medium space-y-2 list-disc list-inside">
+                                        <li><strong>أوائل الدفعات:</strong> خصومات (الترتيب الأول 50%، الثاني 45%، الثالث 40%) بعد المستوى الأول.</li>
+                                        <li><strong>منح مجتمعية:</strong> للأيتام، أبناء الشهداء، وحفظة القرآن.</li>
+                                        <li><strong>خصم الإخوة:</strong> تخفيض خاص في حال تسجيل أخوين فأكثر.</li>
+                                    </ul>
+                                </div>
+                                <div class="rule-card md:col-span-2">
+                                    <h4 class="font-bold text-primaryDark mb-3 text-xl"><i class="fa-solid fa-wallet text-secondary ml-1"></i> خصم السداد الفوري (كاش)</h4>
+                                    <p class="text-slate-700 text-lg font-medium">الجامعة تمنح تخفيضاً عاماً بنسبة 5% لجميع السنوات. وإذا قام الطالب بالسداد النقدي خلال أول أسبوعين يحصل على: خصم 10% (لسداد عامين فأكثر)، 7% (لسداد عام كامل)، 5% (لسداد ترم واحد).</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3. نظام التحويل -->
+                        <div>
+                            <h3 class="font-black text-2xl text-white bg-primaryDark p-4 rounded-xl mb-6 font-heading"><i class="fa-solid fa-shuffle ml-2"></i> 3. قواعد التحويل والانسحاب</h3>
+                            <ul class="space-y-4 text-xl text-slate-700 font-medium bg-slate-50 p-8 rounded-2xl border border-slate-200">
+                                <li><i class="fa-solid fa-circle-dot text-secondary ml-3 text-sm"></i> إذا حوّل الطالب تخصصه خلال <strong>أسبوعين</strong> من بداية الدراسة، يُعفى من رسوم التحويل.</li>
+                                <li><i class="fa-solid fa-circle-dot text-secondary ml-3 text-sm"></i> عند التحويل من برنامج أدنى لبرنامج أعلى، يدفع <strong>50% من فارق الرسوم</strong> للسنة التي سبقت أو الفصل الأول.</li>
+                                <li><i class="fa-solid fa-circle-dot text-secondary ml-3 text-sm"></i> إذا حوّل الطالب تخصصه ثم رغب في <strong>الانسحاب</strong> في نفس الفصل: تُحسب غرامة الانسحاب بناءً على البرنامج <strong>الأعلى رسوماً</strong>.</li>
+                                <li><i class="fa-solid fa-circle-dot text-secondary ml-3 text-sm"></i> إذا تبقت مقررات من البرنامج القديم، تُدفع رسومها على أساس تسعيرة مواد <strong>البرنامج الجديد المحوَّل إليه</strong>.</li>
+                                <li><i class="fa-solid fa-circle-dot text-secondary ml-3 text-sm"></i> <strong>ميزة للخريجين:</strong> يُعفى خريج جامعة آزال من رسوم التسجيل إذا رغب بدراسة بكالوريوس آخر أو ماجستير بالجامعة.</li>
+                            </ul>
+                        </div>
+
+                        <!-- 4. الضوابط التأديبية -->
+                        <div class="page-break"></div>
+                        <div>
+                            <h3 class="font-black text-2xl text-white bg-primaryDark p-4 rounded-xl mb-6 font-heading"><i class="fa-solid fa-gavel ml-2"></i> 4. قواعد السلوك والضوابط التأديبية</h3>
+                            <p class="text-xl text-slate-700 font-medium mb-6">الحرم الجامعي بيئة علمية محترمة، وعليه فإن ارتكاب أي من المخالفات التالية يعرض الطالب لإجراءات صارمة:</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="bg-red-50 border border-red-200 p-6 rounded-2xl shadow-sm">
+                                    <h4 class="font-black text-red-800 mb-3 text-xl"><i class="fa-solid fa-file-signature"></i> التزوير وانتحال الشخصية</h4>
+                                    <p class="text-slate-700 font-bold text-lg leading-relaxed">
+                                        تزوير الوثائق أو السجلات الرسمية للجامعة، أو انتحال شخصية طالب آخر لدخول الاختبار أو أداء المهام، يستوجب <strong>الفصل النهائي</strong> الفوري والملاحقة القانونية.
+                                    </p>
+                                </div>
+                                <div class="bg-red-50 border border-red-200 p-6 rounded-2xl shadow-sm">
+                                    <h4 class="font-black text-red-800 mb-3 text-xl"><i class="fa-solid fa-eye-slash"></i> الغش الأكاديمي</h4>
+                                    <p class="text-slate-700 font-bold text-lg leading-relaxed">
+                                        الشروع في الغش، أو التلبس به، أو مساعدة الغير على الغش في قاعات الاختبار، يؤدي إلى إلغاء نتيجة الاختبار وحرمان الطالب من مقرراته وإحالته للجنة التأديب.
+                                    </p>
+                                </div>
+                                <div class="bg-red-50 border border-red-200 p-6 rounded-2xl shadow-sm">
+                                    <h4 class="font-black text-red-800 mb-3 text-xl"><i class="fa-solid fa-handshake-slash"></i> الإساءة والاعتداء</h4>
+                                    <p class="text-slate-700 font-bold text-lg leading-relaxed">
+                                        الاعتداء اللفظي أو الجسدي، أو توجيه الإساءة والتشهير لأعضاء هيئة التدريس، الموظفين، أو الزملاء يُعرض الطالب للتحقيق والفصل المؤقت أو النهائي.
+                                    </p>
+                                </div>
+                                <div class="bg-red-50 border border-red-200 p-6 rounded-2xl shadow-sm">
+                                    <h4 class="font-black text-red-800 mb-3 text-xl"><i class="fa-solid fa-ban"></i> الممنوعات والسلاح</h4>
+                                    <p class="text-slate-700 font-bold text-lg leading-relaxed">
+                                        يُمنع منعاً باتاً حمل السلاح الناري أو الأبيض أو إدخاله إلى الحرم الجامعي تحت أي مبرر، ويعد ذلك مخالفة تستوجب أقصى العقوبات.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- التذييل (لا يطبع) -->
+            <footer class="bg-slate-800 text-white p-12 text-center mt-10 no-print">
+                <i class="fa-solid fa-paper-plane text-6xl text-primary mb-6"></i>
+                <h3 class="font-black text-4xl font-heading text-white mb-6">انطلق نحو مستقبلك الآن!</h3>
+                <p class="text-xl text-slate-300 mb-10 font-medium max-w-3xl mx-auto">فريقنا الإرشادي مستعد للإجابة على كافة استفساراتكم ومساعدتكم في إنهاء إجراءات التسجيل بكل يسر وسهولة.</p>
+                
+                <!-- زر الواتساب -->
+                <div class="mb-10">
+                    <a href="https://wa.me/967772088099" target="_blank" class="inline-flex items-center gap-3 bg-green-500 hover:bg-green-600 text-white font-black text-2xl py-4 px-10 rounded-full shadow-lg transition transform hover:scale-105">
+                        <i class="fa-brands fa-whatsapp text-4xl"></i> اضغط هنا للتواصل معنا عبر واتساب
+                    </a>
+                </div>
+
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 font-bold text-2xl bg-slate-700 p-8 rounded-3xl max-w-4xl mx-auto border border-slate-600 shadow-lg">
+                    <span><i class="fa-solid fa-location-dot text-secondary ml-3"></i> صنعاء - شارع الستين الغربي (مبنى مستشفى آزال سابقاً)</span>
+                </div>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-6 font-bold text-2xl mt-8">
+                    <span dir="ltr"><i class="fa-solid fa-phone text-secondary mr-3"></i> 772088099 | 01/201710</span>
+                    <span class="hidden sm:block text-slate-500">|</span>
+                    <a href="https://www.auhd.edu.ye" target="_blank" class="hover:text-primary transition"><i class="fa-solid fa-globe text-secondary ml-3"></i> www.auhd.edu.ye</a>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+</body>
+</html>

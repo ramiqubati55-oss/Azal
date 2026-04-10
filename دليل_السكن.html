@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دليل السكن الجامعي الشامل | جامعة آزال للتنمية البشرية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ألوان هوية جامعة آزال */
+        :root {
+            --azal-teal: #009ca6; 
+            --azal-teal-dark: #00757d; 
+            --azal-accent: #c77953; 
+            --bg-body: #f4f8f9; 
+            --bg-card: #ffffff; 
+            --text-dark: #202b30; 
+            --text-muted: #53636b; 
+            --border-light: #e1e8eb;
+            --danger-bg: #fff5f5;
+            --danger-text: #e53e3e;
+            --danger-border: #feb2b2;
+        }
+
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 0;
+            line-height: 1.8;
+        }
+
+        /* الترويسة */
+        header {
+            background: linear-gradient(135deg, var(--azal-teal-dark) 0%, var(--azal-teal) 100%);
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 5px solid var(--azal-accent);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.4rem;
+            font-weight: 800;
+        }
+
+        header p {
+            margin: 0;
+            font-size: 1.2rem;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* الحاوية */
+        .container {
+            max-width: 1100px;
+            margin: -30px auto 60px;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* العناوين الرئيسية */
+        .section-title {
+            color: var(--azal-teal-dark);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title i {
+            color: var(--azal-accent);
+            font-size: 1.6rem;
+        }
+
+        /* التخطيط الشبكي */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        /* البطاقات */
+        .card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-light);
+            border-top: 4px solid var(--azal-teal);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 156, 166, 0.08);
+        }
+
+        .card.warning {
+            border-top: 4px solid var(--danger-text);
+            background-color: var(--danger-bg);
+            border-color: var(--danger-border);
+        }
+
+        .card h3 {
+            color: var(--azal-teal-dark);
+            margin-top: 0;
+            font-size: 1.25rem;
+            border-bottom: 2px solid var(--bg-body);
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card.warning h3 {
+            color: var(--danger-text);
+            border-bottom-color: var(--danger-border);
+        }
+
+        /* القوائم */
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-right: 28px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        ul li::before {
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            content: "\f058"; /* أيقونة صح */
+            color: var(--azal-teal);
+            position: absolute;
+            right: 0;
+            top: 2px;
+            font-size: 1.1rem;
+        }
+
+        .card.warning ul li::before {
+            content: "\f057"; /* أيقونة خطأ */
+            color: var(--danger-text);
+        }
+
+        /* الجداول */
+        .table-wrapper {
+            background: var(--bg-card);
+            border-radius: 12px;
+            overflow-x: auto;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid var(--border-light);
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+            min-width: 600px;
+        }
+
+        th, td {
+            padding: 18px 15px;
+        }
+
+        th {
+            background-color: var(--azal-teal-dark);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        td {
+            border-bottom: 1px solid var(--border-light);
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        tr:nth-child(even) { background-color: #fafcfc; }
+        tr:hover { background-color: #f0f8f9; }
+
+        /* التذييل */
+        footer {
+            background-color: #1e292e;
+            color: #ffffff;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 4px solid var(--azal-teal);
+        }
+
+        .footer-highlight {
+            color: var(--azal-accent);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .contact-info {
+            direction: ltr;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--azal-teal);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 40px 15px; }
+            header h1 { font-size: 1.8rem; }
+            .container { margin-top: 20px; }
+            .contact-info { flex-direction: column; gap: 5px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>جامعة آزال للتنمية البشرية</h1>
+        <p>دليل السكن الجامعي الشامل واللوائح التنظيمية</p>
+    </header>
+
+    <div class="container">
+        
+        <h2 class="section-title"><i class="fas fa-file-invoice-dollar"></i> رسوم المساكن الطلابية ومدة العقد</h2>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>نوع الغرفة</th>
+                        <th>الإيجار الشهري للطالب</th>
+                        <th>الإيجار السنوي للطالب</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>المقعد المفرد (غرفة فردية)</td>
+                        <td style="color: var(--azal-teal-dark);">35,000 ريال</td>
+                        <td>420,000 ريال</td>
+                    </tr>
+                    <tr>
+                        <td>المقعد الثنائي للطالب الواحد</td>
+                        <td style="color: var(--azal-teal-dark);">22,000 ريال</td>
+                        <td>264,000 ريال</td>
+                    </tr>
+                    <tr>
+                        <td>المقعد الثلاثي للطالب الواحد</td>
+                        <td style="color: var(--azal-teal-dark);">18,000 ريال</td>
+                        <td>216,000 ريال</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 40px;">
+            <i class="fas fa-info-circle" style="color: var(--azal-accent);"></i> 
+            مدة عقد الإيجار (سنة كاملة)، يبدأ من شهر أغسطس وينتهي في 30 يوليو من كل عام.
+        </p>
+
+        <h2 class="section-title"><i class="fas fa-folder-open"></i> الوثائق المطلوبة للتسجيل</h2>
+        <div class="card" style="margin-bottom: 40px;">
+            <ul style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <li>صورة البطاقة الشخصية أو شهادة قيد للطلاب المنتظمين.</li>
+                <li>صورة الهوية (بطاقة شخصية أو جواز سفر).</li>
+                <li>صورة الإقامة سارية المفعول للطلاب الوافدين.</li>
+                <li>إثبات القبول والالتحاق بالجامعة.</li>
+                <li>صورة سند تسديد الرسوم المالية.</li>
+                <li>صورتان شخصيتان حديثتان مقاس 4x6.</li>
+            </ul>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-clipboard-list"></i> تعليمات السكن والإقامة</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3><i class="fas fa-check-circle"></i> تعليمات عامة</h3>
+                <ul>
+                    <li>المحافظة على الشعائر والالتزام بالآداب والأخلاق الإسلامية.</li>
+                    <li>الالتزام بالعودة إلى السكن قبل موعد إغلاق البوابة الساعة الحادية عشرة مساءً.</li>
+                    <li>الامتناع عن التنقل بين الشقق بعد الساعة الثانية عشرة ليلاً.</li>
+                    <li>عدم المبيت خارج السكن إلا بإذن مسبق من الإدارة.</li>
+                    <li>المحافظة على عهد السكن وإعادتها سليمة وضمان ما أتلف منها.</li>
+                    <li>الالتزام بالمواعيد المحددة لدفع رسوم السكن.</li>
+                </ul>
+            </div>
+            <div class="card warning">
+                <h3><i class="fas fa-exclamation-triangle"></i> المحظورات القطعية</h3>
+                <ul>
+                    <li>يمنع إدخال السلاح الناري إلى السكن تحت أي مبرر ومطلقاً.</li>
+                    <li>يمنع إدخال الشيشة بأنواعها أو استخدامها داخل السكن.</li>
+                    <li>يمنع التدخين أو مضغ القات في المرافق العامة أو الممرات.</li>
+                    <li>يمنع إدخال أدوات التسلية كالشاشات والرسيفرات إلى الغرف.</li>
+                    <li>يمنع منعاً باتاً تسليم مفتاح الغرفة لأي شخص آخر من داخل السكن أو خارجه.</li>
+                    <li>يمنع صعود موظفي التوصيل للغرف، ويتم استلام الطلبات عند حارس السكن.</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-users"></i> ضوابط الزيارة للسكن</h2>
+        <div class="card" style="margin-bottom: 40px;">
+            <div class="grid-2" style="margin-bottom: 0;">
+                <div>
+                    <ul>
+                        <li>تبدأ الزيارة الساعة الرابعة عصراً وتنتهي التاسعة مساءً.</li>
+                        <li>يجب تسليم وثيقة إثبات هوية الزائر لحارس السكن واستلامها عند الخروج.</li>
+                        <li>على الزائر عرض الأغراض التي يصطحبها على حارس السكن.</li>
+                        <li>يمنع دخول الزائر إلى السكن إلا بموافقة الطالب المُزار.</li>
+                        <li>يُسمح للطالب باستقبال عدد محدود من الزيارات لتجنب الإزعاج.</li>
+                    </ul>
+                </div>
+                <div>
+                    <ul>
+                        <li>يمنع المبيت في السكن منعاً باتاً لغير الطلاب الساكنين.</li>
+                        <li>الزائر الذي لا يلتزم بالضوابط سيُمنع من دخول السكن مستقبلاً.</li>
+                        <li>سيتم منع الزيارات إلى السكن في بعض الأوقات لما فيه المصلحة العامة.</li>
+                        <li>الطالب المخالف لضوابط الزيارة ستُتخذ بحقه الإجراءات اللازمة.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-shield-alt"></i> السياسات المالية، الانسحاب، والأمانات</h2>
+        <div class="grid-2">
+            <div class="card">
+                <h3><i class="fas fa-hand-holding-usd"></i> سياسات الانسحاب والفصل</h3>
+                <ul>
+                    <li>عند الانسحاب لأي سبب، يدفع الطالب إيجار السكن كاملاً لنهاية العام (إلا في الحالات المحددة أدناه).</li>
+                    <li>الانسحاب بداية العام (شهر أغسطس): يتم خصم 20% من الإيجار السنوي.</li>
+                    <li>الانسحاب في (شهر سبتمبر): يتم خصم 25% من الإيجار السنوي.</li>
+                    <li>الخروج بعد شهر سبتمبر: دفع الإيجار كاملاً أو توفير بديل تنطبق عليه الشروط.</li>
+                    <li>فصل الطالب من السكن أو الجامعة يلزمه بدفع إيجار السنة كاملة.</li>
+                    <li>عند الانقطاع عن الجامعة، يُمنح الطالب 10 أيام لإعادة القيد، أو يُخلي السكن.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-lock"></i> سياسة الأمانات والممتلكات</h3>
+                <ul>
+                    <li>يجب إيداع الأغراض الثمينة والمبالغ المالية والوثائق المهمة في إدارة الأمانات.</li>
+                    <li>إدارة السكن غير مسؤولة عن فقدان أي ممتلكات تُركت في الغرفة ولم تُسلم للأمانات.</li>
+                    <li>يتم تسليم الأغراض الخاصة بالطالب عند سفره لحفظها في الأمانات.</li>
+                    <li>في حال السفر وعدم تسليم الأغراض، يحق للإدارة تفريغ الغرفة ولا تتحمل مسؤولية الفقدان.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p class="footer-highlight">جامعة آزال للتنمية البشرية</p>
+        <p>صنعاء - شارع الستين الغربي - جوار المستشفى الأوروبي الحديث (مبنى مستشفى آزال سابقاً)</p>
+        <div class="contact-info">
+            <span><i class="fas fa-phone-alt"></i> 01/201710</span>
+            <span style="color: #ffffff;">|</span>
+            <span><i class="fab fa-whatsapp"></i> +967 772088099</span>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تخصص الصيدلة | جامعة آزال للتنمية البشرية</title>
+    
+    <!-- الخطوط العربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                        heading: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#108fa3',
+                        primaryDark: '#0c6a7a',
+                        secondary: '#c47c5d',
+                        lightBg: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f8fafc; scroll-behavior: smooth; }
+        
+        /* تأثيرات الخلفية للغلاف */
+        .hero-pattern {
+            background-color: #0c6a7a;
+            background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -5px rgba(16, 143, 163, 0.15); border-color: #108fa3; }
+        
+        /* خط جانبي للزينة */
+        .side-accent { border-right: 5px solid #c47c5d; }
+    </style>
+</head>
+<body class="antialiased text-slate-800 selection:bg-primary selection:text-white">
+
+    <!-- شريط التنقل العلوي -->
+    <nav class="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="font-black text-xl md:text-2xl text-primaryDark font-heading flex items-center gap-3">
+                <i class="fa-solid fa-university text-primary"></i> جامعة آزال للتنمية البشرية
+            </div>
+            <a href="#register" class="bg-secondary hover:bg-orange-700 text-white font-bold py-2 px-5 md:px-6 rounded-full transition shadow-md flex items-center gap-2 text-sm md:text-base">
+                <i class="fa-solid fa-paper-plane"></i> سجل في التخصص
+            </a>
+        </div>
+    </nav>
+
+    <!-- الغلاف الرئيسي (Hero Section) -->
+    <header class="hero-pattern text-white py-16 md:py-24 relative overflow-hidden border-b-8 border-secondary">
+        <div class="absolute -left-20 -bottom-20 text-[20rem] opacity-5 pointer-events-none">
+            <i class="fa-solid fa-capsules"></i>
+        </div>
+        
+        <div class="max-w-6xl mx-auto px-4 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-7">
+                <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-4 py-1.5 rounded-full font-bold text-sm mb-6 shadow-sm backdrop-blur-sm">
+                    <i class="fa-solid fa-staff-snake text-secondary"></i> كلية العلوم الطبية
+                </div>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight font-heading">
+                    بكالوريوس <span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-200 to-white">الصيدلة</span>
+                </h1>
+                <p class="text-xl text-slate-100 font-medium mb-10 leading-relaxed max-w-2xl">
+                    بوابتك لاكتشاف أسرار الدواء وصناعة الشفاء. كن الخبير الأول في الرعاية الدوائية واحصل على شهادة معتمدة دولياً تفتح لك آفاق العمل في كافة المؤسسات الصحية وشركات الأدوية.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#about" class="bg-white text-primaryDark font-bold py-3 px-8 rounded-full shadow-lg hover:bg-slate-50 transition flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-down"></i> استكشف التخصص
+                    </a>
+                    <div class="bg-primaryDark/50 border border-primary/50 text-white font-bold py-3 px-6 rounded-full flex items-center gap-2">
+                        <i class="fa-solid fa-award text-yellow-400"></i> عضو الاتحاد الدولي (FIP)
+                    </div>
+                </div>
+            </div>
+            
+            <!-- بطاقة متطلبات التخصص -->
+            <div class="lg:col-span-5">
+                <div class="bg-white rounded-3xl p-8 shadow-2xl text-slate-800 w-full transform md:-rotate-2 hover:rotate-0 transition duration-300 border-t-8 border-secondary">
+                    <h3 class="font-black text-2xl text-primaryDark mb-6 font-heading border-b-2 border-slate-100 pb-4 text-center">متطلبات وبطاقة التخصص</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-xl shrink-0"><i class="fa-solid fa-percent"></i></div>
+                            <div>
+                                <div class="text-sm text-slate-500 font-bold mb-1">المعدل المطلوب للقبول</div>
+                                <div class="font-black text-2xl text-primaryDark">76% <span class="text-sm font-bold text-slate-500">(القسم العلمي)</span></div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary text-xl shrink-0"><i class="fa-solid fa-hourglass-half"></i></div>
+                            <div>
+                                <div class="text-sm text-slate-500 font-bold mb-1">مدة وطبيعة الدراسة</div>
+                                <div class="font-black text-2xl text-primaryDark">5 سنوات <span class="text-sm font-bold text-slate-500">(نظام فصلي)</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-16 space-y-24 max-w-6xl mx-auto px-4">
+
+        <!-- 1. نبذة وأهداف -->
+        <section id="about" class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-200 side-accent">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary text-2xl shrink-0"><i class="fa-solid fa-circle-info"></i></div>
+                    <h2 class="text-3xl font-black text-primaryDark font-heading">نبذة عن التخصص</h2>
+                </div>
+                <p class="text-lg text-slate-700 leading-loose font-medium">
+                    يُعد تخصص <strong class="text-primaryDark">الصيدلة (Pharmacy)</strong> من التخصصات الطبية الحيوية التي تركز على علم الأدوية، تركيبها، تأثيرها، واستخدامها الآمن لعلاج الأمراض. الصيدلاني ليس مجرد بائع للدواء، بل هو "الخبير الأول" في الرعاية الدوائية والمستشار الموثوق للطبيب والمريض.
+                    <br><br>
+                    نظراً لتطور الصناعات الدوائية والحاجة الماسة للرعاية الصحية السريرية، يُعد هذا التخصص ركيزة أساسية لضمان الأمن الدوائي للمجتمع اليمني، ويشهد طلباً مستمراً في سوق العمل المحلي والعالمي.
+                </p>
+            </div>
+
+            <div class="bg-primaryDark text-white p-8 md:p-10 rounded-3xl shadow-lg relative overflow-hidden">
+                <i class="fa-solid fa-bullseye absolute -left-10 -bottom-10 text-9xl opacity-10"></i>
+                <div class="flex items-center gap-4 mb-6 relative z-10">
+                    <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-secondary text-2xl shrink-0"><i class="fa-solid fa-crosshairs"></i></div>
+                    <h2 class="text-3xl font-black font-heading">أهداف البرنامج</h2>
+                </div>
+                <ul class="space-y-5 text-lg font-medium relative z-10">
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-secondary mt-1"></i> <span>تأهيل كوادر صيدلانية قادرة على تقديم الرعاية الصيدلانية السريرية والمجتمعية بكفاءة عالية.</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-secondary mt-1"></i> <span>تطوير مهارات الطالب في التحليل الكيميائي، التركيب الدوائي، والبحث العلمي.</span></li>
+                    <li class="flex items-start gap-3"><i class="fa-solid fa-check-circle text-secondary mt-1"></i> <span>إعداد خريجين ملمين بأخلاقيات وقوانين المهنة، قادرين على المنافسة والابتكار في سوق العمل الدوائي.</span></li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 2. أهم المجالات الدراسية (من الخطة الموحدة) -->
+        <section>
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-black text-primaryDark mb-4 font-heading">ماذا ستدرس في تخصص الصيدلة؟</h2>
+                <div class="w-20 h-1.5 bg-secondary mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-600 font-medium text-lg max-w-3xl mx-auto">خطة دراسية معتمدة من وزارة التعليم العالي، تواكب أحدث التطورات وتجمع بين العلوم الأساسية، التطبيقية، والسريرية:</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover">
+                    <i class="fa-solid fa-flask text-4xl text-primary mb-4"></i>
+                    <h4 class="font-black text-slate-800 text-lg mb-2">الكيمياء الصيدلانية التحليلية</h4>
+                    <p class="text-sm text-slate-500 font-medium">فهم التركيب الكيميائي للدواء وتأثيره.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover">
+                    <i class="fa-solid fa-pills text-4xl text-primary mb-4"></i>
+                    <h4 class="font-black text-slate-800 text-lg mb-2">علم الأدوية (Pharmacology)</h4>
+                    <p class="text-sm text-slate-500 font-medium">دراسة آلية عمل الأدوية في جسم الإنسان.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover">
+                    <i class="fa-solid fa-mortar-pestle text-4xl text-primary mb-4"></i>
+                    <h4 class="font-black text-slate-800 text-lg mb-2">الصيدلانيات والتركيب</h4>
+                    <p class="text-sm text-slate-500 font-medium">تحضير الأشكال الصيدلانية وتصنيع الدواء.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover">
+                    <i class="fa-solid fa-leaf text-4xl text-primary mb-4"></i>
+                    <h4 class="font-black text-slate-800 text-lg mb-2">علم العقاقير والنباتات الطبية</h4>
+                    <p class="text-sm text-slate-500 font-medium">استخلاص المواد الفعالة من المصادر الطبيعية.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover">
+                    <i class="fa-solid fa-bed-pulse text-4xl text-secondary mb-4"></i>
+                    <h4 class="font-black text-slate-800 text-lg mb-2">الصيدلة السريرية</h4>
+                    <p class="text-sm text-slate-500 font-medium">الرعاية المباشرة للمريض والمتابعة العلاجية.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover">
+                    <i class="fa-solid fa-shield-virus text-4xl text-secondary mb-4"></i>
+                    <h4 class="font-black text-slate-800 text-lg mb-2">التيقظ والتطوير الدوائي</h4>
+                    <p class="text-sm text-slate-500 font-medium">مراقبة سلامة الأدوية وتصميم وتطوير أدوية جديدة.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover">
+                    <i class="fa-solid fa-skull-crossbones text-4xl text-secondary mb-4"></i>
+                    <h4 class="font-black text-slate-800 text-lg mb-2">علم السموم (Toxicology)</h4>
+                    <p class="text-sm text-slate-500 font-medium">دراسة الآثار الجانبية والسموم وطرق علاجها.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 text-center card-hover">
+                    <i class="fa-solid fa-chart-line text-4xl text-secondary mb-4"></i>
+                    <h4 class="font-black text-slate-800 text-lg mb-2">قوانين وتسويق الصيدلة</h4>
+                    <p class="text-sm text-slate-500 font-medium">أخلاقيات المهنة والتسويق والإدارة الصيدلانية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. المهارات وفرص العمل -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- المهارات -->
+            <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200">
+                <h3 class="text-2xl font-black text-primaryDark mb-6 font-heading border-b-2 border-slate-200 pb-4">
+                    <i class="fa-solid fa-brain text-secondary ml-2"></i> المهارات التي تكتسبها
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shrink-0 shadow-sm"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">التحليل السريري</h4>
+                            <p class="text-slate-600 text-sm font-medium">اكتشاف التداخلات الدوائية وتحديد الجرعات الآمنة للمرضى.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shrink-0 shadow-sm"><i class="fa-solid fa-flask-vial"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">التركيب والتصنيع</h4>
+                            <p class="text-slate-600 text-sm font-medium">مهارات عملية دقيقة في تركيب الأدوية ومستحضرات التجميل طبياً.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shrink-0 shadow-sm"><i class="fa-solid fa-comments"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">التواصل والاستشارة</h4>
+                            <p class="text-slate-600 text-sm font-medium">التواصل المهني الفعال لتقديم الإرشادات الدوائية للمرضى والأطباء.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-primary shrink-0 shadow-sm"><i class="fa-solid fa-shop"></i></div>
+                        <div>
+                            <h4 class="font-bold text-slate-800 text-lg">الإدارة الصيدلانية</h4>
+                            <p class="text-slate-600 text-sm font-medium">القدرة على إدارة الصيدليات ومستودعات الأدوية والعمل ضمن فريق الرعاية.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فرص العمل -->
+            <div>
+                <h3 class="text-2xl font-black text-primaryDark mb-6 font-heading border-b-2 border-slate-100 pb-4">
+                    <i class="fa-solid fa-briefcase text-secondary ml-2"></i> فرص العمل المستقبلية
+                </h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 card-hover shadow-sm">
+                        <i class="fa-solid fa-store text-3xl text-primary mb-3"></i>
+                        <h4 class="font-bold text-slate-800 mb-1">صيدليات المجتمع</h4>
+                        <p class="text-sm text-slate-500 font-medium">إدارة وامتلاك الصيدليات الخاصة وتقديم الاستشارات الدوائية المباشرة.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 card-hover shadow-sm">
+                        <i class="fa-solid fa-hospital-user text-3xl text-primary mb-3"></i>
+                        <h4 class="font-bold text-slate-800 mb-1">الصيدلة السريرية</h4>
+                        <p class="text-sm text-slate-500 font-medium">العمل في المستشفيات بجانب الأطباء لمتابعة الخطط العلاجية للمرضى.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 card-hover shadow-sm">
+                        <i class="fa-solid fa-industry text-3xl text-primary mb-3"></i>
+                        <h4 class="font-bold text-slate-800 mb-1">المصانع والشركات</h4>
+                        <p class="text-sm text-slate-500 font-medium">العمل في تصنيع الأدوية، الرقابة الدوائية، أو كمندوب تسويق طبي محترف.</p>
+                    </div>
+                    <div class="bg-white p-5 rounded-2xl border border-slate-200 card-hover shadow-sm">
+                        <i class="fa-solid fa-building-shield text-3xl text-primary mb-3"></i>
+                        <h4 class="font-bold text-slate-800 mb-1">القطاع الحكومي</h4>
+                        <p class="text-sm text-slate-500 font-medium">العمل في الهيئات العليا للأدوية، وزارة الصحة، الجمارك، أو المنظمات الدولية.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. مميزات الجامعة في هذا التخصص (التسويق) -->
+        <section class="bg-primaryDark rounded-3xl shadow-xl p-8 md:p-12 border-t-8 border-secondary relative overflow-hidden text-white">
+            <div class="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-br-full pointer-events-none"></div>
+            
+            <div class="text-center mb-12 relative z-10">
+                <i class="fa-solid fa-award text-5xl text-secondary mb-4"></i>
+                <h2 class="text-3xl md:text-4xl font-black font-heading mb-4">لماذا تدرس الصيدلة في جامعة آزال تحديداً؟</h2>
+                <p class="text-lg font-medium text-slate-300">ميزات حصرية تضمن لك التفوق المهني والأكاديمي:</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+                <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fa-solid fa-globe text-3xl text-secondary mb-3"></i>
+                    <h4 class="text-xl font-bold mb-2">عضوية اتحاد الصيادلة (FIP)</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed font-medium">الجامعة عضو رسمي في الاتحاد الدولي للصيادلة، مما يمنح شهادتك وزناً عالمياً ويسهل قبولك للعمل في الخارج.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fa-solid fa-microscope text-3xl text-secondary mb-3"></i>
+                    <h4 class="text-xl font-bold mb-2">معامل طبية متقدمة</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed font-medium">تضم الكلية أكثر من 20 معملاً طبياً مجهزاً بأحدث أجهزة التحليل والتركيب لضمان التطبيق العملي الدقيق لكل طالب.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fa-solid fa-language text-3xl text-secondary mb-3"></i>
+                    <h4 class="text-xl font-bold mb-2">لغتك الإنجليزية علينا</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed font-medium">يحصل طالب الصيدلة على 6 دورات لغة إنجليزية مجانية لتسهيل دراسة المصطلحات الطبية والبحث العلمي المتقدم.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fa-solid fa-stethoscope text-3xl text-secondary mb-3"></i>
+                    <h4 class="text-xl font-bold mb-2">اعتماد التخصصات السعودية</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed font-medium">الجامعة معتمدة لدى الهيئة السعودية للتخصصات الطبية، لفتح آفاق العمل ومواصلة الاختصاص في دول الخليج.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fa-solid fa-user-doctor text-3xl text-secondary mb-3"></i>
+                    <h4 class="text-xl font-bold mb-2">كادر أكاديمي محترف</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed font-medium">نخبة من أفضل الدكاترة والصيادلة المتخصصين لنقل الخبرة العملية والنظرية وفق أحدث المناهج المعتمدة.</p>
+                </div>
+                <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm">
+                    <i class="fa-solid fa-hand-holding-dollar text-3xl text-secondary mb-3"></i>
+                    <h4 class="text-xl font-bold mb-2">تسهيلات مادية ومنح</h4>
+                    <p class="text-sm text-slate-300 leading-relaxed font-medium">نظام أقساط مريح، وتخفيض 5% مستمر، بالإضافة لمنح خاصة للأوائل تصل لـ 50% تقديراً لتفوقهم الأكاديمي.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. رسالة الدعوة والاتصال -->
+        <section id="register" class="bg-white rounded-3xl p-10 md:p-14 text-center shadow-xl border border-slate-200 relative overflow-hidden">
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <i class="fa-solid fa-rocket text-6xl text-primary mb-6"></i>
+                <h2 class="text-4xl font-black mb-6 font-heading text-primaryDark">ابدأ مستقبلك الطبي اليوم!</h2>
+                <p class="text-xl font-medium mb-10 text-slate-600 leading-relaxed">
+                    اختر تخصص <strong>الصيدلة</strong> في جامعة آزال.. بوابتك لتكون جزءاً من منظومة صحية متطورة تنتظرك. سجل الآن ولا تفوت فرصة الحصول على تعليم معتمد ومتميز.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://oasyemen.net/private/admission" target="_blank" class="bg-primary hover:bg-primaryDark text-white font-bold text-lg py-4 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-globe text-xl"></i> التسجيل عبر البوابة الموحدة
+                    </a>
+                    <a href="https://wa.me/967772088099" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold text-lg py-4 px-8 rounded-full shadow-lg transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-2xl"></i> استفسر عبر الواتساب
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="bg-slate-800 text-slate-300 py-10 text-center font-medium border-t-4 border-secondary">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-8 mb-6">
+                <div class="flex items-center gap-2 font-bold"><i class="fa-solid fa-location-dot text-primary"></i> صنعاء – شارع الستين الغربي</div>
+                <div class="flex items-center gap-2 font-bold" dir="ltr"><i class="fa-solid fa-phone text-primary"></i> 772088099 - 01/201710</div>
+                <div class="flex items-center gap-2 font-bold"><i class="fa-solid fa-globe text-primary"></i> www.auhd.edu.ye</div>
+            </div>
+            <p class="text-sm opacity-80">جميع الحقوق محفوظة &copy; جامعة آزال للتنمية البشرية 2026. الجامعة الأهلية الأولى في اليمن تصنيفاً واعتماداً.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

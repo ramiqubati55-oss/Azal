@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>تخصص إدارة الأعمال الدولية | جامعة آزال للتنمية البشرية</title>
+    
+    <!-- الخطوط العربية -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                        heading: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            teal: '#108fa3',
+                            dark: '#0c6a7a',
+                            earth: '#c47c5d',
+                            light: '#f4fbfc',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --brand-teal: #108fa3;
+            --brand-dark: #0c6a7a;
+            --brand-earth: #c47c5d;
+            --brand-light: #f4fbfc;
+        }
+
+        body { background-color: #f8fafc; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* تأثيرات الخلفية للغلاف */
+        .hero-bg {
+            background-color: var(--brand-dark);
+            background-image: 
+                radial-gradient(rgba(255,255,255,0.08) 2px, transparent 2px),
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 30px 30px, 40px 40px, 40px 40px;
+        }
+
+        .hover-card { transition: all 0.3s ease; }
+        .hover-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px -5px rgba(16, 143, 163, 0.15); border-color: var(--brand-teal); }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--brand-dark);
+            font-family: 'Cairo', sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.5rem, 4vw, 2.25rem);
+        }
+        .section-title::after {
+            content: ''; position: absolute; right: 0; bottom: -8px; width: 50px; height: 4px; background-color: var(--brand-earth); border-radius: 2px;
+        }
+
+        /* العلامة المائية للغلاف */
+        .watermark-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 250px;
+            opacity: 0.05;
+            pointer-events: none;
+            color: white;
+            z-index: 0;
+        }
+        @media (min-width: 1024px) {
+            .watermark-icon {
+                font-size: 450px;
+                left: -5%;
+                transform: translateY(-50%);
+            }
+        }
+
+        /* زر الواتساب العائم */
+        .float-whatsapp {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 35px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+            animation: pulse-green 2s infinite;
+        }
+        .float-whatsapp:hover { transform: scale(1.1); }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        
+        .logo-fallback {
+            display: none;
+            background: white;
+            color: var(--brand-dark);
+            font-weight: 900;
+            padding: 5px 15px;
+            border-radius: 8px;
+            border: 2px solid var(--brand-teal);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800 selection:bg-brand-teal selection:text-white">
+
+    <!-- زر الواتساب العائم -->
+    <a href="https://wa.me/967772088099" target="_blank" class="float-whatsapp" title="تواصل معنا عبر واتساب">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- شريط التنقل العلوي -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <!-- الشعار فقط بدون النص -->
+                <img src="https://www.auhd.edu.ye/images/logo.png" alt="شعار جامعة آزال" class="h-12 md:h-16 w-auto object-contain" 
+                     onerror="this.onerror=null; this.src='https://www.auhd.edu.ye/gs_file'; this.nextElementSibling.style.display='block';">
+                <div class="logo-fallback">جامعة آزال</div>
+            </div>
+            <a href="#register" class="bg-brand-earth hover:bg-orange-700 text-white font-bold py-1.5 px-4 md:py-2 md:px-6 rounded-full transition shadow-md flex items-center gap-1.5 text-xs md:text-base shrink-0">
+                <i class="fa-solid fa-paper-plane"></i> سجل الآن
+            </a>
+        </div>
+    </nav>
+
+    <!-- الغلاف الرئيسي (Hero Section) -->
+    <header class="hero-bg text-white py-12 md:py-20 relative overflow-hidden border-b-8 border-brand-earth">
+        <!-- أيقونة التخصص المائية -->
+        <i class="fa-solid fa-earth-americas watermark-icon"></i>
+        
+        <div class="max-w-7xl mx-auto px-4 relative z-10 flex flex-col lg:flex-row gap-10 items-center">
+            
+            <!-- نصوص الغلاف -->
+            <div class="w-full lg:w-3/5 text-center lg:text-right space-y-6">
+                <!-- اسم الكلية -->
+                <div class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-5 py-2 rounded-full font-bold text-sm md:text-base shadow-sm backdrop-blur-sm">
+                    <i class="fa-solid fa-chart-pie text-brand-earth text-lg"></i> 
+                    كلية العلوم الإدارية والإنسانية
+                </div>
+                
+                <!-- اسم التخصص -->
+                <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight font-heading">
+                    بكالوريوس <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-l from-teal-200 to-white">إدارة الأعمال الدولية</span>
+                </h1>
+                <h2 class="text-xl font-bold text-teal-100 tracking-wider mb-2">(International Business Administration)</h2>
+                
+                <!-- النبذة المختصرة -->
+                <p class="text-lg md:text-xl text-slate-200 font-medium leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    بوابتك لاختراق الأسواق العالمية. كن القائد الذي يدير الشركات متعددة الجنسيات، ويتقن فنون التجارة الدولية وإدارة التنوع الثقافي بشهادة תفتح لك آفاق العمل في كل قارات العالم.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                    <a href="#about" class="bg-white text-brand-dark font-bold py-3 px-8 rounded-full shadow-lg hover:bg-slate-50 transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-arrow-down"></i> استكشف التخصص
+                    </a>
+                    <!-- ميزة تنافسية -->
+                    <div class="bg-brand-dark/50 border border-brand-teal/50 text-white font-bold py-3 px-6 rounded-full flex items-center justify-center gap-2 backdrop-blur-sm">
+                        <i class="fa-solid fa-globe text-yellow-400"></i> تخصص الريادة عبر الحدود
+                    </div>
+                </div>
+            </div>
+            
+            <!-- بطاقة معلومات التخصص السريعة -->
+            <div class="w-full lg:w-2/5">
+                <div class="bg-white rounded-3xl p-6 md:p-8 shadow-2xl text-slate-800 w-full transform lg:-rotate-2 hover:rotate-0 transition duration-300 border-t-8 border-brand-earth relative overflow-hidden">
+                    <i class="fa-solid fa-id-card absolute -left-6 -bottom-6 text-8xl opacity-5 text-brand-teal"></i>
+                    <h3 class="font-black text-xl md:text-2xl text-brand-dark mb-6 font-heading border-b-2 border-slate-100 pb-4 text-center">بطاقة التخصص</h3>
+                    
+                    <div class="space-y-4 relative z-10">
+                        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xl shrink-0"><i class="fa-solid fa-percent"></i></div>
+                            <div>
+                                <div class="text-xs md:text-sm text-slate-500 font-bold mb-1">المعدل المطلوب للقبول</div>
+                                <div class="font-black text-xl md:text-2xl text-brand-dark">58% <span class="text-xs md:text-sm font-bold text-slate-500">(علمي / أدبي)</span></div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-brand-earth/10 flex items-center justify-center text-brand-earth text-xl shrink-0"><i class="fa-solid fa-hourglass-half"></i></div>
+                            <div>
+                                <div class="text-xs md:text-sm text-slate-500 font-bold mb-1">مدة وطبيعة الدراسة</div>
+                                <div class="font-black text-lg md:text-xl text-brand-dark">4 سنوات <span class="text-xs font-bold text-slate-500">(نظام فصلي)</span></div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal text-xl shrink-0"><i class="fa-solid fa-earth-africa"></i></div>
+                            <div>
+                                <div class="text-xs md:text-sm text-slate-500 font-bold mb-1">التطبيق العملي</div>
+                                <div class="font-black text-lg md:text-xl text-brand-dark">دراسات حالة للأسواق العالمية</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="py-12 md:py-20 space-y-16 md:space-y-24 max-w-7xl mx-auto px-4">
+
+        <!-- ================= 1. نبذة وأهداف ================= -->
+        <section id="about" class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+            <!-- النبذة -->
+            <div class="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-slate-200 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-2 h-full bg-brand-teal"></div>
+                <h2 class="section-title"><i class="fa-solid fa-circle-info text-brand-earth ml-2"></i> نبذة عن التخصص</h2>
+                <p class="text-base md:text-lg text-slate-700 leading-loose font-medium text-justify">
+                    يُعد تخصص <strong>إدارة الأعمال الدولية</strong> امتداداً استراتيجياً لعلم الإدارة الحديث، حيث يركز على تزويد الطالب بالمهارات اللازمة لإدارة وتوجيه المؤسسات التي تتخطى عملياتها الحدود الوطنية.
+                    <br><br>
+                    في ظل العولمة وانفتاح الأسواق، أصبح فهم الاقتصاديات العالمية، قوانين التجارة الدولية، وكيفية إدارة التنوع الثقافي من أهم متطلبات النجاح لأي شركة تسعى للنمو. في جامعة آزال، نُعدك لتكون المدير المبتكر القادر على قيادة الشركات متعددة الجنسيات، التعامل مع الأزمات الاقتصادية، وتوجيه الاستثمارات الدولية بكفاءة.
+                </p>
+            </div>
+
+            <!-- الأهداف -->
+            <div class="bg-brand-dark text-white p-6 md:p-10 rounded-3xl shadow-lg relative overflow-hidden">
+                <i class="fa-solid fa-bullseye absolute -left-10 -bottom-10 text-9xl opacity-10"></i>
+                <h2 class="text-2xl md:text-3xl font-black font-heading mb-6 relative z-10"><i class="fa-solid fa-crosshairs text-brand-earth ml-2"></i> أهداف البرنامج</h2>
+                <ul class="space-y-5 text-base md:text-lg font-medium relative z-10">
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-brand-earth text-white flex items-center justify-center shrink-0 mt-1 text-xs"><i class="fa-solid fa-check"></i></div>
+                        <span>إعداد كوادر إدارية قادرة على تخطيط وتنفيذ استراتيجيات الدخول للأسواق العالمية والتوسع فيها.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-brand-earth text-white flex items-center justify-center shrink-0 mt-1 text-xs"><i class="fa-solid fa-check"></i></div>
+                        <span>تطوير مهارات التفاوض، التعامل مع التنوع الثقافي، وإدارة فرق العمل متعددة الجنسيات.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-brand-earth text-white flex items-center justify-center shrink-0 mt-1 text-xs"><i class="fa-solid fa-check"></i></div>
+                        <span>تمكين الطلاب من فهم سياسات وقوانين التجارة الدولية، وإدارة الاستثمارات والأسواق المالية بحرفية.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= 2. أهم المجالات الدراسية ================= -->
+        <section class="bg-brand-light py-12 md:py-16 px-4 md:px-12 rounded-3xl border border-brand-teal/20 text-center">
+            <h2 class="text-2xl md:text-4xl font-black text-brand-dark mb-4 font-heading">ماذا ستدرس في هذا التخصص؟</h2>
+            <div class="w-20 h-1.5 bg-brand-earth mx-auto rounded-full mb-8"></div>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                <!-- مواد من خطة إدارة الأعمال الدولية -->
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                    <i class="fa-solid fa-earth-americas text-3xl text-brand-teal mb-3"></i>
+                    <h4 class="font-black text-slate-800 text-base mb-1">إدارة الأعمال الدولية</h4>
+                    <p class="text-xs text-slate-500">International Business Mgt.</p>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                    <i class="fa-solid fa-users-viewfinder text-3xl text-brand-teal mb-3"></i>
+                    <h4 class="font-black text-slate-800 text-base mb-1">إدارة التنوع الثقافي</h4>
+                    <p class="text-xs text-slate-500">Cross-Cultural Management</p>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                    <i class="fa-solid fa-handshake-angle text-3xl text-brand-teal mb-3"></i>
+                    <h4 class="font-black text-slate-800 text-base mb-1">إدارة العلاقات الدولية</h4>
+                    <p class="text-xs text-slate-500">International Relations Mgt.</p>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                    <i class="fa-solid fa-triangle-exclamation text-3xl text-brand-teal mb-3"></i>
+                    <h4 class="font-black text-slate-800 text-base mb-1">إدارة النزاعات والأزمات</h4>
+                    <p class="text-xs text-slate-500">Conflict & Crises Mgt.</p>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                    <i class="fa-solid fa-bullhorn text-3xl text-brand-earth mb-3"></i>
+                    <h4 class="font-black text-slate-800 text-base mb-1">التسويق الرقمي والدولي</h4>
+                    <p class="text-xs text-slate-500">Digital & Global Marketing</p>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                    <i class="fa-solid fa-sack-dollar text-3xl text-brand-earth mb-3"></i>
+                    <h4 class="font-black text-slate-800 text-base mb-1">إدارة الاستثمار الدولية</h4>
+                    <p class="text-xs text-slate-500">International Investment Mgt.</p>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                    <i class="fa-solid fa-chart-pie text-3xl text-brand-earth mb-3"></i>
+                    <h4 class="font-black text-slate-800 text-base mb-1">الأسواق المالية</h3>
+                    <p class="text-xs text-slate-500">Financial Markets</p>
+                </div>
+                <div class="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                    <i class="fa-solid fa-diagram-project text-3xl text-brand-earth mb-3"></i>
+                    <h4 class="font-black text-slate-800 text-base mb-1">إدارة المشروعات</h4>
+                    <p class="text-xs text-slate-500">Project Management</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 3. المهارات وفرص العمل ================= -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12">
+            <!-- المهارات -->
+            <div>
+                <h2 class="section-title"><i class="fa-solid fa-brain text-brand-earth ml-2"></i> المهارات المكتسبة</h2>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal shrink-0 text-lg md:text-xl"><i class="fa-solid fa-chess"></i></div>
+                        <div class="font-bold text-slate-700 text-sm md:text-lg">بناء وتطوير استراتيجيات التوسع للشركات في الأسواق الأجنبية.</div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal shrink-0 text-lg md:text-xl"><i class="fa-solid fa-earth-americas"></i></div>
+                        <div class="font-bold text-slate-700 text-sm md:text-lg">إدارة التنوع الثقافي والتواصل الفعال مع فرق عمل من خلفيات مختلفة.</div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal shrink-0 text-lg md:text-xl"><i class="fa-solid fa-money-bill-trend-up"></i></div>
+                        <div class="font-bold text-slate-700 text-sm md:text-lg">تحليل الأسواق المالية الدولية وتوجيه الاستثمارات العابرة للحدود.</div>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white p-4 md:p-5 rounded-2xl shadow-sm border border-slate-100 hover-card">
+                        <div class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-brand-teal/10 flex items-center justify-center text-brand-teal shrink-0 text-lg md:text-xl"><i class="fa-solid fa-shield-heart"></i></div>
+                        <div class="font-bold text-slate-700 text-sm md:text-lg">التعامل باحترافية مع الأزمات الاقتصادية والنزاعات التجارية.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- فرص العمل -->
+            <div>
+                <h2 class="section-title"><i class="fa-solid fa-briefcase text-brand-earth ml-2"></i> فرص العمل</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
+                    <div class="bg-brand-teal p-5 md:p-6 rounded-2xl text-white hover-card shadow-md">
+                        <i class="fa-solid fa-building-user text-3xl md:text-4xl mb-3 opacity-80"></i>
+                        <h4 class="font-black text-lg md:text-xl mb-1">الشركات العالمية</h4>
+                        <p class="text-xs md:text-sm font-medium opacity-90">العمل كمدير إقليمي أو استراتيجي في الشركات متعددة الجنسيات.</p>
+                    </div>
+                    <div class="bg-brand-dark p-5 md:p-6 rounded-2xl text-white hover-card shadow-md">
+                        <i class="fa-solid fa-ship text-3xl md:text-4xl mb-3 opacity-80"></i>
+                        <h4 class="font-black text-lg md:text-xl mb-1">الاستيراد والتصدير</h4>
+                        <p class="text-xs md:text-sm font-medium opacity-90">إدارة العمليات التجارية وسلاسل الإمداد العالمية للشركات والوكالات.</p>
+                    </div>
+                    <div class="bg-brand-earth p-5 md:p-6 rounded-2xl text-white hover-card shadow-md">
+                        <i class="fa-solid fa-handshake-simple text-3xl md:text-4xl mb-3 opacity-80"></i>
+                        <h4 class="font-black text-lg md:text-xl mb-1">المنظمات والسفارات</h4>
+                        <p class="text-xs md:text-sm font-medium opacity-90">ممثل مبيعات دولي أو ملحق تجاري في السفارات والمنظمات الدولية.</p>
+                    </div>
+                    <div class="bg-slate-800 p-5 md:p-6 rounded-2xl text-white hover-card shadow-md">
+                        <i class="fa-solid fa-chart-line text-3xl md:text-4xl mb-3 opacity-80"></i>
+                        <h4 class="font-black text-lg md:text-xl mb-1">الأسواق والاستثمار</h4>
+                        <p class="text-xs md:text-sm font-medium opacity-90">العمل كخبير ومحلل مالي في البورصات وشركات الاستثمار العابرة للحدود.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 4. الاعتمادات والـ 16 ميزة ================= -->
+        <section class="bg-white rounded-3xl shadow-xl p-6 md:p-14 border-t-8 border-brand-teal relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-40 h-40 md:w-64 md:h-64 bg-brand-teal/5 rounded-br-full pointer-events-none"></div>
+            
+            <div class="text-center mb-10 md:mb-12 relative z-10">
+                <i class="fa-solid fa-award text-4xl md:text-5xl text-brand-earth mb-4"></i>
+                <h2 class="text-2xl md:text-4xl font-black text-brand-dark font-heading">16 سبباً تجعل جامعة آزال خيارك الأذكى</h2>
+                <p class="text-slate-500 font-bold mt-3">نجمع لك بين قوة الاعتمادات، التدريب العملي، والتسهيلات المادية.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 relative z-10">
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-100">
+                    <h3 class="text-xl font-bold text-brand-dark mb-4 border-b-2 border-brand-earth pb-2"><i class="fa-solid fa-certificate text-brand-teal ml-2"></i> اعتمادات وتصنيفات</h3>
+                    <ul class="space-y-2 text-sm font-semibold text-slate-700">
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> اعتماد وزارة التعليم العالي.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> عضوية برنامج الأمم المتحدة (UNAI).</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> تصنيف متقدم في AD Scientific Index.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> تصنيف EduRank كأفضل الجامعات.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> نظام "سار" الإلكتروني لحماية الشهادات.</li>
+                    </ul>
+                </div>
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-100">
+                    <h3 class="text-xl font-bold text-brand-dark mb-4 border-b-2 border-brand-earth pb-2"><i class="fa-solid fa-laptop-code text-brand-teal ml-2"></i> التدريب والبيئة</h3>
+                    <ul class="space-y-2 text-sm font-semibold text-slate-700">
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> دراسات حالة لشركات عالمية حقيقية.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> 6 دورات إنجليزية مجانية لجميع الطلاب.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> كادر أكاديمي محترف بخبرة 18 عاماً.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> مكتبة شاملة لأحدث مراجع الإدارة.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> سكن طلابي وموقع مركزي بالعاصمة.</li>
+                    </ul>
+                </div>
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-100 lg:col-span-1 md:col-span-2">
+                    <h3 class="text-xl font-bold text-brand-dark mb-4 border-b-2 border-brand-earth pb-2"><i class="fa-solid fa-hand-holding-dollar text-brand-teal ml-2"></i> التسهيلات المالية</h3>
+                    <ul class="space-y-2 text-sm font-semibold text-slate-700">
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> رسوم ثابتة وسعر صرف مثبت (250).</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> نظام أقساط مريح وتخفيض عام مستمر 5%.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> خصم إضافي (يصل لـ 10%) للسداد النقدي.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> منح كاملة وخصومات (تصل لـ 50%) للمتفوقين.</li>
+                        <li><i class="fa-solid fa-check text-brand-teal ml-1"></i> مراعاة الإخوة والأيتام وأبناء الشهداء.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= 5. دعوة الالتحاق والتواصل ================= -->
+        <section id="register" class="bg-brand-dark rounded-3xl p-8 md:p-16 text-center text-white shadow-2xl relative overflow-hidden border-b-8 border-brand-earth">
+            <i class="fa-solid fa-rocket absolute -right-10 -bottom-10 text-8xl md:text-9xl opacity-10"></i>
+            <div class="relative z-10 max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-black mb-4 md:mb-6 font-heading">كن قائداً يعبر الحدود!</h2>
+                <p class="text-lg md:text-2xl font-medium mb-10 text-slate-200 leading-relaxed">
+                    اختر تخصص <strong>إدارة الأعمال الدولية</strong> في جامعة آزال للتنمية البشرية.. فرصتك لامتلاك مفاتيح الإدارة الحديثة وقيادة المؤسسات نحو العالمية، بشهادة معتمدة تصنع الفارق.
+                </p>
+                
+                <div class="bg-white/10 p-5 md:p-6 rounded-2xl border border-white/20 mb-8 md:mb-10 inline-block text-right mx-auto backdrop-blur-sm w-full md:w-auto">
+                    <h4 class="text-lg md:text-xl font-bold text-brand-earth mb-3"><i class="fa-solid fa-file-signature"></i> متطلبات التسجيل:</h4>
+                    <ul class="text-sm md:text-lg font-medium space-y-2 text-slate-100">
+                        <li>- أصل استمارة الثانوية العامة + صورتين طبق الأصل.</li>
+                        <li>- 8 صور شخصية حديثة (خلفية بيضاء 4×6).</li>
+                        <li>- صورة البطاقة الشخصية أو جواز السفر.</li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
+                    <a href="https://oasyemen.net/private/admission" target="_blank" class="bg-white text-brand-dark hover:bg-slate-100 font-black text-lg md:text-xl py-3 md:py-4 px-6 md:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-globe text-xl md:text-2xl"></i> البوابة الموحدة للتسجيل
+                    </a>
+                    <a href="https://wa.me/967772088099" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-black text-lg md:text-xl py-3 md:py-4 px-6 md:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i> استفسر عبر الواتساب
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- الفوتر -->
+    <footer class="bg-slate-800 text-slate-300 py-10 text-center font-medium mt-10">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
+            <img src="https://www.auhd.edu.ye/images/logo.png" alt="شعار الجامعة" class="h-20 mb-6 opacity-70 grayscale hover:grayscale-0 transition duration-300" onerror="this.onerror=null; this.src='https://www.auhd.edu.ye/gs_file';">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-6 text-sm md:text-lg w-full font-bold">
+                <div><i class="fa-solid fa-location-dot text-brand-teal"></i> صنعاء – شارع الستين الغربي</div>
+                <div dir="ltr"><i class="fa-solid fa-phone text-brand-teal"></i> 772088099 - 01/201710</div>
+                <div><i class="fa-solid fa-globe text-brand-teal"></i> www.auhd.edu.ye</div>
+            </div>
+            <p class="text-xs md:text-sm opacity-60">جميع الحقوق محفوظة &copy; جامعة آزال للتنمية البشرية 2026. الجامعة الأهلية الأولى في اليمن تصنيفاً واعتماداً.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

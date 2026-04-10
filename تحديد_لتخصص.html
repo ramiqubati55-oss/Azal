@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقياس آزال الشامل لتحديد التخصص الجامعي</title>
+    
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Tajawal', 'sans-serif'],
+                        heading: ['Cairo', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#108fa3',
+                        primaryDark: '#0c6a7a',
+                        secondary: '#c47c5d',
+                        lightBg: '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #f1f5f9; }
+        .hero-pattern {
+            background-color: #0c6a7a;
+            background-image: radial-gradient(#108fa3 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .option-card {
+            transition: all 0.2s ease-out;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .option-card:hover {
+            transform: translateY(-3px);
+            border-color: #108fa3;
+            box-shadow: 0 10px 15px -3px rgba(16, 143, 163, 0.1);
+            background-color: #f0f9fa;
+        }
+        .fade-in { animation: fadeIn 0.4s ease-in-out forwards; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .loader {
+            border: 5px solid #f1f5f9; border-top: 5px solid #c47c5d;
+            border-radius: 50%; width: 60px; height: 60px;
+            animation: spin 1s linear infinite; margin: 0 auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        
+        /* شريط التمرير للأسئلة */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="text-slate-800 antialiased min-h-screen flex flex-col selection:bg-primary selection:text-white">
+
+    <!-- الترويسة -->
+    <header class="bg-white shadow-sm border-b-4 border-secondary sticky top-0 z-50">
+        <div class="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="font-black text-xl md:text-2xl text-primaryDark font-heading flex items-center gap-3">
+                <i class="fa-solid fa-university text-primary"></i> جامعة آزال للتنمية البشرية
+            </div>
+            <div class="text-xs md:text-sm font-bold text-white bg-primary px-4 py-1 rounded-full shadow-sm">
+                المقياس الشامل (40 سؤال)
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4 py-8">
+        <div class="max-w-5xl w-full bg-white rounded-3xl shadow-xl overflow-hidden border border-slate-100 relative min-h-[650px] flex flex-col">
+            
+            <!-- شاشة البداية -->
+            <div id="start-screen" class="text-center p-8 md:p-16 flex-grow flex flex-col justify-center fade-in">
+                <div class="w-28 h-28 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8 border-4 border-white shadow-lg">
+                    <i class="fa-solid fa-brain text-6xl text-primary"></i>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black text-primaryDark mb-6 font-heading leading-tight">
+                    المقياس الأكاديمي الدقيق<br><span class="text-secondary">لاكتشاف تخصصك الجامعي</span>
+                </h1>
+                <p class="text-xl text-slate-600 mb-10 max-w-3xl mx-auto font-medium leading-relaxed">
+                    هذا المقياس مصمم علمياً من <strong>40 سؤالاً دقيقاً</strong> للتعمق في شخصيتك، مهاراتك المنطقية، شغفك التقني أو الطبي، وقدراتك الإدارية. أجب بصراحة لتحصل على أدق نتيجة تحدد مستقبلك في جامعة آزال.
+                </p>
+                <div class="flex justify-center items-center gap-4 text-sm font-bold text-slate-500 mb-10">
+                    <span><i class="fa-solid fa-stopwatch text-secondary"></i> يستغرق حوالي 5 دقائق</span>
+                    <span>|</span>
+                    <span><i class="fa-solid fa-list-ol text-secondary"></i> 40 سؤال متعدد الخيارات</span>
+                </div>
+                <button onclick="startQuiz()" class="bg-primary hover:bg-primaryDark text-white font-black text-xl py-4 px-12 rounded-full shadow-xl transition transform hover:scale-105 flex items-center justify-center gap-3 mx-auto w-full md:w-auto">
+                    ابدأ الاختبار الآن <i class="fa-solid fa-arrow-left"></i>
+                </button>
+            </div>
+
+            <!-- شاشة الأسئلة -->
+            <div id="quiz-screen" class="hidden flex-grow flex flex-col">
+                <div class="bg-slate-100 h-3 w-full">
+                    <div id="progress-bar" class="bg-secondary h-full transition-all duration-300 w-0 rounded-l-full"></div>
+                </div>
+                
+                <div class="p-6 md:p-10 flex-grow flex flex-col justify-center fade-in" id="question-container-anim">
+                    <div class="flex justify-between items-center mb-6 border-b border-slate-100 pb-4">
+                        <span class="text-primary font-black bg-primary/10 px-4 py-1.5 rounded-full text-sm md:text-base" id="question-counter">السؤال 1 من 40</span>
+                        <span class="text-slate-400 font-bold text-sm">حدد الخيار الأقرب لشخصيتك</span>
+                    </div>
+                    
+                    <h2 id="question-text" class="text-2xl md:text-3xl font-black text-primaryDark mb-8 font-heading leading-relaxed">
+                        --
+                    </h2>
+                    
+                    <div id="options-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- الخيارات -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- شاشة التحميل -->
+            <div id="loading-screen" class="hidden flex-grow flex flex-col justify-center items-center text-center p-12 fade-in">
+                <div class="loader mb-8"></div>
+                <h2 class="text-3xl font-black text-primaryDark mb-4 font-heading">جاري التحليل المعمق...</h2>
+                <p class="text-slate-500 font-bold text-lg" id="loading-text">نقوم بمقاطعة 40 إجابة مع خوارزميات التخصصات</p>
+            </div>
+
+            <!-- شاشة النتيجة -->
+            <div id="result-screen" class="hidden flex-grow flex flex-col overflow-y-auto">
+                <div class="hero-pattern text-white text-center p-10 md:p-12 relative">
+                    <i class="fa-solid fa-graduation-cap text-7xl text-secondary mb-6 drop-shadow-lg"></i>
+                    <h2 class="text-2xl font-bold mb-3 opacity-90">بناءً على تحليلات إجاباتك، المسار الأكاديمي الأمثل لك هو:</h2>
+                    <h3 id="result-title" class="text-4xl md:text-5xl font-black font-heading drop-shadow-md">--</h3>
+                </div>
+                
+                <div class="p-6 md:p-10">
+                    <div class="mb-8">
+                        <h4 class="text-2xl font-black text-primaryDark border-b-2 border-slate-100 pb-3 mb-5 font-heading"><i class="fa-solid fa-microscope text-secondary ml-2"></i> التقرير الأكاديمي لشخصيتك:</h4>
+                        <p id="result-desc" class="text-lg text-slate-700 font-medium leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-100 shadow-sm">--</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                        <div class="bg-primary/5 border-2 border-primary/20 p-6 rounded-2xl shadow-sm">
+                            <h4 class="text-xl font-black text-primaryDark mb-4"><i class="fa-solid fa-star text-secondary ml-2"></i> التخصصات الأساسية الموصى بها:</h4>
+                            <p class="text-sm text-slate-600 mb-4 font-medium">هذه التخصصات في جامعة آزال تتطابق بنسبة عالية جداً مع قدراتك:</p>
+                            <ul id="primary-majors" class="space-y-3 font-bold text-slate-800 text-lg"></ul>
+                        </div>
+                        <div class="bg-slate-50 border-2 border-slate-200 p-6 rounded-2xl shadow-sm">
+                            <h4 class="text-xl font-black text-slate-700 mb-4"><i class="fa-solid fa-code-branch text-slate-400 ml-2"></i> الخطة البديلة (المسار الثانوي):</h4>
+                            <p class="text-sm text-slate-500 mb-4 font-medium">بناءً على ميولك الثانوية التي ظهرت في التحليل، يمكنك أيضاً الإبداع في:</p>
+                            <ul id="secondary-majors" class="space-y-2 font-bold text-slate-600"></ul>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row justify-center gap-4 border-t-2 border-slate-100 pt-8 mt-4">
+                        <a href="https://wa.me/967772088099" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-bold text-lg py-4 px-8 rounded-xl shadow-md transition flex items-center justify-center gap-3 flex-grow md:flex-grow-0">
+                            <i class="fa-brands fa-whatsapp text-3xl"></i> تواصل للتسجيل الآن
+                        </a>
+                        <button onclick="window.print()" class="bg-primaryDark hover:bg-slate-800 text-white font-bold text-lg py-4 px-8 rounded-xl shadow-md transition flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-file-pdf"></i> طباعة التقرير
+                        </button>
+                        <button onclick="restartQuiz()" class="bg-white hover:bg-slate-50 text-slate-600 border-2 border-slate-200 font-bold text-lg py-4 px-8 rounded-xl transition flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-rotate-right"></i> إعادة المقياس
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- البيانات والمنطق البرمجي -->
+    <script>
+        // قاعدة البيانات: 40 سؤالاً مع التركيز العميق على التخصصات الطبية والهندسية
+        const questions = [
+            // المجموعة 1: ردود الأفعال في الأزمات والطوارئ (تركيز طبي/سيبراني)
+            {
+                question: "إذا وقع حادث طارئ أمامك، ما هو أول رد فعل لك؟",
+                options: [
+                    { text: "أقوم بتقديم الإسعافات الأولية وأراقب العلامات الحيوية للمصاب.", category: "medical", icon: "fa-kit-medical" },
+                    { text: "أحلل الموقف منطقياً وأبحث عن طريقة تقنية لحماية المكان.", category: "engineering", icon: "fa-shield-halved" },
+                    { text: "أتولى القيادة، وأوجه الموجودين بوضوح وأتصل بالجهات المختصة.", category: "business", icon: "fa-user-shield" },
+                    { text: "أقوم بتهدئة المصاب والأشخاص المذعورين حوله.", category: "humanities", icon: "fa-hand-holding-hand" }
+                ]
+            },
+            {
+                question: "إذا تم اختراق جهاز حاسوب أو نظام المستشفى، أين تجد دورك؟",
+                options: [
+                    { text: "أهتم بحفظ بيانات المرضى الطبية والتأكد من استمرار العلاج يدوياً.", category: "medical", icon: "fa-notes-medical" },
+                    { text: "أقوم بتتبع الثغرة البرمجية أو الشبكية وأغلقها فوراً.", category: "engineering", icon: "fa-laptop-code" },
+                    { text: "أدير الأزمة إدارياً وأقلل من الخسائر المالية للمؤسسة.", category: "business", icon: "fa-chart-simple" },
+                    { text: "أتعامل مع خوف وقلق الموظفين والمرضى.", category: "humanities", icon: "fa-users" }
+                ]
+            },
+            // المجموعة 2: الاهتمامات العلمية والتفاصيل الدقيقة
+            {
+                question: "أي من هذه المجلات أو المقالات تفضل قراءتها؟",
+                options: [
+                    { text: "اكتشاف أدوية جديدة وفهم كيفية تأثيرها على خلايا الجسم.", category: "medical", icon: "fa-capsules" },
+                    { text: "الذكاء الاصطناعي، إنترنت الأشياء، وتصميم المدن الذكية.", category: "engineering", icon: "fa-city" },
+                    { text: "أسواق المال، ريادة الأعمال، ودراسات الجدوى الاقتصادية.", category: "business", icon: "fa-coins" },
+                    { text: "تطوير الذات، لغة الجسد، والتعامل مع صعوبات التعلم.", category: "humanities", icon: "fa-book-open" }
+                ]
+            },
+            {
+                question: "في المعمل أو ورشة العمل، ما الذي يمتعك أكثر؟",
+                options: [
+                    { text: "استخدام الميكروسكوب والتعامل مع العينات الكيميائية والحيوية.", category: "medical", icon: "fa-microscope" },
+                    { text: "تركيب الدوائر الإلكترونية، كتابة الأكواد، أو رسم المخططات.", category: "engineering", icon: "fa-microchip" },
+                    { text: "تنظيم أدوات المعمل وجدولة المهام والميزانية.", category: "business", icon: "fa-clipboard-list" },
+                    { text: "مساعدة الزملاء المتعثرين في فهم خطوات التجربة.", category: "humanities", icon: "fa-chalkboard-user" }
+                ]
+            },
+            // المجموعة 3: المهارات الأكاديمية (علوم ضد رياضيات)
+            {
+                question: "ما هي المواد التي كنت تستمتع بدراستها وتحقيق درجات عالية فيها بالثانوية؟",
+                options: [
+                    { text: "الأحياء (البيولوجيا) والكيمياء العضوية.", category: "medical", icon: "fa-dna" },
+                    { text: "الرياضيات، الفيزياء، والحاسوب.", category: "engineering", icon: "fa-square-root-variable" },
+                    { text: "الرياضيات المالية، الإدارة، والاقتصاد.", category: "business", icon: "fa-calculator" },
+                    { text: "اللغة الإنجليزية، علم الاجتماع، وعلم النفس.", category: "humanities", icon: "fa-language" }
+                ]
+            },
+            {
+                question: "عندما تدرس موضوعاً جديداً، كيف تفضل أن تكون طبيعته؟",
+                options: [
+                    { text: "يعتمد على قوة الحفظ، الدقة الشديدة، وفهم تفاصيل جسم الإنسان.", category: "medical", icon: "fa-brain" },
+                    { text: "يعتمد على التفكير المنطقي، الاستنتاج، وحل المعادلات المعقدة.", category: "engineering", icon: "fa-gears" },
+                    { text: "يعتمد على وضع الخطط الاستراتيجية وتوقع الأرباح والخسائر.", category: "business", icon: "fa-chess-knight" },
+                    { text: "يعتمد على تحليل السلوك، الثقافات، وطرق التواصل البشري.", category: "humanities", icon: "fa-comments" }
+                ]
+            },
+            // المجموعة 4: بيئة العمل المفضلة
+            {
+                question: "أين تفضل أن تقضي ساعات عملك اليومية مستقبلاً؟",
+                options: [
+                    { text: "في مستشفى، عيادة، صيدلية، أو معمل تحاليل طبية.", category: "medical", icon: "fa-hospital" },
+                    { text: "في شركة تقنية، خلف الشاشات لبرمجة الأنظمة، أو في موقع بناء.", category: "engineering", icon: "fa-building" },
+                    { text: "في مكاتب إدارية، بنوك، أو في إدارة شركة كبرى.", category: "business", icon: "fa-building-user" },
+                    { text: "في مراكز تدريب، مدارس، أو جمعيات لرعاية ذوي الهمم.", category: "humanities", icon: "fa-school" }
+                ]
+            },
+            {
+                question: "أي بيئة عمل تصفها بأنها (المثالية) لك؟",
+                options: [
+                    { text: "بيئة معقمة، تتطلب التركيز التام ولا مجال فيها للخطأ.", category: "medical", icon: "fa-mask-face" },
+                    { text: "بيئة حيوية مليئة بالأجهزة والتقنيات الحديثة أو المخططات.", category: "engineering", icon: "fa-server" },
+                    { text: "بيئة تنافسية مليئة بالتحديات والاجتماعات وصنع القرار.", category: "business", icon: "fa-chart-line" },
+                    { text: "بيئة داعمة وهادئة تركز على تطوير الأفراد والاستماع لهم.", category: "humanities", icon: "fa-leaf" }
+                ]
+            },
+            // المجموعة 5: التكنولوجيا والأجهزة (تفصيل للمهندسين والأطباء)
+            {
+                question: "ما هو شعورك تجاه التكنولوجيا الحديثة؟",
+                options: [
+                    { text: "أحب استخدامها كأجهزة متطورة لتشخيص الأمراض بدقة (كالأشعة).", category: "medical", icon: "fa-x-ray" },
+                    { text: "أريد أن أكون من يصنعها، يبرمجها، أو يحميها من الاختراق.", category: "engineering", icon: "fa-code-branch" },
+                    { text: "أراها أداة ممتازة لزيادة إنتاجية الشركة وتخفيض التكاليف.", category: "business", icon: "fa-arrow-trend-up" },
+                    { text: "أفضل التكنولوجيا التي تسهل حياة ذوي الاحتياجات الخاصة.", category: "humanities", icon: "fa-hands" }
+                ]
+            },
+            {
+                question: "إذا أعطيت جهازاً معقداً لم تره من قبل، ماذا ستفعل؟",
+                options: [
+                    { text: "أقرأ دليل الاستخدام بعناية شديدة قبل لمسه لضمان سلامتي.", category: "medical", icon: "fa-book-medical" },
+                    { text: "أقوم بتفكيكه أو محاولة اكتشاف كيف يعمل من الداخل بنفسي.", category: "engineering", icon: "fa-wrench" },
+                    { text: "أفكر في كيفية تسويق هذا الجهاز أو بيعه لتحقيق أرباح.", category: "business", icon: "fa-tags" },
+                    { text: "أبحث عن شخص يعلمني أو أطلب المساعدة لفهمه معاً.", category: "humanities", icon: "fa-people-arrows" }
+                ]
+            },
+            // المجموعة 6-40: (تم تكثيف الأسئلة لتصل إلى 40 سؤال لتغطية شاملة)
+            // سأقوم بتوليد الأسئلة بشكل مكثف الآن لتغطية المواقف الدقيقة
+            { question: "إذا خُيرت بين وظيفتين، أيهما تختار؟", options: [
+                {text: "تجهيز جرعات أدوية دقيقة للمرضى.", category: "medical", icon:"fa-pills"}, {text: "تصميم واجهة تطبيق هاتف ذكي.", category: "engineering", icon:"fa-mobile-screen"}, {text: "إدارة حسابات شركة ضخمة.", category: "business", icon:"fa-file-invoice-dollar"}, {text: "تدريس لغة جديدة لمجموعة أطفال.", category: "humanities", icon:"fa-chalkboard"}
+            ]},
+            { question: "أثناء مشاهدتك لبرنامج وثائقي، أي اللقطات تجذب انتباهك؟", options: [
+                {text: "عمليات جراحية معقدة لإنقاذ حياة مريض.", category: "medical", icon:"fa-syringe"}, {text: "كيفية بناء أطول ناطحة سحاب أو شبكة اتصالات.", category: "engineering", icon:"fa-bridge"}, {text: "قصة صعود شركة عالمية من الصفر إلى القمة.", category: "business", icon:"fa-chart-area"}, {text: "كيف تتغلب المجتمعات على مشاكلها النفسية والتعليمية.", category: "humanities", icon:"fa-globe"}
+            ]},
+            { question: "صديقك يواجه مشكلة في استخدام برنامج حاسوبي، كيف تساعده؟", options: [
+                {text: "أقلق بشأن تأثير ذلك على صحته وعينيه من الجلوس طويلاً.", category: "medical", icon:"fa-eye"}, {text: "أقوم بالدخول للبرنامج وإصلاح العطل البرمجي فوراً.", category: "engineering", icon:"fa-bug"}, {text: "أنصحه بشراء برنامج أفضل وأكثر كفاءة لتوفير وقته.", category: "business", icon:"fa-cart-shopping"}, {text: "أجلس بجانبه وأشرح له الخطوات بصبر حتى يتعلم.", category: "humanities", icon:"fa-person-chalkboard"}
+            ]},
+            { question: "عند اتخاذ قرار مصيري، على ماذا تعتمد بالدرجة الأولى؟", options: [
+                {text: "النتائج المعملية، التحاليل والأدلة الملموسة.", category: "medical", icon:"fa-vial"}, {text: "المنطق البحت والبيانات الرقمية والخوارزميات.", category: "engineering", icon:"fa-binary"}, {text: "الجدوى الاقتصادية والعائد المتوقع من القرار.", category: "business", icon:"fa-money-bill-trend-up"}, {text: "الحدس وتأثير القرار على مشاعر الآخرين.", category: "humanities", icon:"fa-heart"}
+            ]},
+            { question: "أي من هذه المهن تعتبرها (بطلة) في المجتمع؟", options: [
+                {text: "الممرض والمخبري الذي يقف في خط الدفاع الأول للأمراض.", category: "medical", icon:"fa-user-nurse"}, {text: "مهندس الأمن السيبراني الذي يحمي بيانات الدولة.", category: "engineering", icon:"fa-user-shield"}, {text: "مدير المستشفى أو المؤسسة الذي يحافظ على استمراريتها.", category: "business", icon:"fa-user-tie"}, {text: "الأخصائي النفسي الذي يعالج أزمات الناس بصمت.", category: "humanities", icon:"fa-brain"}
+            ]},
+            { question: "إذا طُلب منك تصميم شيء، ماذا سيكون؟", options: [
+                {text: "نظام غذائي علاجي دقيق لمريض سكري.", category: "medical", icon:"fa-apple-whole"}, {text: "مخطط هندسي لفيلا حديثة أو شبكة إنترنت سريعة.", category: "engineering", icon:"fa-pen-ruler"}, {text: "خطة تسويقية شاملة لمنتج جديد في السوق.", category: "business", icon:"fa-bullseye"}, {text: "منهج تعليمي مبسط لذوي صعوبات التعلم.", category: "humanities", icon:"fa-book"}
+            ]},
+            { question: "ما هو نوع التحدي الذي تفضله؟", options: [
+                {text: "تحدي يتطلب حفظ معلومات هائلة واسترجاعها في الوقت المناسب.", category: "medical", icon:"fa-memory"}, {text: "تحدي يعتمد على الابتكار وإيجاد حل لمشكلة لم يحلها أحد.", category: "engineering", icon:"fa-puzzle-piece"}, {text: "تحدي يختبر قدرتي على المنافسة والفوز في صفقة تجارية.", category: "business", icon:"fa-handshake"}, {text: "تحدي إنساني لدمج شخص منعزل في المجتمع.", category: "humanities", icon:"fa-people-pulling"}
+            ]},
+            { question: "كيف تتعامل مع التفاصيل الصغيرة؟", options: [
+                {text: "أهتم بها بشدة، لأن الخطأ في تركيز الدواء قد يكون قاتلاً.", category: "medical", icon:"fa-droplet"}, {text: "أركز عليها لأن خطأ برمجياً (Bug) قد يعطل النظام بأكمله.", category: "engineering", icon:"fa-bug-slash"}, {text: "أهتم بها في مراجعة الحسابات، لكنني أركز على الصورة العامة.", category: "business", icon:"fa-file-invoice"}, {text: "ألاحظ التغيرات الدقيقة في لغة جسد ونفسية من أمامي.", category: "humanities", icon:"fa-eye"}
+            ]},
+            { question: "أي هذه البرامج أو الأدوات تود احتراف استخدامها؟", options: [
+                {text: "أجهزة الموجات فوق الصوتية (Ultrasound) أو الرنين المغناطيسي.", category: "medical", icon:"fa-wave-square"}, {text: "برامج التصميم الهندسي (AutoCAD) أو لغات البرمجة (Python).", category: "engineering", icon:"fa-terminal"}, {text: "برامج إدارة الموارد البشرية والمالية (ERP Systems).", category: "business", icon:"fa-sitemap"}, {text: "برامج الترجمة الاحترافية أو طرق لغة الإشارة.", category: "humanities", icon:"fa-hands"}
+            ]},
+            { question: "لو تم منحك ميزانية مفتوحة لمشروع، ماذا ستنشئ؟", options: [
+                {text: "مستشفى تخصصي أو مركز أبحاث لتطوير الأدوية.", category: "medical", icon:"fa-hospital-user"}, {text: "مدينة تقنية ذكية تعتمد على الطاقة النظيفة والشبكات.", category: "engineering", icon:"fa-city"}, {text: "شركة استثمارية عالمية تدير محافظ مالية كبرى.", category: "business", icon:"fa-building-columns"}, {text: "مركز تأهيل نفسي وتعليمي ضخم ومجاني.", category: "humanities", icon:"fa-hand-holding-medical"}
+            ]},
+            { question: "أثناء عملك على جهازك، حدث عطل مفاجئ، ماذا تفعل؟", options: [
+                {text: "أخاف على فقدان الأبحاث الطبية الهامة التي كتبتها.", category: "medical", icon:"fa-file-medical"}, {text: "أفتح (Task Manager) أو الكود المصدري لمعرفة العطل التقني.", category: "engineering", icon:"fa-keyboard"}, {text: "أتصل فوراً بفني الصيانة لتوفير الوقت واستكمال عملي المالي.", category: "business", icon:"fa-phone"}, {text: "أستغل الوقت في التحدث مع زملائي حتى يعود الجهاز للعمل.", category: "humanities", icon:"fa-mug-hot"}
+            ]},
+            { question: "أي الألقاب التالية تفضل أن يناديك بها الناس في المستقبل؟", options: [
+                {text: "دكتور / دكتورة.", category: "medical", icon:"fa-user-doctor"}, {text: "مهندس / مهندسة.", category: "engineering", icon:"fa-helmet-safety"}, {text: "المدير التنفيذي / الخبير المالي.", category: "business", icon:"fa-user-tie"}, {text: "المستشار / الأستاذ.", category: "humanities", icon:"fa-user-graduate"}
+            ]},
+            { question: "عند مشاهدة مبنى ضخم قيد الإنشاء، بماذا تفكر؟", options: [
+                {text: "أفكر في معايير السلامة المهنية لحماية العمال من الإصابات.", category: "medical", icon:"fa-kit-medical"}, {text: "أحلل التصميم المعماري والمواد المستخدمة في البناء.", category: "engineering", icon:"fa-trowel-bricks"}, {text: "أحسب تكلفة المشروع والعائد الاستثماري منه.", category: "business", icon:"fa-chart-column"}, {text: "أفكر في كيفية تأثير هذا المبنى على حياة السكان حوله.", category: "humanities", icon:"fa-house-user"}
+            ]},
+            { question: "ما هي نقطة قوتك في النقاشات العميقة؟", options: [
+                {text: "طرح حقائق علمية وبيولوجية دقيقة لا تقبل الشك.", category: "medical", icon:"fa-dna"}, {text: "طرح نظريات منطقية وخطوات تقنية متسلسلة للحل.", category: "engineering", icon:"fa-layer-group"}, {text: "القدرة على التفاوض وإقناع الآخرين بوجهة نظري بذكاء.", category: "business", icon:"fa-comments-dollar"}, {text: "فهم وجهة نظر الطرف الآخر والتعاطف مع موقفه.", category: "humanities", icon:"fa-people-arrows"}
+            ]},
+            { question: "إذا قرأت كتاباً، أي التصنيفات ستختار؟", options: [
+                {text: "موسوعة علمية عن جسم الإنسان أو التغذية.", category: "medical", icon:"fa-book-medical"}, {text: "كتاب عن الاختراقات الأمنية السيبرانية أو العمارة الحديثة.", category: "engineering", icon:"fa-book-journal-whills"}, {text: "كتاب حول إدارة المستشفيات أو الإدارة المالية.", category: "business", icon:"fa-book-open-reader"}, {text: "روايات مترجمة، أو كتب علم النفس والتربية.", category: "humanities", icon:"fa-book"}
+            ]},
+            { question: "كيف تصف علاقتك بالرياضيات والأرقام؟", options: [
+                {text: "أستخدمها بحذر كنسب مقاييس الأدوية والتحاليل.", category: "medical", icon:"fa-vial"}, {text: "أعشقها! هي لغة البرمجة والهندسة والمنطق.", category: "engineering", icon:"fa-calculator"}, {text: "أحبها في مجال الحسابات والأرباح والميزانيات.", category: "business", icon:"fa-coins"}, {text: "أفضل التعامل مع الكلمات والمشاعر أكثر من الأرقام.", category: "humanities", icon:"fa-comment-slash"}
+            ]},
+            { question: "أي من هذه الهوايات تفضل ممارستها؟", options: [
+                {text: "تركيب الإسعافات الأولية أو قراءة المعلومات الصحية.", category: "medical", icon:"fa-briefcase-medical"}, {text: "التصميم الرقمي (الجرافيكس)، أو تصميم مواقع إلكترونية.", category: "engineering", icon:"fa-desktop"}, {text: "المشاركة في تنظيم الفعاليات وبيع المنتجات عبر الإنترنت.", category: "business", icon:"fa-shop"}, {text: "تعلم لغة أجنبية جديدة أو المشاركة في عمل تطوعي.", category: "humanities", icon:"fa-hands-holding-circle"}
+            ]},
+            { question: "كيف تحب أن يتم تقييم عملك؟", options: [
+                {text: "بناءً على دقة النتائج المخبرية أو سلامة المريض.", category: "medical", icon:"fa-heart-circle-check"}, {text: "بناءً على كفاءة الكود البرمجي أو جودة التصميم المعماري.", category: "engineering", icon:"fa-check-double"}, {text: "بناءً على زيادة الأرباح وتحقيق الأهداف الإدارية.", category: "business", icon:"fa-arrow-up-right-dots"}, {text: "بناءً على رضا الأشخاص والتأثير الإيجابي الذي تركته.", category: "humanities", icon:"fa-face-smile-beam"}
+            ]},
+            { question: "أثناء جائحة عالمية (مثل كورونا)، ما هو الدور الذي تتمناه؟", options: [
+                {text: "العمل في العناية المركزة، المختبرات، أو العلاج الطبيعي للمتعافين.", category: "medical", icon:"fa-lungs-virus"}, {text: "برمجة تطبيقات لتتبع الوباء، أو تقوية شبكات الاتصال للعمل عن بعد.", category: "engineering", icon:"fa-tower-cell"}, {text: "إدارة الأزمات في المستشفيات أو توفير الموارد المالية الطارئة.", category: "business", icon:"fa-clipboard-check"}, {text: "تقديم الدعم النفسي للمتضررين وترجمة الإرشادات للغات مختلفة.", category: "humanities", icon:"fa-user-group"}
+            ]},
+            { question: "ما هو الشيء الذي تطيق الانتظار من أجله لتحقيق نتيجة مثالية؟", options: [
+                {text: "انتظار نتيجة زراعة بكتيرية في المختبر للتأكد من العلاج.", category: "medical", icon:"fa-bacterium"}, {text: "كتابة آلاف الأسطر البرمجية ليعمل النظام بدون أخطاء.", category: "engineering", icon:"fa-file-code"}, {text: "انتظار نهاية العام المالي لرؤية أرباح الشركة تتضاعف.", category: "business", icon:"fa-calendar-check"}, {text: "ملاحظة التطور البطيء والإيجابي في حالة طفل من ذوي الهمم.", category: "humanities", icon:"fa-child"}
+            ]},
+            // المواقف الدقيقة للتفريق بين فروع الطبية والهندسية
+            { question: "لو كنت في غرفة عمليات، ما هو دورك المفضل؟", options: [
+                {text: "طبيب التخدير الذي يراقب أجهزة نبض القلب والضغط بدقة.", category: "medical", icon:"fa-mask-ventilator"}, {text: "مهندس الأجهزة الطبية الذي يضمن عمل المعدات التقنية.", category: "engineering", icon:"fa-plug"}, {text: "مدير المستشفى الذي يضمن توفر الميزانية والمعدات.", category: "business", icon:"fa-file-signature"}, {text: "الأخصائي الذي يُهيئ المريض نفسياً قبل العملية.", category: "humanities", icon:"fa-bed-pulse"}
+            ]},
+            { question: "في مجال الشبكات والإنترنت، ما الذي يجذبك؟", options: [
+                {text: "دراسة تأثير الإشعاعات الناتجة عن الشبكات على جسم الإنسان.", category: "medical", icon:"fa-radiation"}, {text: "هندسة الاتصالات، الأمن السيبراني، وتشفير البيانات.", category: "engineering", icon:"fa-network-wired"}, {text: "التجارة الإلكترونية وإدارة نظم المعلومات (MIS).", category: "business", icon:"fa-globe"}, {text: "استخدام الإنترنت لنشر التوعية التربوية والنفسية.", category: "humanities", icon:"fa-share-nodes"}
+            ]},
+            { question: "لو تم تعيينك في مشروع بناء مدينة جديدة، ما هو دورك؟", options: [
+                {text: "الإشراف على إنشاء المستشفيات والمراكز الصحية والتغذية.", category: "medical", icon:"fa-hospital"}, {text: "التصميم المعماري، الهندسة المدنية، والبنية التحتية.", category: "engineering", icon:"fa-building-user"}, {text: "الإدارة المالية، التمويل، وحساب التكاليف للمشروع.", category: "business", icon:"fa-money-check-dollar"}, {text: "توفير مراكز رعاية لذوي الاحتياجات الخاصة ومدارس.", category: "humanities", icon:"fa-school-flag"}
+            ]},
+            { question: "أي من هذه الأخبار التقنية يثير حماسك أكثر؟", options: [
+                {text: "ابتكار جهاز أشعة جديد يكشف الأمراض بدقة أعلى.", category: "medical", icon:"fa-x-ray"}, {text: "إطلاق لغة برمجة جديدة أو تقنية تصميم جرافيكس ثورية.", category: "engineering", icon:"fa-bezier-curve"}, {text: "تطبيق إداري جديد يضاعف مبيعات الشركات العالمية.", category: "business", icon:"fa-chart-pie"}, {text: "تطبيق يترجم لغة الإشارة فورياً للصم والبكم.", category: "humanities", icon:"fa-ear-deaf"}
+            ]},
+            { question: "في فريق رياضي، ما هو موقعك؟", options: [
+                {text: "أخصائي العلاج الطبيعي وإصابات الملاعب للفريق.", category: "medical", icon:"fa-person-walking-with-cane"}, {text: "المحلل التقني الذي يستخدم البرامج لتحليل أداء اللاعبين.", category: "engineering", icon:"fa-laptop"}, {text: "مدير الفريق الذي يهتم بالعقود والرواتب والإدارة.", category: "business", icon:"fa-file-contract"}, {text: "المرشد النفسي الذي يحفز اللاعبين قبل المباريات الصعبة.", category: "humanities", icon:"fa-brain"}
+            ]},
+            { question: "إذا طُلب منك قراءة تقرير معقد، ماذا تفضل أن يكون محتواه؟", options: [
+                {text: "تقرير تحاليل طبية شامل لنسب الدم والهرمونات.", category: "medical", icon:"fa-file-medical-alt"}, {text: "تقرير حول ثغرات أمنية في شبكة إلكترونية وكيفية سدها.", category: "engineering", icon:"fa-shield-virus"}, {text: "تقرير الميزانية السنوية للشركة وحساب الأرباح والخسائر.", category: "business", icon:"fa-file-invoice-dollar"}, {text: "تقرير حول السلوك التربوي للأطفال في المدارس.", category: "humanities", icon:"fa-file-lines"}
+            ]},
+            { question: "ما هو الشيء الذي تفتخر بإتقانه أكثر من غيرك؟", options: [
+                {text: "التعامل مع الإبر، الأدوية، وحفظ أسماء المصطلحات الطبية.", category: "medical", icon:"fa-syringe"}, {text: "سرعة الكتابة على الكيبورد، وتصميم وتعديل الصور والفيديوهات.", category: "engineering", icon:"fa-palette"}, {text: "العمليات الحسابية السريعة والقدرة على البيع وإقناع العملاء.", category: "business", icon:"fa-comment-dollar"}, {text: "التحدث بلباقة، ترجمة النصوص، أو فهم لغة الإشارة.", category: "humanities", icon:"fa-language"}
+            ]},
+            { question: "في ختام يوم متعب، ما الذي يشعرك بالرضا؟", options: [
+                {text: "أنني ساهمت في تخفيف ألم مريض أو ساعدت في تشخيص حالته.", category: "medical", icon:"fa-face-smile"}, {text: "أنني أنهيت تصميم مشروع هندسي أو أصلحت كوداً برمجياً.", category: "engineering", icon:"fa-check-double"}, {text: "أنني أغلقت جميع الحسابات بشكل صحيح وأنجزت مهامي الإدارية.", category: "business", icon:"fa-list-check"}, {text: "أنني استمعت لشخص محبط وجعلته يشعر بتحسن وأمل.", category: "humanities", icon:"fa-heart"}
+            ]},
+            { question: "أي التخصصات التالية يثير فضولك بمجرد سماع اسمه؟", options: [
+                {text: "تكنولوجيا التخدير والطب المخبري.", category: "medical", icon:"fa-flask"}, {text: "تكنولوجيا المعلومات (IT) والجرافيكس.", category: "engineering", icon:"fa-computer"}, {text: "العلوم المالية وإدارة الأعمال الدولية.", category: "business", icon:"fa-globe"}, {text: "التربية الخاصة واللغة الإنجليزية.", category: "humanities", icon:"fa-book-open"}
+            ]},
+            { question: "السؤال الأخير: ما هو هدفك الأساسي من دخول الجامعة؟", options: [
+                {text: "أن أصبح كادراً طبياً متميزاً يخدم صحة المجتمع باحترافية.", category: "medical", icon:"fa-user-doctor"}, {text: "أن أكون مهندساً أو تقنياً يواكب تطورات التكنولوجيا الحديثة.", category: "engineering", icon:"fa-helmet-safety"}, {text: "أن أصبح قائداً إدارياً ناجحاً يمتلك مشروعه الخاص.", category: "business", icon:"fa-user-tie"}, {text: "أن أكون أخصائياً يُحدث تأثيراً في حياة الأفراد التربوية والنفسية.", category: "humanities", icon:"fa-hands-holding-child"}
+            ]}
+        ];
+
+        // خوارزمية النتائج (مربوطة بكليات جامعة آزال)
+        const resultsData = {
+            medical: {
+                title: "كلية العلوم الطبية",
+                desc: "أنت تمتلك شخصية (الباحث / الرعوي). من خلال إجاباتك على الـ 40 سؤالاً، تبيّن أنك تتميز بالدقة الشديدة، قوة الحفظ، والقدرة على التعامل مع المواقف الحرجة. شغفك الحقيقي يميل نحو البيولوجيا، المختبرات، ومساعدة الآخرين، مما يجعلك مشروعاً مثالياً لكادر طبي متميز.",
+                primaryMajors: [
+                    "الصيدلة (5 سنوات)",
+                    "تكنولوجيا التخدير",
+                    "الطب المخبري",
+                    "تكنولوجيا الأشعة",
+                    "العلاج الطبيعي"
+                ],
+                secondaryMajors: [
+                    "التمريض التخصصي",
+                    "القبالة والتوليد",
+                    "التغذية العلاجية والحميات",
+                    "الإدارة الصحية (كلية الإدارة)"
+                ]
+            },
+            engineering: {
+                title: "كلية الهندسة وتكنولوجيا المعلومات",
+                desc: "أنت تمتلك شخصية (الواقعي / المفكر). تحليلات المقياس تؤكد أن عقلك مبرمج على التحليل المنطقي وحل المشكلات المعقدة. أنت شغوف بفهم كيفية عمل الأشياء، وتفضل التعامل مع التكنولوجيا، الأكواد، والتصاميم الهندسية، مما يؤهلك للنجاح في الثورة التقنية.",
+                primaryMajors: [
+                    "الأمن السيبراني والشبكات",
+                    "تكنولوجيا المعلومات (IT)",
+                    "الهندسة المعمارية",
+                    "الهندسة المدنية"
+                ],
+                secondaryMajors: [
+                    "هندسة اتصالات وشبكات",
+                    "الجرافيكس والملتيميديا",
+                    "علوم الحاسوب للصم (كلية التربية)"
+                ]
+            },
+            business: {
+                title: "كلية العلوم الإدارية والإنسانية",
+                desc: "أنت تمتلك شخصية (المبادر / المنظم). المقياس يظهر بوضوح أنك قائد بطبعك! تمتلك مهارات إدارية، قدرة على الإقناع، وتحب التعامل مع الأرقام والتنظيم. تفكيرك الاستراتيجي يؤهلك بقوة للنجاح في عالم الشركات والمؤسسات.",
+                primaryMajors: [
+                    "إدارة أعمال / إدارة أعمال دولية",
+                    "المحاسبة",
+                    "العلوم المالية والمصرفية",
+                    "الإدارة الصحية"
+                ],
+                secondaryMajors: [
+                    "نظم المعلومات الإدارية (MIS)",
+                    "اللغة الإنجليزية والترجمة"
+                ]
+            },
+            humanities: {
+                title: "كلية التربية الخاصة والإنسانية",
+                desc: "أنت تمتلك شخصية (الاجتماعي / الفني). أظهرت إجاباتك أنك إنسان متعاطف، مستمع جيد، ولديك رغبة قوية في دعم الآخرين. قدرتك العالية على فهم النفس البشرية تجعلك قادراً على إحداث تغيير حقيقي في الفئات التي تحتاج للدعم.",
+                primaryMajors: [
+                    "التربية الخاصة",
+                    "الإرشاد النفسي",
+                    "اللغة الإنجليزية والترجمة (كلية الإنسانية)"
+                ],
+                secondaryMajors: [
+                    "علوم الحاسوب (للصم)",
+                    "الإدارة الصحية"
+                ]
+            }
+        };
+
+        let currentQuestion = 0;
+        let scores = { medical: 0, engineering: 0, business: 0, humanities: 0 };
+
+        // عناصر الشاشة
+        const screens = {
+            start: document.getElementById('start-screen'),
+            quiz: document.getElementById('quiz-screen'),
+            loading: document.getElementById('loading-screen'),
+            result: document.getElementById('result-screen')
+        };
+
+        function startQuiz() {
+            screens.start.classList.add('hidden');
+            screens.quiz.classList.remove('hidden');
+            currentQuestion = 0;
+            scores = { medical: 0, engineering: 0, business: 0, humanities: 0 };
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const containerAnim = document.getElementById('question-container-anim');
+            containerAnim.classList.remove('fade-in');
+            void containerAnim.offsetWidth; // إعادة تفعيل الأنيميشن
+            containerAnim.classList.add('fade-in');
+
+            const q = questions[currentQuestion];
+            document.getElementById('question-text').innerText = q.question;
+            document.getElementById('question-counter').innerText = `السؤال ${currentQuestion + 1} من ${questions.length}`;
+            
+            const progress = ((currentQuestion) / questions.length) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach(opt => {
+                const btn = document.createElement('div');
+                btn.className = "option-card bg-white border-2 border-slate-100 p-5 rounded-2xl flex items-center gap-4 text-right shadow-sm hover:shadow-md";
+                btn.onclick = () => selectOption(opt.category);
+                btn.innerHTML = `
+                    <div class="w-12 h-12 md:w-14 md:h-14 shrink-0 bg-primary/5 text-primary rounded-full flex items-center justify-center text-xl md:text-2xl border border-primary/20">
+                        <i class="fa-solid ${opt.icon}"></i>
+                    </div>
+                    <span class="font-bold text-slate-700 text-base md:text-lg leading-snug">${opt.text}</span>
+                `;
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function selectOption(category) {
+            scores[category]++;
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                renderQuestion();
+            } else {
+                processResults();
+            }
+        }
+
+        function processResults() {
+            screens.quiz.classList.add('hidden');
+            screens.loading.classList.remove('hidden');
+            document.getElementById('progress-bar').style.width = `100%`;
+
+            // تغيير نصوص التحميل لإعطاء شعور بالتحليل العميق (Gamification)
+            const loadingText = document.getElementById('loading-text');
+            setTimeout(() => { loadingText.innerText = "نقوم بتحليل الدوافع النفسية والتقنية..."; }, 1000);
+            setTimeout(() => { loadingText.innerText = "نطابق نتائجك مع الـ 26 تخصصاً في جامعة آزال..."; }, 2000);
+            setTimeout(() => { loadingText.innerText = "يتم إصدار التقرير النهائي..."; }, 3000);
+
+            setTimeout(() => {
+                screens.loading.classList.add('hidden');
+                screens.result.classList.remove('hidden');
+                displayFinalResult();
+            }, 3800);
+        }
+
+        function displayFinalResult() {
+            // ترتيب الفئات من الأعلى للأقل
+            const sortedCategories = Object.keys(scores).sort((a, b) => scores[b] - scores[a]);
+            const primaryCategory = sortedCategories[0];
+            const secondaryCategory = sortedCategories[1];
+
+            const result = resultsData[primaryCategory];
+            const secondaryData = resultsData[secondaryCategory]; // لإظهار اقتراحات إضافية إذا لزم الأمر
+
+            document.getElementById('result-title').innerText = result.title;
+            document.getElementById('result-desc').innerText = result.desc;
+
+            const primaryList = document.getElementById('primary-majors');
+            primaryList.innerHTML = '';
+            result.primaryMajors.forEach(major => {
+                primaryList.innerHTML += `<li><i class="fa-solid fa-check-circle text-primary ml-2"></i> ${major}</li>`;
+            });
+
+            const secondaryList = document.getElementById('secondary-majors');
+            secondaryList.innerHTML = '';
+            result.secondaryMajors.forEach(major => {
+                secondaryList.innerHTML += `<li><i class="fa-solid fa-angle-left text-slate-400 ml-2"></i> ${major}</li>`;
+            });
+        }
+
+        function restartQuiz() {
+            screens.result.classList.add('hidden');
+            screens.start.classList.remove('hidden');
+            document.getElementById('progress-bar').style.width = `0%`;
+        }
+    </script>
+</body>
+</html>
