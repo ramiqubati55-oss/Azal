@@ -1,0 +1,63 @@
+{
+  "source": "https://www.auhd.edu.ye/researches",
+  "updated": "2026-10-25",
+  "status": "curated-nonexhaustive",
+  "items": [
+    {
+      "ar": "تطوير مكافح فيروسات هجين باستخدام التعلم الآلي",
+      "en": "Hybrid Antivirus Development Using Machine Learning",
+      "fieldAr": "الأمن السيبراني",
+      "fieldEn": "Cybersecurity",
+      "year": 2026,
+      "kind": "student-project",
+      "url": "https://www.auhd.edu.ye/researches/research/تطوير-مكافح-فيروسات-هجين",
+      "summaryAr": "مشروع طلابي لتطوير آليات كشف البرمجيات الخبيثة بالاعتماد على التعلم الآلي.",
+      "summaryEn": "A student project investigating machine-learning methods for malware detection.",
+      "pages": 94,
+      "supervisorAr": "د. عبدالسلام خاقو"
+    },
+    {
+      "ar": "منصة الفريق الأحمر",
+      "en": "Red Team Platform",
+      "fieldAr": "الأمن السيبراني",
+      "fieldEn": "Cybersecurity",
+      "year": 2026,
+      "kind": "student-project",
+      "url": "https://www.auhd.edu.ye/researches/research/red-team-platform",
+      "summaryAr": "مشروع منصة ويب تدعم استخدام أدوات تقييم أمن الأنظمة واكتشاف الثغرات.",
+      "summaryEn": "A web platform project supporting authorized security assessment and vulnerability discovery.",
+      "pages": 70,
+      "supervisorAr": "د. وليد الوجيه"
+    },
+    {
+      "ar": "أبحاث التخدير وسلامة المرضى",
+      "en": "Anesthesia and Patient Safety Research Collection",
+      "fieldAr": "تكنولوجيا التخدير",
+      "fieldEn": "Anesthesia Technology",
+      "kind": "research-collection",
+      "url": "https://www.auhd.edu.ye/researches",
+      "summaryAr": "تتضمن الموضوعات الظاهرة في الفهرس تقييم المرضى قبل الجراحة، ومضاعفات التخدير، والممارسة المهنية، وإدارة مجرى الهواء. هذه لمحة موضوعية وليست بحثاً منفرداً.",
+      "summaryEn": "The official index includes themes such as preoperative assessment, anesthesia complications, professional practice and airway management. This is a thematic overview, not a single paper."
+    },
+    {
+      "ar": "دراسات الصيدلة وجودة الأدوية",
+      "en": "Pharmacy and Medicine Quality Projects",
+      "fieldAr": "الصيدلة",
+      "fieldEn": "Pharmacy",
+      "kind": "research-collection",
+      "url": "https://www.auhd.edu.ye/researches",
+      "summaryAr": "مسار موضوعي لمشروعات الصيدلة المنشورة في الجامعة، ومنها دراسات تقييم جودة الأدوية؛ يجب الرجوع إلى السجلات الأصلية لتفاصيل كل دراسة.",
+      "summaryEn": "A thematic entry for pharmacy projects, including medicine-quality assessment; consult individual original records for bibliographic details."
+    },
+    {
+      "ar": "مشروعات الهندسة والأمن السيبراني",
+      "en": "Engineering and Cybersecurity Projects",
+      "fieldAr": "الهندسة وتكنولوجيا المعلومات",
+      "fieldEn": "Engineering and IT",
+      "kind": "research-collection",
+      "url": "https://www.auhd.edu.ye/researches",
+      "summaryAr": "فهرس موضوعي للأعمال الطلابية في أمن المعلومات والهندسة والشبكات، مع توجيه الزائر إلى المصدر الرسمي.",
+      "summaryEn": "A thematic guide to student work in information security, engineering and networks, linked to the official repository."
+    }
+  ]
+}
