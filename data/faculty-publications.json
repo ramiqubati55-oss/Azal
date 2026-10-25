@@ -11,7 +11,8 @@
       "type": "book-chapter",
       "doi": "10.1007/978-3-030-74786-2_551-1",
       "url": "https://doi.org/10.1007/978-3-030-74786-2_551-1",
-      "publisher": "Springer Nature"
+      "publisher": "Springer Nature",
+      "localPath": "publications/springer-public-health.html"
     },
     {
       "id": "springer-faculty-promotion",
@@ -23,7 +24,8 @@
       "type": "book-chapter",
       "doi": "10.1007/978-3-030-74786-2_170-1",
       "url": "https://doi.org/10.1007/978-3-030-74786-2_170-1",
-      "publisher": "Springer Nature"
+      "publisher": "Springer Nature",
+      "localPath": "publications/springer-faculty-promotion.html"
     },
     {
       "id": "uti-resistance",
@@ -36,7 +38,8 @@
       "type": "journal-article",
       "doi": "10.9734/jpri/2026/v38i27811",
       "url": "https://doi.org/10.9734/jpri/2026/v38i27811",
-      "publisher": "Journal of Pharmaceutical Research International"
+      "publisher": "Journal of Pharmaceutical Research International",
+      "localPath": "publications/uti-resistance.html"
     },
     {
       "id": "stunting-sanaa",
@@ -59,7 +62,8 @@
       "type": "journal-article",
       "doi": "10.58963/qausrj.v29i29.313",
       "url": "https://doi.org/10.58963/qausrj.v29i29.313",
-      "publisher": "Queen Arwa University Journal"
+      "publisher": "Queen Arwa University Journal",
+      "localPath": "publications/stunting-sanaa.html"
     },
     {
       "id": "digital-transformation-higher-education",
@@ -71,7 +75,8 @@
       "type": "journal-article",
       "doi": "10.64059/eiu.v1i1.27",
       "url": "https://doi.org/10.64059/eiu.v1i1.27",
-      "publisher": "Emirates International University Journal"
+      "publisher": "Emirates International University Journal",
+      "localPath": "publications/digital-transformation-higher-education.html"
     },
     {
       "id": "strategic-flexibility-institutional-excellence",
@@ -84,7 +89,8 @@
       "type": "journal-article",
       "doi": "10.20428/ajqahe.v19i68.3594",
       "url": "https://doi.org/10.20428/ajqahe.v19i68.3594",
-      "publisher": "The Arab Journal for Quality Assurance in Higher Education"
+      "publisher": "The Arab Journal for Quality Assurance in Higher Education",
+      "localPath": "publications/strategic-flexibility-institutional-excellence.html"
     },
     {
       "id": "helicobacter-medical-students",
@@ -96,7 +102,8 @@
       "type": "journal-article",
       "doi": "10.9734/ajmah/2026/v24i101454",
       "url": "https://doi.org/10.9734/ajmah/2026/v24i101454",
-      "publisher": "Asian Journal of Medicine and Health"
+      "publisher": "Asian Journal of Medicine and Health",
+      "localPath": "publications/helicobacter-medical-students.html"
     }
   ]
 }
