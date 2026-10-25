@@ -1,0 +1,61 @@
+{
+  "updated": "2026-10-25",
+  "items": [
+    {
+      "id": "yaser-al-worafi",
+      "name": "Prof. Dr. Yaser Mohammed Al-Worafi",
+      "nameAr": "أ.د. ياسر محمد الورافي",
+      "field": "Clinical Pharmacy",
+      "fieldAr": "الصيدلة السريرية",
+      "affiliation": "Azal University for Human Development",
+      "orcid": "0000-0002-5752-2913",
+      "profile": "https://www.auhd.edu.ye/en/news/706",
+      "works": [
+        "springer-public-health",
+        "springer-faculty-promotion",
+        "uti-resistance"
+      ]
+    },
+    {
+      "id": "ammar-zahary",
+      "name": "Assoc. Prof. Dr. Ammar Thabit Abdullah Zahary",
+      "nameAr": "أ.م.د. عمار ثابت عبدالله الذاري",
+      "field": "Computer Science and Networks",
+      "fieldAr": "علوم الحاسوب والشبكات",
+      "affiliation": "Azal University for Human Development",
+      "orcid": "0000-0001-7873-3667",
+      "profile": "https://www.auhd.edu.ye/en/news/706",
+      "works": []
+    },
+    {
+      "id": "abdulsalam-mekhlafi",
+      "name": "Assoc. Prof. Dr. Abdulsalam Mohammed Qassim Al-Mekhlafi",
+      "nameAr": "أ.م.د. عبدالسلام محمد قاسم المخلافي",
+      "field": "Medical Parasitology and Cytogenetics",
+      "fieldAr": "الطفيليات الطبية والوراثة الخلوية",
+      "affiliation": "Azal University for Human Development",
+      "profile": "https://www.auhd.edu.ye/en/news/706",
+      "works": []
+    },
+    {
+      "id": "mohammed-alsibai",
+      "name": "Dr. Mohammed Ahmed Al-Sibai",
+      "nameAr": "د. محمد أحمد السباعي",
+      "field": "Food Sciences and Nutritional Biochemistry",
+      "fieldAr": "علوم الأغذية والكيمياء الحيوية الغذائية",
+      "affiliation": "Azal University for Human Development",
+      "profile": "https://www.auhd.edu.ye/en/policies/15",
+      "works": []
+    },
+    {
+      "id": "adel-noman",
+      "name": "Dr. Adel Salem Ali Noman",
+      "nameAr": "د. عادل سالم علي نعمان",
+      "field": "Radiology and Healthcare Administration",
+      "fieldAr": "الأشعة والإدارة الصحية",
+      "affiliation": "Azal University for Human Development",
+      "profile": "https://www.auhd.edu.ye/en/policies/15",
+      "works": []
+    }
+  ]
+}

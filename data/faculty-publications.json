@@ -1,0 +1,65 @@
+{
+  "updated": "2026-10-25",
+  "items": [
+    {
+      "id": "springer-public-health",
+      "title": "Public Health Education, Practice, and Research in Saudi Arabia",
+      "authors": [
+        "Yaser Mohammed Al-Worafi"
+      ],
+      "year": 2024,
+      "type": "book-chapter",
+      "doi": "10.1007/978-3-030-74786-2_551-1",
+      "url": "https://doi.org/10.1007/978-3-030-74786-2_551-1",
+      "publisher": "Springer Nature"
+    },
+    {
+      "id": "springer-faculty-promotion",
+      "title": "Faculty Members/Lecturer’s Promotion in Medicine Schools in Developing Countries",
+      "authors": [
+        "Yaser Mohammed Al-Worafi"
+      ],
+      "year": 2024,
+      "type": "book-chapter",
+      "doi": "10.1007/978-3-030-74786-2_170-1",
+      "url": "https://doi.org/10.1007/978-3-030-74786-2_170-1",
+      "publisher": "Springer Nature"
+    },
+    {
+      "id": "uti-resistance",
+      "title": "Bacterial Etiology and Antimicrobial Resistance Patterns of Urinary Tract Infections in Sana’a, Yemen",
+      "authors": [
+        "Yaser Al-Worafi",
+        "Ali Salman Al-Shami"
+      ],
+      "year": 2026,
+      "type": "journal-article",
+      "doi": "10.9734/jpri/2026/v38i27811",
+      "url": "https://doi.org/10.9734/jpri/2026/v38i27811",
+      "publisher": "Journal of Pharmaceutical Research International"
+    },
+    {
+      "id": "stunting-sanaa",
+      "title": "Stunting Status and Associated Risk Factors among Some Primary School Children in Sana'a City, Yemen",
+      "authors": [
+        "Mohammed Alsebaeai",
+        "Reham Karthami",
+        "Nadia Ayd",
+        "Haneen Moshta",
+        "Haidarah Haidarah",
+        "Hadeel Al-Sayaghi",
+        "Entesar Othman",
+        "Basema Botily",
+        "Asma Alnuzaili",
+        "Amat Almazba",
+        "Soha Al-Seraji",
+        "Wafa'a Al-Shaibi"
+      ],
+      "year": 2025,
+      "type": "journal-article",
+      "doi": "10.58963/qausrj.v29i29.313",
+      "url": "https://doi.org/10.58963/qausrj.v29i29.313",
+      "publisher": "Queen Arwa University Journal"
+    }
+  ]
+}
