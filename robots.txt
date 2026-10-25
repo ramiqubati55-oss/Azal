@@ -1,2 +1,4 @@
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://ramiqubati55-oss.github.io/Azal/sitemap.xml
