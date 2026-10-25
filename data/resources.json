@@ -1,0 +1,70 @@
+{
+  "updated": "2026-10-25",
+  "noticeAr": "روابط مرجعية منشورة، وليست فهرساً للأبحاث أو أدلة تصنيف مثبتة.",
+  "noticeEn": "Curated links only; not a verified research repository or ranking evidence collection.",
+  "items": [
+    {
+      "type": "official",
+      "ar": "الموقع الرسمي لجامعة آزال",
+      "en": "AUHD Official University Website",
+      "descAr": "المرجع المؤسسي المعتمد للمعلومات الأكاديمية والقبول والقرارات والأخبار.",
+      "descEn": "Authoritative institutional source for academic programs, admissions, policies and news.",
+      "url": "https://www.auhd.edu.ye/",
+      "lang": "ar"
+    },
+    {
+      "type": "official",
+      "ar": "الموقع الرسمي باللغة الإنجليزية",
+      "en": "Official English University Website",
+      "descAr": "المصدر المؤسسي باللغة الإنجليزية.",
+      "descEn": "Official institutional information in English.",
+      "url": "https://www.auhd.edu.ye/en/",
+      "lang": "en"
+    },
+    {
+      "type": "official",
+      "ar": "عمادة الدراسات العليا",
+      "en": "Postgraduate Studies",
+      "descAr": "معلومات الدراسات العليا من موقع الجامعة.",
+      "descEn": "Official university postgraduate information.",
+      "url": "https://www.auhd.edu.ye/faculties/11",
+      "lang": "ar"
+    },
+    {
+      "type": "official",
+      "ar": "ماجستير إدارة الأعمال",
+      "en": "Master of Business Administration",
+      "descAr": "الصفحة الرسمية للبرنامج.",
+      "descEn": "Official MBA program page.",
+      "url": "https://www.auhd.edu.ye/majors/92",
+      "lang": "ar"
+    },
+    {
+      "type": "official",
+      "ar": "ماجستير الإدارة الصحية والمستشفيات",
+      "en": "Master of Health and Hospital Management",
+      "descAr": "الصفحة الرسمية للبرنامج.",
+      "descEn": "Official health and hospital management master's page.",
+      "url": "https://www.auhd.edu.ye/majors/111",
+      "lang": "ar"
+    },
+    {
+      "type": "gallery",
+      "ar": "معرض صور الجامعة",
+      "en": "University Photo Gallery",
+      "descAr": "الصور والأنشطة المنشورة عبر موقع الجامعة الرسمي.",
+      "descEn": "University photographs and activities on the official website.",
+      "url": "https://www.auhd.edu.ye/gallary",
+      "lang": "ar"
+    },
+    {
+      "type": "repository",
+      "ar": "مستودع مشروع البوابة",
+      "en": "Knowledge Portal Source Repository",
+      "descAr": "الكود المفتوح للبوابة وتاريخ التعديلات والمساهمات التقنية.",
+      "descEn": "Portal source code, version history and technical contributions.",
+      "url": "https://github.com/ramiqubati55-oss/Azal",
+      "lang": "en"
+    }
+  ]
+}
