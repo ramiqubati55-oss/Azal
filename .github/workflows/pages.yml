@@ -1,30 +1,27 @@
-name: Deploy independent preview to GitHub Pages
+name: Validate static GitHub Pages preview
 on:
   push:
     branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
-  pages: write
-  id-token: write
-concurrency:
-  group: pages
-  cancel-in-progress: true
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  validate:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-      - name: Upload static website
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
-      - name: Deploy
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - uses: actions/checkout@v4
+      - name: Verify preview files
+        run: |
+          test -s index.html
+          test -s "إدارة_صحية.html"
+          python3 - <<'PY'
+          from pathlib import Path
+          from html.parser import HTMLParser
+          class Parser(HTMLParser):
+              pass
+          for path in [Path("index.html"), Path("إدارة_صحية.html")]:
+              html = path.read_text(encoding="utf-8")
+              assert "<html" in html.lower() and "</html>" in html.lower(), path
+              Parser().feed(html)
+              print(f"Validated {path}")
+          PY
