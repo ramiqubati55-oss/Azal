@@ -13,7 +13,8 @@
       "works": [
         "springer-public-health",
         "springer-faculty-promotion",
-        "uti-resistance"
+        "uti-resistance",
+        "helicobacter-medical-students"
       ]
     },
     {
@@ -56,6 +57,53 @@
       "affiliation": "Azal University for Human Development",
       "profile": "https://www.auhd.edu.ye/en/policies/15",
       "works": []
+    },
+    {
+      "id": "mokhtar-ghilan",
+      "name": "Dr. Mokhtar Mohammed Ghilan",
+      "nameAr": "د. مختار محمد غيلان",
+      "field": "Digital Transformation and Information Systems",
+      "fieldAr": "التحول الرقمي ونظم المعلومات",
+      "affiliation": "Azal University for Human Development",
+      "profile": "https://journals.eiu.edu.ye/index.php/eiu/en/article/view/27",
+      "works": [
+        "digital-transformation-higher-education"
+      ]
+    },
+    {
+      "id": "mohammed-al-maqri",
+      "name": "Dr. Mohammed A. Al-Maqri",
+      "nameAr": "د. محمد أحمد المقري",
+      "field": "Computer Networks and Telecommunications",
+      "fieldAr": "شبكات الحاسوب والاتصالات",
+      "affiliation": "Azal University for Human Development",
+      "orcid": "0000-0002-2284-121X",
+      "profile": "https://www.csauthors.net/mohammed-a-al-maqri/",
+      "works": []
+    },
+    {
+      "id": "naif-al-buraihi",
+      "name": "Naif Ahmed Abdullah Al-Buraihi",
+      "nameAr": "نايف أحمد عبدالله البريهي",
+      "field": "Management and Institutional Excellence",
+      "fieldAr": "الإدارة والتميز المؤسسي",
+      "affiliation": "Azal University for Human Development",
+      "profile": "https://journals.ust.edu/index.php/AJQAHE/article/view/3594",
+      "works": [
+        "strategic-flexibility-institutional-excellence"
+      ]
+    },
+    {
+      "id": "abdulhaq-al-hamdani",
+      "name": "Abdulhaq Mohammed Saleh Al-Hamdani",
+      "nameAr": "عبدالحق محمد صالح الحمداني",
+      "field": "Management and Institutional Excellence",
+      "fieldAr": "الإدارة والتميز المؤسسي",
+      "affiliation": "Azal University for Human Development",
+      "profile": "https://journals.ust.edu/index.php/AJQAHE/article/view/3594",
+      "works": [
+        "strategic-flexibility-institutional-excellence"
+      ]
     }
   ]
 }
