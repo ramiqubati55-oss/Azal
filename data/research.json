@@ -9,9 +9,7 @@
       "year": 2023,
       "doi": "10.20428/ajqahe.v10i31.1217",
       "url": "https://doi.org/10.20428/ajqahe.v10i31.1217",
-      "source": "https://doaj.org/article/83fe7ebb75984146851c0188888e91fa",
-      "noteAr": "دراسة تتناول الجامعة؛ لا يُفترض أن مؤلفيها موظفون بالجامعة دون دليل انتساب مستقل.",
-      "noteEn": "A study about AUHD; authors' AUHD employment is not independently established."
+      "source": "https://doaj.org/article/83fe7ebb75984146851c0188888e91fa"
     },
     {
       "kind": "researcher",
@@ -20,9 +18,7 @@
       "fieldAr": "الصيدلة السريرية",
       "fieldEn": "Clinical Pharmacy",
       "url": "https://www.auhd.edu.ye/en/news/706",
-      "source": "https://www.auhd.edu.ye/en/news/706",
-      "noteAr": "ورد اسمه ضمن تقرير الجامعة عن الباحثين المنتسبين؛ لا تُنسب إليه أعمال بعينها إلا بعد مراجعة سجل النشر.",
-      "noteEn": "Listed in AUHD's affiliated researchers report; individual works require separate publication verification."
+      "source": "https://www.auhd.edu.ye/en/news/706"
     },
     {
       "kind": "researcher",
@@ -32,9 +28,7 @@
       "fieldEn": "Computer Science and Networks",
       "orcid": "0000-0001-7873-3667",
       "url": "https://orcid.org/0000-0001-7873-3667",
-      "source": "https://www.auhd.edu.ye/en/news/706",
-      "noteAr": "معرّف ORCID والانتساب وردا في تقرير الجامعة؛ ينبغي التحقق من تحديثهما.",
-      "noteEn": "ORCID and affiliation cited in the institutional report; confirm their current status."
+      "source": "https://www.auhd.edu.ye/en/news/706"
     },
     {
       "kind": "researcher",
@@ -43,18 +37,14 @@
       "fieldAr": "الطفيليات الطبية والوراثة الخلوية",
       "fieldEn": "Medical Parasitology and Cytogenetics",
       "url": "https://www.auhd.edu.ye/en/news/706",
-      "source": "https://www.auhd.edu.ye/en/news/706",
-      "noteAr": "مدرج في تقرير الجامعة؛ بيانات المؤشرات قابلة للتغير.",
-      "noteEn": "Listed in the university report; citation indicators are time-dependent."
+      "source": "https://www.auhd.edu.ye/en/news/706"
     },
     {
       "kind": "index",
       "ar": "ملف جامعة آزال في Nature Index",
       "en": "AUHD Nature Index institutional profile",
       "url": "https://www.nature.com/nature-index/institution-outputs/yemen/azal-university-for-human-development/693282aa24a2aa216c009318",
-      "source": "https://www.nature.com/nature-index/institution-outputs/yemen/azal-university-for-human-development/693282aa24a2aa216c009318",
-      "noteAr": "ملف مستقل متغير بحسب فترة الرصد؛ ليس قائمة شاملة بجميع الأبحاث.",
-      "noteEn": "Independent, time-windowed index; not a complete publication inventory."
+      "source": "https://www.nature.com/nature-index/institution-outputs/yemen/azal-university-for-human-development/693282aa24a2aa216c009318"
     }
   ]
 }
