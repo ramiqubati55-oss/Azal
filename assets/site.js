@@ -1,0 +1,1 @@
+const nav=document.querySelectorAll('[data-page]');const current=document.documentElement.dataset.page;nav.forEach(a=>{if(a.dataset.page===current)a.setAttribute('aria-current','page')});
