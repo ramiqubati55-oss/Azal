@@ -2,8 +2,10 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تخصص الإدارة الصحية | جامعة آزال للتنمية البشرية</title>
+    <meta name="description" content="تعرف على بكالوريوس الإدارة الصحية بجامعة آزال للتنمية البشرية، مجالات الدراسة والتدريب وطرق التواصل والتسجيل.">
+    <meta name="theme-color" content="#0c6a7a">
     
     <!-- الخطوط العربية -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +46,11 @@
         }
 
         body { background-color: #f8fafc; scroll-behavior: smooth; overflow-x: hidden; }
+        :focus-visible { outline: 3px solid #c47c5d; outline-offset: 3px; }
+        [id] { scroll-margin-top: 110px; }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+        }
         
         /* تأثيرات الخلفية للغلاف */
         .hero-bg {
@@ -132,8 +139,9 @@
 </head>
 <body class="antialiased text-slate-800 selection:bg-brand-teal selection:text-white">
 
+    <a href="#about" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:right-3 focus:z-[200] focus:bg-white focus:text-brand-dark focus:p-3 focus:rounded-lg">تجاوز إلى المحتوى الرئيسي</a>
     <!-- زر الواتساب العائم -->
-    <a href="https://wa.me/967772088099" target="_blank" class="float-whatsapp" title="تواصل معنا عبر واتساب">
+    <a href="https://wa.me/967772088099" target="_blank" rel="noopener noreferrer" class="float-whatsapp" title="تواصل معنا عبر واتساب" aria-label="تواصل مع الجامعة عبر واتساب">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -143,7 +151,7 @@
             <div class="flex items-center">
                 <!-- الشعار فقط بدون النص -->
                 <img src="https://www.auhd.edu.ye/images/logo.png" alt="شعار جامعة آزال" class="h-12 md:h-16 w-auto object-contain" 
-                     onerror="this.onerror=null; this.src='https://www.auhd.edu.ye/gs_file'; this.nextElementSibling.style.display='block';">
+                     onerror="this.onerror=null; this.style.display='none'; this.nextElementSibling.style.display='block';">
                 <div class="logo-fallback">جامعة آزال</div>
             </div>
             <a href="#register" class="bg-brand-earth hover:bg-orange-700 text-white font-bold py-1.5 px-4 md:py-2 md:px-6 rounded-full transition shadow-md flex items-center gap-1.5 text-xs md:text-base shrink-0">
@@ -426,10 +434,10 @@
                 </div>
 
                 <div class="flex flex-col sm:flex-row justify-center gap-4 md:gap-6">
-                    <a href="https://oasyemen.net/private/admission" target="_blank" class="bg-white text-brand-dark hover:bg-slate-100 font-black text-lg md:text-xl py-3 md:py-4 px-6 md:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-3">
+                    <a href="https://oasyemen.net/private/admission" target="_blank" rel="noopener noreferrer" class="bg-white text-brand-dark hover:bg-slate-100 font-black text-lg md:text-xl py-3 md:py-4 px-6 md:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-3">
                         <i class="fa-solid fa-globe text-xl md:text-2xl"></i> البوابة الموحدة للتسجيل
                     </a>
-                    <a href="https://wa.me/967772088099" target="_blank" class="bg-green-500 hover:bg-green-600 text-white font-black text-lg md:text-xl py-3 md:py-4 px-6 md:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-3">
+                    <a href="https://wa.me/967772088099" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-600 text-white font-black text-lg md:text-xl py-3 md:py-4 px-6 md:px-8 rounded-full shadow-lg transition flex items-center justify-center gap-3">
                         <i class="fa-brands fa-whatsapp text-2xl md:text-3xl"></i> استفسر عبر الواتساب
                     </a>
                 </div>
@@ -441,7 +449,7 @@
     <!-- الفوتر -->
     <footer class="bg-slate-800 text-slate-300 py-10 text-center font-medium mt-10">
         <div class="max-w-7xl mx-auto px-4 flex flex-col items-center">
-            <img src="https://www.auhd.edu.ye/images/logo.png" alt="شعار الجامعة" class="h-20 mb-6 opacity-70 grayscale hover:grayscale-0 transition duration-300" onerror="this.onerror=null; this.src='https://www.auhd.edu.ye/gs_file';">
+            <img src="https://www.auhd.edu.ye/images/logo.png" alt="شعار الجامعة" class="h-20 mb-6 opacity-70 grayscale hover:grayscale-0 transition duration-300" onerror="this.onerror=null; this.style.display='none';">
             <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 mb-6 text-sm md:text-lg w-full font-bold">
                 <div><i class="fa-solid fa-location-dot text-brand-teal"></i> صنعاء – شارع الستين الغربي</div>
                 <div dir="ltr"><i class="fa-solid fa-phone text-brand-teal"></i> 772088099 - 01/201710</div>
