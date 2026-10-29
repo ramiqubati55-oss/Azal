@@ -1,0 +1,274 @@
+{
+  "updated": "2026-10-29",
+  "scope": [
+    "anesthesia",
+    "midwifery",
+    "nursing"
+  ],
+  "sourcePolicy": "Publisher affiliation for journal articles; official university repository for repository records; official university news for graduation research. No journal status is inferred for repository-only records.",
+  "items": [
+    {
+      "id": "ANES-001",
+      "program": "anesthesia",
+      "relatedPrograms": [
+        "midwifery"
+      ],
+      "recordType": "repository-record",
+      "year": 2023,
+      "titleAr": "تحديات سلامة تخدير التوليد في المستشفيات الحكومية بصنعاء",
+      "titleEn": "The Challenge of Safe Obstetrics Anesthesia in Governmental Hospitals at Sana'a City 2023",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/the-challenge-of-safe",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-002",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2021,
+      "titleAr": "التدبير المتساهل مقابل المقيّد للسوائل حول الجراحة والنتائج بعد الجراحة",
+      "titleEn": "Liberal versus restrictive perioperative fluid regimen and postoperative outcome ( a literature review 2002-2020)",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/liberal-versus-restrictive-perioperative",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-003",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2021,
+      "titleAr": "أنماط تدبير مجرى الهواء الصعب لدى العاملين في التخدير بمستشفيات صنعاء",
+      "titleEn": "Study of Difficult Airway Management Patterns Among Anesthesia Staff Practicing in General and Private Hospitals in Sana'a City, Yemen, 2020-2021",
+      "supervisorAr": "د. عبدالرقيب الشامي",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/study-of-difficult-airway",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-004",
+      "program": "anesthesia",
+      "relatedPrograms": [
+        "midwifery"
+      ],
+      "recordType": "repository-record",
+      "year": 2021,
+      "titleAr": "تصورات أطباء التخدير حول هبوط الضغط أثناء التخدير النصفي للولادة القيصرية",
+      "titleEn": "Perception of Anesthesiologists for Incidence Hypotension during Spinal Anesthesia in Cesarean Section in Public Hospitals in Sana'a City, Yemen 2020-2021",
+      "supervisorAr": "د. عبدالرقيب الشامي",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/perception-of-anesthesiologists-for",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-005",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2021,
+      "titleAr": "تقييم الرضا الوظيفي لدى العاملين في التخدير بمستشفيات صنعاء",
+      "titleEn": "Evaluation of Job Satisfaction Among Anesthesiologists At various Hospitals Of Sana`a City 2020-2021",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/evaluation-of-job-satisfaction",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-006",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2021,
+      "titleAr": "انتشار ألم الظهر الحاد وعوامل خطورته بعد التخدير النصفي",
+      "titleEn": "Prevalence and risk factors of acute backache after spinal anesthesia in surgical procedures at Public Hospitals in Sana'a City, Yemen",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/prevalence-and-risk-factors",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-007",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2021,
+      "titleAr": "انتشار الاضطرابات العضلية الهيكلية لدى العاملين في التخدير بصنعاء",
+      "titleEn": "prevalence of musculoskeletal disorders among anesthesiologist at various hospitals at Sanaa city",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/prevalence-of-musculoskeletal-disorders",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-008",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2021,
+      "titleAr": "تقييم القلق قبل الجراحة لدى المرضى الخاضعين للتخدير العام",
+      "titleEn": "The evaluation of preoperative anxiety in patients undergoing general anesthesia at Sanaa hospitals",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/the-evaluation-of-preoperative",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-009",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2020,
+      "titleAr": "انتشار مقدمي خدمات التخدير في المستشفيات الحكومية بصنعاء",
+      "titleEn": "The prevalence of anesthesia providers in public hospitals at Sanaa city",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/the-prevalence-of-anesthesia",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-010",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2020,
+      "titleAr": "انتشار إصابات وخز الإبر لدى مقدمي خدمات التخدير",
+      "titleEn": "THE PREVALANCE OF NEEDLE STICK INJURY AMONG ANESTHESIA PROVIDERS IN THREE GOVREMENTAL HOSPITALS AT SAN`AA CITY 2019-2020",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/the-prevalance-of-needle",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-011",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2019,
+      "titleAr": "تقييم تدريب طلاب التخدير على القسطرة الوريدية المركزية",
+      "titleEn": "Assessment of central venous catheterization training among undergraduate anesthesia students: prevalence, curricular eligibility and procedural satisfaction",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/assessment-of-central-venous",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-012",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2019,
+      "titleAr": "استبيان فحص لتقييم المرضى قبل الجراحة في صنعاء",
+      "titleEn": "A screening questionnaire for preoperative evaluation causes and consequences Sanaa city",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/a-screening-questionnaire-for",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-013",
+      "program": "anesthesia",
+      "relatedPrograms": [
+        "midwifery"
+      ],
+      "recordType": "repository-record",
+      "year": 2019,
+      "titleAr": "التخدير العام مقابل التخدير النصفي واختيار طريقة الولادة لدى النساء اليمنيات",
+      "titleEn": "General anesthesia versus spinal anesthesia and Yemeni women mode for delivery",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/general-anesthesia-versus-spinal",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "ANES-014",
+      "program": "anesthesia",
+      "relatedPrograms": [],
+      "recordType": "repository-record",
+      "year": 2019,
+      "titleAr": "التخدير بوصفه خياراً مهنياً مستقبلياً لدى طلاب جامعة آزال",
+      "titleEn": "Anesthesia as a future career choice among students of azal university",
+      "supervisorAr": "د. ريما أمان",
+      "sourceUrl": "https://www.auhd.edu.ye/researches/research/anesthesia-as-a-future",
+      "evidenceStatus": "university-repository",
+      "yearBasis": "year listed by university repository"
+    },
+    {
+      "id": "NURS-001",
+      "program": "nursing",
+      "recordType": "graduation-research",
+      "year": 2025,
+      "titleAr": "معارف ممرضي الرعاية الحرجة بالتهدئة وإدارتها لدى المرضى الموضوعين على جهاز التنفس الصناعي في مستشفيات مختارة بمدينة صنعاء",
+      "titleEn": "Critical Care Nurses’ Knowledge of Sedation and Its Management in Mechanically Ventilated Patients at Public Hospitals in Sana'a City, Yemen",
+      "supervisorAr": "د. أصيل حسن جمدان",
+      "sourceUrl": "https://www.auhd.edu.ye/news/464",
+      "evidenceStatus": "university-news",
+      "yearBasis": "university news dated 14 May 2025"
+    },
+    {
+      "id": "NURS-002",
+      "program": "nursing",
+      "recordType": "graduation-research",
+      "year": 2025,
+      "titleAr": "تأثير الضغوط الأكاديمية على جودة الحياة ونمط النوم لدى طلاب التمريض (السنة الرابعة) في الجامعات بمدينة صنعاء",
+      "titleEn": "Impact of Academic Stress on Quality of Life and Sleep Pattern among Fourth-Year Nursing Students in Universities in Sana’a City",
+      "supervisorAr": "د. صالح عمر الحديدي",
+      "sourceUrl": "https://www.auhd.edu.ye/news/464",
+      "evidenceStatus": "university-news",
+      "yearBasis": "university news dated 14 May 2025"
+    },
+    {
+      "id": "MIDW-001",
+      "program": "midwifery",
+      "recordType": "graduation-research",
+      "year": 2025,
+      "titleAr": "معارف طالبات القبالة بتطبيقات الذكاء الاصطناعي في طب التوليد بالجامعات الخاصة في مدينة صنعاء",
+      "titleEn": "Midwifery Students’ Knowledge regarding Artificial Intelligence Applications in Obstetrics at Private Universities in Sana’a",
+      "supervisorAr": "د. ندى أحمد إسماعيل؛ د. مرزوق عوضه",
+      "sourceUrl": "https://www.auhd.edu.ye/news/464",
+      "evidenceStatus": "university-news",
+      "yearBasis": "university news dated 14 May 2025"
+    },
+    {
+      "id": "MIDW-002",
+      "program": "midwifery",
+      "relatedPrograms": [
+        "nursing"
+      ],
+      "recordType": "journal-article",
+      "year": 2024,
+      "titleAr": "استخدام خدمات الرعاية بعد الولادة لدى الأمهات في مديرية معين بمدينة صنعاء، اليمن",
+      "titleEn": "Utilisation of postnatal care services among maternal in Maeen District - Sana'a City, Yemen",
+      "authors": "Abdulnasser A Haza'a; Marzoq A Odhah; Saddam A Al-Ahdal; Fawz M Abol-Gaith; Nada A Ismail; Mohammed S Al-Awar; Abdulfatah S Al-Jaradi; Wedian S Eidah; Manar M Kaid",
+      "auhdContributor": "Nada A Ismail",
+      "journal": "BMC Pregnancy and Childbirth",
+      "doi": "10.1186/s12884-024-06617-6",
+      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38872137/",
+      "evidenceStatus": "publisher-affiliation",
+      "affiliationEvidence": "Nursing and Midwifery Department, Faculty of Medical Sciences, Azal University",
+      "yearBasis": "journal publication year"
+    },
+    {
+      "id": "NURS-003",
+      "program": "nursing",
+      "relatedPrograms": [
+        "midwifery"
+      ],
+      "recordType": "journal-article",
+      "year": 2026,
+      "titleAr": "ارتباط كفاية الغسيل الكلوي بجودة الحياة المرتبطة بالصحة لدى مرضى الغسيل الدموي المنتظم: دراسة مقطعية",
+      "titleEn": "Association of Dialysis Adequacy with Health-Related Quality of Life Among Maintenance Hemodialysis Patients: A Cross-Sectional Study",
+      "authors": "Aseel Hasan Edhah Gemdan; Jamal Othman Ahmed Al-Buhairi; Farhana Ayub; Adnan Jehangir; Abdullah Abdo Albegali; Mohammed Abdualleh Saleh Hussain; Bashar Shawe Qasim Hussein Saree; Seham Awad Ahemed Al-hegary",
+      "auhdContributor": "Aseel Hasan Edhah Gemdan",
+      "orcid": "0009-0006-4606-3869",
+      "journal": "Al-Rafidain Journal of Medical Sciences",
+      "doi": "10.54133/ajms.v10i1.2439",
+      "sourceUrl": "https://www.ajms.iq/index.php/ALRAFIDAIN/article/view/2439",
+      "evidenceStatus": "publisher-affiliation",
+      "affiliationEvidence": "Nursing and Midwifery Department, Azal University for Human Development",
+      "yearBasis": "journal publication year"
+    }
+  ]
+}
