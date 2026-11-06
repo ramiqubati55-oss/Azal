@@ -240,15 +240,18 @@
       "recordType": "journal-article",
       "year": 2024,
       "titleAr": "استخدام خدمات الرعاية بعد الولادة لدى الأمهات في مديرية معين بمدينة صنعاء، اليمن",
-      "titleEn": "Utilisation of postnatal care services among maternal in Maeen District - Sana'a City, Yemen",
-      "authors": "Abdulnasser A Haza'a; Marzoq A Odhah; Saddam A Al-Ahdal; Fawz M Abol-Gaith; Nada A Ismail; Mohammed S Al-Awar; Abdulfatah S Al-Jaradi; Wedian S Eidah; Manar M Kaid",
-      "auhdContributor": "Nada A Ismail",
+      "titleEn": "Utilisation of postnatal care services among maternal in Maeen District – Sana’a City, Yemen",
+      "authors": "Abdulnasser A. Haza’a; Marzoq A. Odhah; Saddam A. Al-Ahdal; Fawz M. Abol–Gaith; Nada A. Ismail; Mohammed S. Al-Awar; Abdulfatah S. Al-Jaradi; Wedian S. Eidah; Manar M. Kaid",
+      "auhdContributor": "Nada A. Ismail",
       "journal": "BMC Pregnancy and Childbirth",
       "doi": "10.1186/s12884-024-06617-6",
-      "sourceUrl": "https://pubmed.ncbi.nlm.nih.gov/38872137/",
+      "sourceUrl": "https://link.springer.com/article/10.1186/s12884-024-06617-6",
       "evidenceStatus": "publisher-affiliation",
-      "affiliationEvidence": "Nursing and Midwifery Department, Faculty of Medical Sciences, Azal University",
-      "yearBasis": "journal publication year"
+      "affiliationEvidence": "Nursing and Midwifery Department, Faculty of Medical Sciences, Azal University, Sana’a, Yemen",
+      "yearBasis": "journal publication year",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "version": "Version of record"
     },
     {
       "id": "NURS-003",
@@ -265,10 +268,13 @@
       "orcid": "0009-0006-4606-3869",
       "journal": "Al-Rafidain Journal of Medical Sciences",
       "doi": "10.54133/ajms.v10i1.2439",
-      "sourceUrl": "https://www.ajms.iq/index.php/ALRAFIDAIN/article/view/2439",
+      "sourceUrl": "https://ajms.iq/index.php/ALRAFIDAIN/article/view/2439",
       "evidenceStatus": "publisher-affiliation",
-      "affiliationEvidence": "Nursing and Midwifery Department, Azal University for Human Development",
-      "yearBasis": "journal publication year"
+      "affiliationEvidence": "Nursing and Midwifery Department, Azal University for Human Development, Sana'a, Yemen",
+      "yearBasis": "journal publication year",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "version": "Version of record"
     }
   ]
 }
