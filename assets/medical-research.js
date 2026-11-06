@@ -10,40 +10,122 @@ document.addEventListener('DOMContentLoaded',async()=>{
   let items;
   try{const response=await fetch((lang==='ar'?'./':'../')+'data/medical-research-2026.json');if(!response.ok)throw Error('HTTP '+response.status);items=(await response.json()).items||[]}
   catch(e){root.textContent=tr.load;return}
-  const tools=document.createElement('div');tools.className='portal-grid';
-  const searchWrap=document.createElement('div'),programWrap=document.createElement('div'),typeWrap=document.createElement('div');
-  const searchLabel=document.createElement('label');searchLabel.textContent=tr.search;
-  const input=document.createElement('input');input.type='search';input.className='portal-search';input.placeholder=tr.search;input.id='medical-research-search';searchLabel.htmlFor=input.id;searchWrap.append(searchLabel,input);
-  const program=document.createElement('select');program.className='portal-search';program.id='medical-research-program';
-  const pLabel=document.createElement('label');pLabel.textContent=tr.allPrograms;pLabel.htmlFor=program.id;
-  for(const [value,label] of [['',tr.allPrograms],...Object.entries(tr.programs)]){const option=document.createElement('option');option.value=value;option.textContent=label;program.append(option)}
-  programWrap.append(pLabel,program);
-  const type=document.createElement('select');type.className='portal-search';type.id='medical-research-type';
-  const tLabel=document.createElement('label');tLabel.textContent=tr.allTypes;tLabel.htmlFor=type.id;
-  for(const [value,label] of [['',tr.allTypes],...Object.entries(tr.types)]){const option=document.createElement('option');option.value=value;option.textContent=label;type.append(option)}
-  typeWrap.append(tLabel,type);tools.append(searchWrap,programWrap,typeWrap);
-  const count=document.createElement('p');count.setAttribute('aria-live','polite');
-  const results=document.createElement('div');results.setAttribute('aria-live','polite');
-  root.append(tools,count,results);
-  function render(){
-    const q=input.value.trim().toLocaleLowerCase();results.replaceChildren();
-    const filtered=items.filter(x=>(!program.value||x.program===program.value)&&(!type.value||x.recordType===type.value)&&[x.titleAr,x.titleEn,x.authors,x.supervisorAr,x.auhdContributor,x.journal].filter(Boolean).join(' ').toLocaleLowerCase().includes(q));
-    count.textContent=tr.count+': '+filtered.length+' / '+items.length;
-    for(const x of filtered){
-      const card=document.createElement('article');card.className='portal-item';
-      const heading=document.createElement('h3');heading.textContent=lang==='ar'?x.titleAr:x.titleEn;
-      const meta=document.createElement('small');meta.textContent=tr.programs[x.program]+' · '+tr.types[x.recordType]+' · '+x.year;
-      card.append(heading,meta);
-      if(x.supervisorAr){const p=document.createElement('p');p.textContent=tr.supervisor+': '+x.supervisorAr;card.append(p)}
-      if(x.auhdContributor){const p=document.createElement('p');p.textContent=tr.contributor+': '+x.auhdContributor;card.append(p)}
-      if(x.authors){const p=document.createElement('p');p.textContent=tr.authors+': '+x.authors;card.append(p)}
-      const links=document.createElement('p');
-      const a=document.createElement('a');a.href=x.sourceUrl;a.target='_blank';a.rel='noopener noreferrer';a.textContent=tr.source;links.append(a);
-      if(x.doi){const doi=document.createElement('a');doi.href='https://doi.org/'+encodeURIComponent(x.doi).replace(/%2F/g,'/');doi.target='_blank';doi.rel='noopener noreferrer';doi.textContent=tr.doi+': '+x.doi;doi.style.marginInlineStart='15px';links.append(doi)}
-      card.append(links);results.append(card)
-    }
-    if(!filtered.length)results.textContent=tr.empty;
+  const labels = {
+    ar: ['البرنامج','السنة','جميع السنوات','صفحة الناشر','النسخة المتاحة في Zenodo','الانتساب كما نُشر','المجلة','ترخيص الناشر','مقالات الدوريات الموثقة','مشروعات التخرج وسجلات المستودع الجامعي','مجتمع جامعة آزال على Zenodo'],
+    en: ['Program','Year','All years','Publisher page','Available copy on Zenodo','Published affiliation','Journal','Publisher licence','Verified journal articles','Graduation projects and university repository records','AUHD Zenodo community'],
+    fa: ['رشته','سال','همه سال‌ها','صفحه ناشر','نسخه موجود در Zenodo','وابستگی منتشرشده','مجله','مجوز ناشر','مقالات تأییدشده','پروژه‌های دانشجویی و مدارک مخزن دانشگاه','انجمن دانشگاه آزال در Zenodo']
+  }[lang];
+  const [programLabel, yearLabel, allYears, publisher, copy, affiliation, journal, licence, publishedTitle, projectsTitle, community] = labels;
+
+  function element(tag, text, className) {
+    const node = document.createElement(tag);
+    if (text) node.textContent = text;
+    if (className) node.className = className;
+    return node;
   }
-  for(const control of [input,program,type])control.addEventListener(control===input?'input':'change',render);
-  render();
+
+  function link(label, url) {
+    const node = element('a', label);
+    node.href = url;
+    node.target = '_blank';
+    node.rel = 'noopener noreferrer';
+    return node;
+  }
+
+  function searchKey(item) {
+    const title = item.titleEn || item.titleAr || '';
+    return [title, item.authors || '', item.year].map(value => String(value).normalize('NFKC').trim().replace(/\s+/g, ' ').toLowerCase()).join('|');
+  }
+
+  const seenDOIs = new Set();
+  const seenWorks = new Map();
+  const articles = items.filter(item => item.recordType === 'journal-article').sort((a, b) => Number(Boolean(b.doi)) - Number(Boolean(a.doi))).filter(item => {
+    const doi = (item.doi || '').trim().toLowerCase().replace(/^https?:\/\/(?:dx\.)?doi\.org\//, '');
+    const key = searchKey(item);
+    if ((doi && seenDOIs.has(doi)) || (seenWorks.has(key) && (!doi || !seenWorks.get(key)))) return false;
+    if (doi) seenDOIs.add(doi);
+    seenWorks.set(key, Boolean(doi));
+    return true;
+  });
+  const projects = items.filter(item => item.recordType !== 'journal-article');
+
+  function createCard(item) {
+    const isArticle = item.recordType === 'journal-article';
+    const card = element('article', '', 'portal-item');
+    const title = element('h4', isArticle ? item.titleEn : lang === 'ar' ? item.titleAr : item.titleEn);
+    if (isArticle) { title.lang = 'en'; title.dir = 'auto'; }
+    card.append(title, element('small', [tr.programs[item.program], tr.types[item.recordType], item.year].filter(Boolean).join(' · ')));
+    const details = [[tr.supervisor,item.supervisorAr], [tr.authors,item.authors], [tr.contributor,item.auhdContributor], [journal,item.journal], [affiliation,item.affiliationEvidence]];
+    for (const [label, value] of details) {
+      if (value) { const line = element('p', label + ': ' + value); line.dir = 'auto'; card.append(line); }
+    }
+    const links = element('div', '', 'portal-links');
+    if (item.sourceUrl) links.append(link(isArticle ? publisher : tr.source, item.sourceUrl));
+    if (item.doi) links.append(link(tr.doi + ': ' + item.doi, 'https://doi.org/' + item.doi));
+    if (item.license && item.licenseUrl) links.append(link(licence + ' · ' + item.license, item.licenseUrl));
+    if (item.zenodoUrl && /^https:\/\/zenodo\.org\/records\/\d+\/?$/.test(item.zenodoUrl)) links.append(link(copy, item.zenodoUrl));
+    card.append(links);
+    return card;
+  }
+
+  function mount(collection, heading, includeCommunity) {
+    const section = element('section');
+    const filters = element('div', '', 'portal-grid');
+    function addField(label, control, suffix) {
+      const field = element('div');
+      const caption = element('label', label);
+      control.id = 'medical-research-' + suffix;
+      caption.htmlFor = control.id;
+      field.append(caption, control);
+      filters.append(field);
+    }
+    function select(options) {
+      const control = element('select', '', 'portal-search');
+      for (const [value, title] of options) {
+        const option = element('option', title);
+        option.value = value;
+        control.append(option);
+      }
+      return control;
+    }
+    const suffix = includeCommunity ? 'articles' : 'projects';
+    const query = element('input', '', 'portal-search');
+    query.type = 'search';
+    const program = select([['', tr.allPrograms], ...Object.entries(tr.programs)]);
+    const years = [...new Set(collection.map(item => item.year).filter(Boolean))].sort((a, b) => b-a);
+    const year = select([['', allYears], ...years.map(value => [String(value), String(value)])]);
+    addField(tr.search, query, suffix + '-search');
+    addField(programLabel, program, suffix + '-program');
+    addField(yearLabel, year, suffix + '-year');
+    const count = element('p');
+    count.setAttribute('aria-live','polite');
+    const results = element('div');
+    section.append(element('h3', heading));
+    if (includeCommunity) {
+      const communityLine = element('p');
+      communityLine.append(link(community, 'https://zenodo.org/communities/auhd-research/about'));
+      section.append(communityLine);
+    }
+    section.append(filters, count, results);
+    root.append(section);
+
+    function render() {
+      const term = query.value.trim().toLocaleLowerCase();
+      const filtered = collection.filter(item =>
+        (!program.value || item.program === program.value || item.relatedPrograms?.includes(program.value)) &&
+        (!year.value || String(item.year) === year.value) &&
+        [item.titleAr,item.titleEn,item.authors,item.doi,item.journal,item.auhdContributor,item.supervisorAr].filter(Boolean).join(' ').toLocaleLowerCase().includes(term)
+      );
+      count.textContent = tr.count + ': ' + filtered.length + ' / ' + collection.length;
+      if (filtered.length) results.replaceChildren(...filtered.map(createCard));
+      else results.textContent = tr.empty;
+    }
+    query.addEventListener('input', render);
+    program.addEventListener('change', render);
+    year.addEventListener('change', render);
+    render();
+  }
+
+  mount(articles, publishedTitle, true);
+  mount(projects, projectsTitle, false);
 });
