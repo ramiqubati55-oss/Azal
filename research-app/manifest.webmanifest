@@ -1,0 +1,36 @@
+{
+  "name": "فهرس الإنتاج العلمي | جامعة آزال للتنمية البشرية",
+  "short_name": "أبحاث آزال",
+  "description": "الفهرس المؤسسي التفاعلي للبحث في 725 سجلاً أكاديمياً حسب القسم والسنة والنوع.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#eef4f5",
+  "theme_color": "#0b3749",
+  "icons": [
+    {
+      "src": "./icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/auhd-original-logo.png",
+      "sizes": "560x560",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "categories": [
+    "education",
+    "productivity"
+  ]
+}
