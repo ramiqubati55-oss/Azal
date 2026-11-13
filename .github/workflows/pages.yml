@@ -138,4 +138,11 @@ jobs:
           assert "https://ramiqubati55-oss.github.io/Azal/repository/datasets/issue-01.html" in locs
           assert "https://ramiqubati55-oss.github.io/Azal/en/datasets/issue-01.html" in locs
           print("Validated bilingual schema.org/Dataset pages, DOI identity, license, downloads and sitemap")
+          figshare = json.loads(Path("deposit/issue-01/FIGSHARE_METADATA.json").read_text(encoding="utf-8"))
+          assert figshare["record_status"] == "prepared_not_submitted"
+          assert figshare["primary_existing_doi"] == "10.7910/DVN/WU0FVP"
+          assert figshare["resource_type"] == "Dataset"
+          assert figshare["repository_visibility"] == "not yet published on Figshare"
+          assert Path("deposit/issue-01/FIGSHARE_DEPOSIT_GUIDE.md").is_file()
+          print("Validated Figshare prepared submission without false publication claims")
           PY
