@@ -1,0 +1,99 @@
+{
+  "title": "AUHD Research Index Issue 01 — Metadata Completeness and Open Access Readiness Audit",
+  "auditDate": "2026-11-13",
+  "source": {
+    "sha1GitBlob": "9d1efc65ec8c35924676e898c24c0453442f8958",
+    "csv": "https://github.com/ramiqubati55-oss/Azal/blob/main/research-app/data/AUHD_Research_Index_Issue_01_725_Records.csv",
+    "readme": "https://github.com/ramiqubati55-oss/Azal/blob/main/data/research-index/issue-01/README.md",
+    "identicalUploadedCsvFiles": true
+  },
+  "unit": "bibliographic record, not full text or verified university-affiliated research output",
+  "checks": {
+    "total": 725,
+    "columns": 15,
+    "uniqueIdentifiers": 725,
+    "uniqueTitles": 725,
+    "doiPopulated": 654,
+    "publisherLinks": 73,
+    "openCopyLinks": 3,
+    "authorsPopulated": 1,
+    "publicationYearPopulated": 724,
+    "studentNamesPopulated": 0,
+    "supervisorsPopulated": 0,
+    "groupBase": 656,
+    "groupAdditional": 69,
+    "distinctFields": 23,
+    "distinctWorkTypes": 16,
+    "types": {
+      "فصل كتاب": 544,
+      "مقال علمي": 84,
+      "مشروع تخرج": 40,
+      "مراجعة طلابية": 20,
+      "مراجعة علمية": 10,
+      "ورقة مؤتمر": 8,
+      "مسودة علمية منشورة": 4,
+      "مقال محكم": 3,
+      "مشروع تخرج تطبيقي": 3,
+      "تصحيح منشور": 2,
+      "رسالة ماجستير": 2,
+      "كتاب علمي": 1,
+      "مادة مصاحبة لكتاب": 1,
+      "رسالة علمية": 1,
+      "إشعار سحب منشور": 1,
+      "مشروع تخرج فني": 1
+    }
+  },
+  "openCopyCandidates": [
+    {
+      "id": "DOI-013",
+      "title": "Utilisation of postnatal care services among maternal in Maeen District – Sana’a City, Yemen",
+      "type": "مقال محكم",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11170784/",
+      "doi": "10.1186/s12884-024-06617-6",
+      "verifiedFullText": false,
+      "verifiedDepositRights": false,
+      "rightsStatus": "needs_individual_review",
+      "doNotRepublishWithoutPermission": true
+    },
+    {
+      "id": "ARCH-093",
+      "title": "Truck Power Store — منصة لقطع غيار السيارات والشاحنات",
+      "type": "مشروع تخرج تطبيقي",
+      "url": "https://www.auhd.edu.ye/upfiles/research/truck-power-store-44075.pdf",
+      "doi": null,
+      "verifiedFullText": false,
+      "verifiedDepositRights": false,
+      "rightsStatus": "needs_individual_review",
+      "doNotRepublishWithoutPermission": true
+    },
+    {
+      "id": "ARCH-002",
+      "title": "التحديات التي تواجه المعلمات العاملات في مدارس ومراكز التربية الخاصة في الجمهورية اليمنية",
+      "type": "رسالة ماجستير",
+      "url": "https://search.shamaa.org/PDF/Dissertation/YeAUHD/auhd-se_2024_384703_sufainf_authsub.pdf",
+      "doi": null,
+      "verifiedFullText": false,
+      "verifiedDepositRights": false,
+      "rightsStatus": "needs_individual_review",
+      "doNotRepublishWithoutPermission": true
+    }
+  ],
+  "warnings": [
+    "DOI presence does not establish university author affiliation or peer review.",
+    "Some records are book chapters, student projects, reviews, and corrections, not scientific articles.",
+    "Author details are missing from 724 out of 725 rows.",
+    "The three open-copy URLs are candidates for legal and technical review, NOT three rights-cleared AUHD-hosted deposits.",
+    "No standalone OAI-PMH interface exists for AUHD GitHub Pages. This report is not an OpenAIRE registration or an OpenDOAR approval."
+  ],
+  "registration": {
+    "openaire": "not_registered",
+    "opendoar": "not_registered",
+    "oaiPmhEndpoint": null
+  },
+  "recommendations": [
+    "Validate publisher DOI, author identity and AUHD affiliation on a per-record basis.",
+    "Verify full text availability and exact-version license/rights.",
+    "Acquire at least five accepted complete scholarly works with documented rights before applying to OpenDOAR.",
+    "Host files in a proper repository with a compliant OAI-PMH endpoint for OpenAIRE."
+  ]
+}
