@@ -88,7 +88,7 @@ jobs:
           assert audit["checks"]["openCopyLinks"] == 3
           assert audit["registration"]["oaiPmhEndpoint"] is None
           assert all(not x["verifiedDepositRights"] for x in audit["openCopyCandidates"])
-          for page in [Path("repository/metadata-audit.html"), Path("en/metadata-audit.html")]:
+          for page in [Path("repository/metadata-audit.html"), Path("en/metadata-audit.html"), Path("repository/international-deposits.html"), Path("en/international-deposits.html")]:
               html = page.read_text(encoding="utf-8")
               parser = References()
               parser.feed(html)
@@ -102,5 +102,8 @@ jobs:
                   assert candidate.is_file(), f"Broken local link {ref} on {page}"
           assert "https://ramiqubati55-oss.github.io/Azal/repository/metadata-audit.html" in locs
           assert "https://ramiqubati55-oss.github.io/Azal/en/metadata-audit.html" in locs
-          print("Validated bilingual audit pages, metadata transparency, local references and sitemap")
+          assert "https://ramiqubati55-oss.github.io/Azal/repository/international-deposits.html" in locs
+          assert "https://ramiqubati55-oss.github.io/Azal/en/international-deposits.html" in locs
+          assert Path("deposit/issue-01/ZENODO_DEPOSIT_GUIDE.md").is_file()
+          print("Validated bilingual repository status pages, transparency, links and sitemap")
           PY
