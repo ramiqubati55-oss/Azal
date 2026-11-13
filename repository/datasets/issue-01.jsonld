@@ -1,0 +1,76 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Dataset",
+  "@id": "https://doi.org/10.7910/DVN/WU0FVP",
+  "name": "Azal University for Human Development (AUHD): Institutional Research and Academic Works Index — Issue 01 (725 Bibliographic Records)",
+  "alternateName": [
+    "AUHD Research Index Issue 01",
+    "Azal University Research and Academic Works Index"
+  ],
+  "description": "Issue 01 of the institutional research and academic works bibliographic index for Azal University for Human Development (AUHD), Sana'a, Yemen. This dataset contains 725 catalogued bibliographic and academic-work records spanning journal articles, book chapters, theses, graduation projects, reviews and other formats. The university representative confirms that the institutional catalog has been reviewed. The source CSV contains 654 DOI URLs and links to original sources. Entries are metadata records, not 725 full-text files or necessarily 725 peer-reviewed university-authored journal papers. The dataset license does not authorize republication of the original copyrighted works.",
+  "url": "https://doi.org/10.7910/DVN/WU0FVP",
+  "sameAs": "https://doi.org/10.7910/DVN/WU0FVP",
+  "identifier": [
+    "https://doi.org/10.7910/DVN/WU0FVP",
+    "10.7910/DVN/WU0FVP"
+  ],
+  "creator": {
+    "@type": "Person",
+    "name": "Rami Alkubati",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Azal University for Human Development",
+      "sameAs": "https://ror.org/02zv8ns48",
+      "url": "https://www.auhd.edu.ye/en/"
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Harvard Dataverse",
+    "url": "https://dataverse.harvard.edu/"
+  },
+  "provider": {
+    "@type": "CollegeOrUniversity",
+    "name": "Azal University for Human Development",
+    "sameAs": "https://ror.org/02zv8ns48",
+    "url": "https://www.auhd.edu.ye/en/"
+  },
+  "datePublished": "2026-11-11",
+  "version": "1.0",
+  "isAccessibleForFree": true,
+  "license": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "keywords": [
+    "bibliographic dataset",
+    "AUHD",
+    "Azal University for Human Development",
+    "research metadata",
+    "Yemen",
+    "scholarly catalog",
+    "DOI"
+  ],
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "Harvard Dataverse Repository",
+    "url": "https://dataverse.harvard.edu/"
+  },
+  "distribution": [
+    {
+      "@type": "DataDownload",
+      "name": "Issue 01 Source Bibliographic CSV",
+      "encodingFormat": "text/csv",
+      "contentUrl": "https://raw.githubusercontent.com/ramiqubati55-oss/Azal/main/data/research-index/issue-01/AUHD_Research_Index_Issue_01_725_Records.csv"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Machine-readable JSONL catalog export",
+      "encodingFormat": "application/x-ndjson",
+      "contentUrl": "https://raw.githubusercontent.com/ramiqubati55-oss/Azal/main/deposit/issue-01/records.jsonl"
+    },
+    {
+      "@type": "DataDownload",
+      "name": "Versioned archival package (GitHub Release)",
+      "encodingFormat": "application/zip",
+      "contentUrl": "https://github.com/ramiqubati55-oss/Azal/releases/download/auhd-index-issue-01-v1.0.0/AUHD_Research_Index_Issue_01_725_Metadata_v1.0.0.zip"
+    }
+  ]
+}
