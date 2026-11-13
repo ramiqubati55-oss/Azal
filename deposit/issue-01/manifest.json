@@ -1,0 +1,25 @@
+{
+  "version": "1.0.0",
+  "publication_preparation_date": "2026-11-13",
+  "institution": "Azal University for Human Development (AUHD)",
+  "institution_ror": "https://ror.org/02zv8ns48",
+  "title": "Institutional Research and Academic Works Index — Issue 01 (725 Bibliographic Records)",
+  "record_count": 725,
+  "source_csv": "data/research-index/issue-01/AUHD_Research_Index_Issue_01_725_Records.csv",
+  "curated_metadata_file": "deposit/issue-01/records.jsonl",
+  "record_review": "Confirmed by university representative 2026-11-13",
+  "completeness": {
+    "doi_links": 654,
+    "publisher_or_source_links": 73,
+    "fulltext_link_candidates": 3,
+    "authors_listed": 1,
+    "year_listed": 724
+  },
+  "resource_type": "Bibliographic metadata dataset",
+  "rights_note": "A dataset license has not been selected by the rights holder. The record review confirmation does not confer reuse rights over individual publisher PDFs.",
+  "oai_pmh_endpoint": null,
+  "openaire_provider_registered": false,
+  "opendoar_registered": false,
+  "harvard_dataverse_collection": "https://dataverse.harvard.edu/dataverse/auhd-research",
+  "harvard_dataverse_draft_doi_user_reported": "10.7910/DVN/WU0FVP"
+}
