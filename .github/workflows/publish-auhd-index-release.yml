@@ -1,0 +1,69 @@
+name: Publish AUHD Issue 01 metadata snapshot
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-auhd-index-release.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build and verify metadata package
+        run: |
+          python3 - <<'PY'
+          import csv
+          import hashlib
+          import json
+          import zipfile
+          from pathlib import Path
+          source = Path("data/research-index/issue-01/AUHD_Research_Index_Issue_01_725_Records.csv")
+          with source.open(encoding="utf-8-sig", newline="") as f:
+              csv_rows = list(csv.DictReader(f))
+          records = [json.loads(line) for line in Path("deposit/issue-01/records.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()]
+          assert len(csv_rows) == len(records) == 725
+          assert all(a["رقم السجل"] == b["local_id"] and a["العنوان"] == b["title"] for a, b in zip(csv_rows, records))
+          inputs = [
+              source,
+              Path("deposit/issue-01/records.jsonl"),
+              Path("deposit/issue-01/manifest.json"),
+              Path("deposit/issue-01/README.md"),
+              Path("deposit/issue-01/RIGHTS_AND_LICENSE.md"),
+              Path("data/research-index/issue-01/README.md"),
+          ]
+          Path("dist").mkdir(exist_ok=True)
+          dest = Path("dist/AUHD_Research_Index_Issue_01_725_Metadata_v1.0.0.zip")
+          with zipfile.ZipFile(dest,"w",compression=zipfile.ZIP_DEFLATED,compresslevel=8) as z:
+              for p in inputs:
+                  assert p.exists()
+                  z.write(p,arcname=p.as_posix())
+          sha = hashlib.sha256(dest.read_bytes()).hexdigest()
+          Path("dist/SHA256SUMS.txt").write_text(f"{sha}  {dest.name}\n",encoding="utf-8")
+          with zipfile.ZipFile(dest) as z:
+              assert z.testzip() is None
+          print("Created",dest,"SHA256",sha)
+          PY
+      - name: Publish immutable versioned GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="auhd-index-issue-01-v1.0.0"
+          if gh release view "$TAG" --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release already exists; avoiding duplicate."
+            exit 0
+          fi
+          cat > release-notes.md <<'EOF'
+          Azal University for Human Development (AUHD) — Institutional Research and Academic Works Index, Issue 01.
+
+          This release is a **bibliographic metadata dataset** of 725 university-reviewed catalog records, not 725 hosted scholarly full texts. The source contains 654 DOI URLs and author names in one record. Institutional review confirmation is based on the university representative; item-level evidence is not attached to the source CSV.
+
+          The downloadable asset includes source CSV, normalized JSONL, provenance manifest, review guidance and explicit rights limitations. Copyright in the underlying articles is **not** granted. The compilation's Creative Commons license has not been selected by the institution.
+
+          AUHD ROR: https://ror.org/02zv8ns48
+          Related Harvard Dataverse DOI reported as published by repository support: https://doi.org/10.7910/DVN/WU0FVP
+          EOF
+          gh release create "$TAG" dist/AUHD_Research_Index_Issue_01_725_Metadata_v1.0.0.zip dist/SHA256SUMS.txt --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "AUHD Research Index Issue 01 — 725 bibliographic records (v1.0.0)" --notes-file release-notes.md
