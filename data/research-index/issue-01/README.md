@@ -52,3 +52,5 @@ The depositor should confirm the actual compilation authors/contributors and the
 ## Versioning
 Issue: 01. Proposed dataset release: 1.0.0.
 Changes or verified corrections to the CSV should be distributed as a new version of this dataset rather than silently replacing the publicly citable version.
+## Subsequent institutional review confirmation (13 November 2026)
+The university representative explicitly confirmed that **all 725 bibliographic/academic-work catalog records have been reviewed by the institution**. This is an institutional attestation not supported by row-level documentary logs in the uploaded CSV. The original 15 fields remain unchanged. The absence of author names in 724 rows and of full-text copyright permissions cannot be remedied by editorial verification alone; these fields remain blank. For the international deposit data export, see `/deposit/issue-01/` and the preserved original CSV.
