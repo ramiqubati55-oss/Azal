@@ -1,0 +1,57 @@
+{
+  "record_status": "prepared_not_submitted",
+  "platform": "Figshare.com (free individual researcher account)",
+  "resource_type": "Dataset",
+  "title": "Azal University for Human Development (AUHD): Institutional Research and Academic Works Index — Issue 01 (725 Bibliographic Records)",
+  "alternative_title": "AUHD Institutional Research Index — Issue 01",
+  "authors": [
+    {
+      "name": "Rami Alkubati",
+      "role": "Dataset compiler / creator as registered in existing DataCite metadata",
+      "affiliation": "Azal University for Human Development",
+      "institution_ror": "https://ror.org/02zv8ns48"
+    }
+  ],
+  "publisher_of_original_dataset": "Harvard Dataverse",
+  "primary_existing_doi": "10.7910/DVN/WU0FVP",
+  "original_doi_url": "https://doi.org/10.7910/DVN/WU0FVP",
+  "abstract": "Issue 01 of the Institutional Research and Academic Works Index associated with Azal University for Human Development (AUHD), Sana'a, Yemen. The collection contains 725 institutionally reviewed bibliographic and academic-work records across multiple academic fields and formats (including journal articles, book chapters, theses and graduation projects). The source CSV preserves 15 columns with 654 DOI URLs, 73 publisher/source URLs and three references to potential open copies. The university representative confirms that the catalog has been reviewed. Author fields remain empty in 724 source records. This record is an institutional bibliographic metadata dataset, not a deposit of the full text of the 725 referenced works. The existing dataset was first published in Harvard Dataverse on 11 November 2026.",
+  "keywords": [
+    "Azal University for Human Development",
+    "AUHD",
+    "Research metadata",
+    "Bibliographic index",
+    "Higher education",
+    "Yemen",
+    "Open science",
+    "Scholarly works"
+  ],
+  "license_for_dataset_compilation": "CC0 1.0 (as registered for the Harvard Dataverse DOI in DataCite)",
+  "copyright_note": "The dataset metadata is separate from the copyright-protected publications that it cites. The licence does not authorize replication of underlying publishers' PDFs or book chapters.",
+  "related_doi_relationship": "Pending Figshare support advice; retain original DOI as related identifier, do not present it as a newly minted Figshare DOI.",
+  "record_language": "English; original bibliographic fields are Arabic/English",
+  "source_files": [
+    {
+      "label": "Original CSV (725 records)",
+      "url": "https://raw.githubusercontent.com/ramiqubati55-oss/Azal/main/data/research-index/issue-01/AUHD_Research_Index_Issue_01_725_Records.csv"
+    },
+    {
+      "label": "Normalized JSONL (725 records)",
+      "url": "https://raw.githubusercontent.com/ramiqubati55-oss/Azal/main/deposit/issue-01/records.jsonl"
+    },
+    {
+      "label": "Versioned open archival package",
+      "url": "https://github.com/ramiqubati55-oss/Azal/releases/download/auhd-index-issue-01-v1.0.0/AUHD_Research_Index_Issue_01_725_Metadata_v1.0.0.zip"
+    }
+  ],
+  "contact_email": "rankings@auhd.edu.ye",
+  "repository_visibility": "not yet published on Figshare",
+  "preflight_checks": [
+    "Check for prior Figshare deposit with same title/DOI within logged-in account",
+    "Use free figshare.com personal account; institutional SaaS is a separate paid product",
+    "Upload only authorized metadata and documentation, not the original copyrighted PDFs",
+    "Set existing Harvard DOI as a related identifier when supported",
+    "Verify creator's Figshare account and rights before publishing",
+    "Record published Figshare item URL and any secondary DOI, then update portal status"
+  ]
+}
