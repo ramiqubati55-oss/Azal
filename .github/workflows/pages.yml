@@ -106,4 +106,36 @@ jobs:
           assert "https://ramiqubati55-oss.github.io/Azal/en/international-deposits.html" in locs
           assert Path("deposit/issue-01/ZENODO_DEPOSIT_GUIDE.md").is_file()
           print("Validated bilingual repository status pages, transparency, links and sitemap")
+
+          # Dataset Search markup and pages must match the same published DOI.
+          import re
+          expected_doi = "https://doi.org/10.7910/DVN/WU0FVP"
+          dataset_jsonld = json.loads(Path("repository/datasets/issue-01.jsonld").read_text(encoding="utf-8"))
+          assert dataset_jsonld["@type"] == "Dataset"
+          assert dataset_jsonld["url"] == expected_doi
+          assert dataset_jsonld["identifier"][0] == expected_doi
+          assert dataset_jsonld["license"].startswith("https://creativecommons.org/publicdomain/zero/")
+          assert len(dataset_jsonld["description"]) > 50
+          assert len(dataset_jsonld["distribution"]) >= 2
+
+          for dataset_page in [Path("repository/datasets/issue-01.html"), Path("en/datasets/issue-01.html")]:
+              doc = dataset_page.read_text(encoding="utf-8")
+              match = re.search(r'<script type="application/ld\+json">([\s\S]*?)</script>', doc)
+              assert match, f"Schema.org JSON-LD missing: {dataset_page}"
+              embedded = json.loads(match.group(1))
+              assert embedded == dataset_jsonld, f"Metadata mismatch in {dataset_page}"
+              assert 'name="robots" content="index,follow' in doc
+              parser = References()
+              parser.feed(doc)
+              for ref in parser.refs:
+                  uri = urlsplit(ref)
+                  if uri.scheme or uri.netloc or not uri.path:
+                      continue
+                  candidate = dataset_page.parent / unquote(uri.path)
+                  if candidate.is_dir():
+                      candidate /= "index.html"
+                  assert candidate.is_file(), f"Broken local link {ref} on {dataset_page}"
+          assert "https://ramiqubati55-oss.github.io/Azal/repository/datasets/issue-01.html" in locs
+          assert "https://ramiqubati55-oss.github.io/Azal/en/datasets/issue-01.html" in locs
+          print("Validated bilingual schema.org/Dataset pages, DOI identity, license, downloads and sitemap")
           PY
