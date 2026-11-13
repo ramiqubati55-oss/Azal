@@ -81,4 +81,26 @@ jobs:
           assert "https://ramiqubati55-oss.github.io/Azal/repository/" in locs
           assert "https://ramiqubati55-oss.github.io/Azal/en/repository.html" in locs
           print(f"Validated {len(data['records'])} selected metadata records, statuses and sitemap")
+
+          audit = json.loads(Path("repository/metadata-audit.json").read_text(encoding="utf-8"))
+          assert audit["checks"]["total"] == 725
+          assert audit["checks"]["authorsPopulated"] == 1
+          assert audit["checks"]["openCopyLinks"] == 3
+          assert audit["registration"]["oaiPmhEndpoint"] is None
+          assert all(not x["verifiedDepositRights"] for x in audit["openCopyCandidates"])
+          for page in [Path("repository/metadata-audit.html"), Path("en/metadata-audit.html")]:
+              html = page.read_text(encoding="utf-8")
+              parser = References()
+              parser.feed(html)
+              for ref in parser.refs:
+                  uri = urlsplit(ref)
+                  if uri.scheme or uri.netloc or not uri.path:
+                      continue
+                  candidate = page.parent / unquote(uri.path)
+                  if candidate.is_dir():
+                      candidate /= "index.html"
+                  assert candidate.is_file(), f"Broken local link {ref} on {page}"
+          assert "https://ramiqubati55-oss.github.io/Azal/repository/metadata-audit.html" in locs
+          assert "https://ramiqubati55-oss.github.io/Azal/en/metadata-audit.html" in locs
+          print("Validated bilingual audit pages, metadata transparency, local references and sitemap")
           PY
