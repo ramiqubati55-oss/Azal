@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "1.0",
+  "lastCurated": "2026-11-13",
+  "name": "AUHD Open Knowledge — Selected Publisher Affiliation Evidence",
+  "publisher": {
+    "name": "Azal University for Human Development",
+    "ror": "https://ror.org/02zv8ns48",
+    "website": "https://www.auhd.edu.ye/en/"
+  },
+  "sourceScope": "selected publisher-reported AUHD affiliation evidence; not an institutional full-text repository or comprehensive verified research list",
+  "oaiPmhEndpoint": null,
+  "openaireRegistration": "not_registered",
+  "opendoarRegistration": "not_registered",
+  "licenseForUnderlyingPublisherWorks": "Not granted by this metadata catalog. Consult individual publishers and rights holders.",
+  "records": [
+    {
+      "id": "AUHD-PA-001",
+      "year": 2026,
+      "journal": "Frontiers in Medicine",
+      "title": "Association of biofilm formation with multidrug resistance in burn wound patients isolates of Pseudomonas aeruginosa in Sana'a City, Yemen",
+      "authors": "Zaid Abdo Thawaba; Yaser Mohammed Al-Worafi",
+      "doi": "10.3389/fmed.2026.1762684",
+      "source": "https://www.frontiersin.org/journals/medicine/articles/10.3389/fmed.2026.1762684/full",
+      "doiUrl": "https://doi.org/10.3389/fmed.2026.1762684",
+      "affiliationEvidenceType": "publisher-reported",
+      "fullTextHostedByAUHD": false,
+      "verifiedReuseLicense": null,
+      "repositoryDepositStatus": "metadata-only",
+      "affiliationNote": "At least one author is reported by the publisher source as AUHD-affiliated; no claim is made about all coauthors or reuse rights."
+    },
+    {
+      "id": "AUHD-PA-002",
+      "year": 2026,
+      "journal": "BMC Infectious Diseases",
+      "title": "Bacterial isolates and antimicrobial resistance patterns in ear infections: a multicenter study from medical laboratories in Sana’a, Yemen",
+      "authors": "Zaid A. Thawaba; Yaser M. Al-Worafi",
+      "doi": "10.1186/s12879-026-14280-9",
+      "source": "https://link.springer.com/article/10.1186/s12879-026-14280-9",
+      "doiUrl": "https://doi.org/10.1186/s12879-026-14280-9",
+      "affiliationEvidenceType": "publisher-reported",
+      "fullTextHostedByAUHD": false,
+      "verifiedReuseLicense": null,
+      "repositoryDepositStatus": "metadata-only",
+      "affiliationNote": "At least one author is reported by the publisher source as AUHD-affiliated; no claim is made about all coauthors or reuse rights."
+    },
+    {
+      "id": "AUHD-PA-003",
+      "year": 2025,
+      "journal": "Frontiers in Endocrinology",
+      "title": "Assessment of diabetes management strategies for blood glucose control in Sana’a City General Hospitals",
+      "authors": "Yaser Al-Worafi",
+      "doi": "10.3389/fendo.2025.1587901",
+      "source": "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2025.1587901/full",
+      "doiUrl": "https://doi.org/10.3389/fendo.2025.1587901",
+      "affiliationEvidenceType": "publisher-reported",
+      "fullTextHostedByAUHD": false,
+      "verifiedReuseLicense": null,
+      "repositoryDepositStatus": "metadata-only",
+      "affiliationNote": "At least one author is reported by the publisher source as AUHD-affiliated; no claim is made about all coauthors or reuse rights."
+    },
+    {
+      "id": "AUHD-PA-004",
+      "year": 2025,
+      "journal": "Queen Arwa University Journal",
+      "title": "Stunting Status and Associated Risk Factors among Some Primary School Children in Sana'a City, Yemen",
+      "authors": "Mohammed Alsebaeai; Soha Al-Seraji (and coauthors)",
+      "doi": "10.58963/qausrj.v29i29.313",
+      "source": "https://journal.qau.edu.ye/index.php/srj/en/article/view/313",
+      "doiUrl": "https://doi.org/10.58963/qausrj.v29i29.313",
+      "affiliationEvidenceType": "publisher-reported",
+      "fullTextHostedByAUHD": false,
+      "verifiedReuseLicense": null,
+      "repositoryDepositStatus": "metadata-only",
+      "affiliationNote": "At least one author is reported by the publisher source as AUHD-affiliated; no claim is made about all coauthors or reuse rights."
+    },
+    {
+      "id": "AUHD-PA-005",
+      "year": 2024,
+      "journal": "Annals of Medicine & Health",
+      "title": "Patients' Awareness of Pharmacotherapy and Asthma Risk Factors at Private Clinics in Sanaa, Yemen",
+      "authors": "Yaser Mohammed Al-Worafi",
+      "doi": "10.53460/amh62.2024.005",
+      "source": "https://journal.tu.edu.ye/index.php/amh/article/view/1919",
+      "doiUrl": "https://doi.org/10.53460/amh62.2024.005",
+      "affiliationEvidenceType": "publisher-reported",
+      "fullTextHostedByAUHD": false,
+      "verifiedReuseLicense": null,
+      "repositoryDepositStatus": "metadata-only",
+      "affiliationNote": "At least one author is reported by the publisher source as AUHD-affiliated; no claim is made about all coauthors or reuse rights."
+    }
+  ]
+}
