@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Verify preview files
+      - name: Verify main portal files
         run: |
           test -s index.html
           test -s "إدارة_صحية.html"
@@ -24,4 +24,61 @@ jobs:
               assert "<html" in html.lower() and "</html>" in html.lower(), path
               Parser().feed(html)
               print(f"Validated {path}")
+          PY
+      - name: Validate repository pages, local links and metadata
+        run: |
+          python3 - <<'PY'
+          import json
+          import re
+          from html.parser import HTMLParser
+          from pathlib import Path
+          from urllib.parse import unquote, urlsplit
+          from xml.etree import ElementTree
+
+          class References(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.refs = []
+              def handle_starttag(self, tag, attrs):
+                  if tag in ("a", "link", "img", "script"):
+                      for key, value in attrs:
+                          if key in ("href", "src") and value:
+                              self.refs.append(value)
+
+          pages = [Path("repository/index.html"), Path("en/repository.html")]
+          for page in pages:
+              html = page.read_text(encoding="utf-8")
+              assert "</html>" in html.lower(), f"Incomplete HTML: {page}"
+              parser = References()
+              parser.feed(html)
+              checked = 0
+              for ref in parser.refs:
+                  uri = urlsplit(ref)
+                  if uri.scheme or uri.netloc or not uri.path:
+                      continue
+                  candidate = page.parent / unquote(uri.path)
+                  if candidate.is_dir():
+                      candidate /= "index.html"
+                  assert candidate.is_file(), f"Broken local link {ref} on {page}"
+                  checked += 1
+              print(f"Validated {page}: {checked} local links")
+
+          data = json.loads(Path("repository/records.json").read_text(encoding="utf-8"))
+          assert data["oaiPmhEndpoint"] is None
+          assert data["openaireRegistration"] == "not_registered"
+          assert len(data["records"]) == 5
+          seen = set()
+          for item in data["records"]:
+              assert item["doi"].startswith("10.")
+              assert item["doi"] not in seen, "Duplicate DOI"
+              seen.add(item["doi"])
+              assert item["fullTextHostedByAUHD"] is False
+              assert item["verifiedReuseLicense"] is None
+              assert item["repositoryDepositStatus"] == "metadata-only"
+              assert item["source"].startswith("https://")
+          xml = ElementTree.parse("sitemap.xml")
+          locs = {e.text for e in xml.findall(".//{http://www.sitemaps.org/schemas/sitemap/0.9}loc")}
+          assert "https://ramiqubati55-oss.github.io/Azal/repository/" in locs
+          assert "https://ramiqubati55-oss.github.io/Azal/en/repository.html" in locs
+          print(f"Validated {len(data['records'])} selected metadata records, statuses and sitemap")
           PY
