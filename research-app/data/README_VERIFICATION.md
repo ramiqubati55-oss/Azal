@@ -30,3 +30,6 @@ Related platforms:
 - AUHD official research pages: https://www.auhd.edu.ye/researches
 
 Last source-file review: 11 November 2026. Dataset remains subject to correction and ongoing verification.
+
+## Status update — 13 November 2026
+The university representative confirmed that all **725 catalog entries** underwent institutional review. This updates the earlier catalog-review status, but does not change the original source CSV or mean that all titles are peer-reviewed research papers, individually documented publisher-affiliation records, or openly licensed full-text deposits. The new normalized deposit export is available at `/deposit/issue-01/records.jsonl` and identifies the attestation source explicitly. Missing source author fields are not invented.
