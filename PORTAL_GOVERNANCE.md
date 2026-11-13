@@ -18,7 +18,7 @@ This GitHub Pages project is a **companion knowledge and academic-projects porta
 6. Recheck links and metadata quarterly and withdraw or correct outdated records.
 
 ## Search indexing
-- The portal currently uses `noindex` during launch because it contains a limited set of curated links and no verified original research deposits.
+- Indexability varies by page: some preview/institutional duplicates use `noindex`, while the open knowledge landing pages, research directory and repository readiness guides may be indexable. Being indexable does **not** mean that the site is a verified full-text repository or approved by OpenAIRE/OpenDOAR.
 - Once the university approves unique, substantive and properly licensed academic materials, selectively enable indexing for those resources; avoid indexing duplicate institutional pages.
 - Keep official university pages authoritative and link back to them; where duplicate content must exist, use appropriate canonical handling.
 
@@ -33,3 +33,10 @@ This GitHub Pages project is a **companion knowledge and academic-projects porta
 - Approve the catalog, privacy policy, publication license and takedown channel.
 - Connect a university-controlled GitHub organization or official subdomain only with institutional authorization.
 - Keep the current project as an independent preview until university governance approves publication.
+
+## Repository preparation (13 November 2026)
+- Arabic and English repository readiness pages at `/repository/` and `/en/repository.html`.
+- `repository/records.json` contains five selected publisher affiliation-evidence metadata records, none marked as locally hosted full text or rights-cleared for re-publication.
+- Operational deposit instructions in `repository/README.md` are not a formal university-approved policy.
+- There is currently **no dedicated OAI-PMH endpoint**, and the pages are **not** registered as a repository with OpenAIRE or OpenDOAR.
+- Before applying, collect approved full scholarly files, check licensing, implement a compliant harvesting endpoint in a supported repository platform, and document university-level governance and editorship.
