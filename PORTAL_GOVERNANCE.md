@@ -40,3 +40,9 @@ This GitHub Pages project is a **companion knowledge and academic-projects porta
 - Operational deposit instructions in `repository/README.md` are not a formal university-approved policy.
 - There is currently **no dedicated OAI-PMH endpoint**, and the pages are **not** registered as a repository with OpenAIRE or OpenDOAR.
 - Before applying, collect approved full scholarly files, check licensing, implement a compliant harvesting endpoint in a supported repository platform, and document university-level governance and editorship.
+
+## Issue 01 source metadata quality audit (13 November 2026)
+- The two user-provided CSV copies are byte-identical to the existing `research-app/data/AUHD_Research_Index_Issue_01_725_Records.csv` (git blob SHA `9d1efc65ec8c35924676e898c24c0453442f8958`); the separate no-BOM archival copy is retained unchanged.
+- Published the audit at `repository/metadata-audit.html` and `en/metadata-audit.html`, with a JSON audit summary at `repository/metadata-audit.json`.
+- Open-copy URLs in this CSV: 3; these do not demonstrate rights-cleared full-text deposits. The source is descriptive metadata and not a license to republish copyrighted documents.
+- No independently verified OAI-PMH harvesting endpoint, OpenAIRE registration, or OpenDOAR registration should be claimed based on these links.
